@@ -1,0 +1,27 @@
+{
+  "version": "2.2.4",
+  "loader": "2026.6.3.4",
+  "sha256": "d50fea9025f88ee2073c00e3482976ca1e6ea54d0b8770eb7810bb7b280397d6",
+  "assembled": "2026-11-15",
+  "latestVerified": "https://calamitymod.wiki.gg/wiki/Version_history",
+  "counts": {
+    "items": 2671,
+    "npcs": 306,
+    "buffs": 311,
+    "biomes": 20,
+    "recipes": 2023,
+    "bosses": 26,
+    "images": 3280,
+    "localizationKeys": 11089
+  },
+  "limitations": {
+    "unparsedRecipes": [],
+    "unresolvedLocalization": [
+      "CommonItemTooltip.SalesmanShrinePitch",
+      "NPCName.None"
+    ],
+    "stats": "Unconditional SetDefaults values before player, difficulty, global hooks and configuration.",
+    "recipes": "Static registration expressions; loops, inherited helpers and post-registration recipe edits require source inspection.",
+    "drops": "Known rules are conditional. World/chest/shop references are not guarantees of availability."
+  }
+}

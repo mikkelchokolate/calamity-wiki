@@ -1,0 +1,3156 @@
+{
+  "version": "2.2.4",
+  "verification": "static-derived; game was not started or touched",
+  "modes": [
+    {
+      "id": "classic",
+      "label": "Классический",
+      "expert": false,
+      "master": false,
+      "revenge": false,
+      "death": false
+    },
+    {
+      "id": "expert",
+      "label": "Эксперт",
+      "expert": true,
+      "master": false,
+      "revenge": false,
+      "death": false
+    },
+    {
+      "id": "revenge",
+      "label": "Revengeance",
+      "expert": true,
+      "master": false,
+      "revenge": true,
+      "death": false
+    },
+    {
+      "id": "master",
+      "label": "Мастер",
+      "expert": true,
+      "master": true,
+      "revenge": false,
+      "death": false
+    },
+    {
+      "id": "death",
+      "label": "Death",
+      "expert": true,
+      "master": true,
+      "revenge": true,
+      "death": true
+    }
+  ],
+  "notes": [
+    "Таблицы рассчитаны по коду Calamity 2.2.4 и скопированному tModLoader: 1 игрок, обычный мир, Boss Health Boost 0%, без Boss Rush. Это начальные характеристики NPC, не результат живого теста.",
+    "Revengeance использует основу Expert; Death использует основу Master и включает Revengeance. В 2.2.4 сочетание Master + Revengeance автоматически переключается в Death, поэтому отдельной вкладки Master Revengeance нет.",
+    "Вдвоём здоровье может отличаться. Здесь не подставлен общий коэффициент на двух игроков: правила зависят от NPC и числа активных игроков.",
+    "Урон, защита, снижение урона, число частей, лечение и поведение могут изменяться по фазам. Значения NPC не заменяют описание всей встречи."
+  ],
+  "assumptions": {
+    "players": 1,
+    "bossHealthBoostPercent": 0,
+    "specialSeeds": false,
+    "bossRush": false,
+    "journey": false,
+    "otherMods": false,
+    "phase": "NPC initialization"
+  },
+  "formula": {
+    "LifeMaxNERB": "LifeMaxNERB(normal, revengeance, bossRush): второй аргумент относится к Revengeance, не к Expert; Boss Rush имеет приоритет.",
+    "gameModeHealthMultipliers": {
+      "classic": 1,
+      "expert": 2,
+      "master": 3
+    },
+    "gameModeDamageMultipliers": {
+      "classic": 1,
+      "expert": 2,
+      "master": 3
+    },
+    "ordinaryBossHealth": "B = normal или revengeance из LifeMaxNERB. Classic: B. Expert/Revengeance: int(float32(B×2)×0.8f×balance×1f). Master/Death: int(float32(B×3)×0.8f×balance×0.85f). Не все NPC используют множитель 0.8 или bossAdjustment; см. scaling у записи.",
+    "arithmetic": "Сохранены поэтапные операции IEEE-754 float32 и приведение C# int с усечением. Числа относятся к максимуму lifeMax.",
+    "multiplayer": "NPC.GetStatScalingFactors: balance=1f, boost=0.35f; для каждого дополнительного игрока balance+=boost, boost+=(1f-boost)/3f; если balance>8, balance=(balance*2+8)/3; максимум 1000. Глобальный хук Calamity для боссов меняет npc.life, а не lifeMax; TML затем присваивает life=lifeMax. Поэтому константы 1.75/2.25 из BalancingConstants не объявлены здесь множителями максимума HP.",
+    "nonBossMultiplayer": "Для Calamity NPC, не считающихся боссами и не входящих в ScalesHealthLikeBoss, GlobalNPC дополнительно умножает lifeMax на 0.9 / 0.82 / 0.76 / 0.71 / 0.67 / 0.64 при 2 / 3 / 4 / 5 / 6 / 7+ игроках в сетевой игре. Это не включено в таблицы для 1 игрока.",
+    "evidence": [
+      {
+        "path": "sources/decompiled/CalamityMod/CalamityUtils.cs",
+        "line": 3669,
+        "detail": "LifeMaxNERB"
+      },
+      {
+        "path": "sources/tml/Terraria.NPC.decompiled.cs",
+        "line": 12594,
+        "detail": "ScaleStats: порядок вычислений и bossAdjustment"
+      },
+      {
+        "path": "sources/tml/Terraria.NPC.decompiled.cs",
+        "line": 12785,
+        "detail": "ScaleStats_ApplyGameMode"
+      },
+      {
+        "path": "sources/tml/Terraria.NPC.decompiled.cs",
+        "line": 13085,
+        "detail": "После NPC hooks life присваивается lifeMax"
+      },
+      {
+        "path": "sources/tml/Terraria.NPC.decompiled.cs",
+        "line": 13091,
+        "detail": "GetStatScalingFactors"
+      },
+      {
+        "path": "sources/tml/Terraria.DataStructures.GameModeData.decompiled.cs",
+        "member": "Terraria.DataStructures.GameModeData",
+        "detail": "NormalMode/ExpertMode/MasterMode: множители HP и урона 1/2/3.",
+        "line": 3
+      },
+      {
+        "path": "sources/tml/Terraria.ModLoader.NPCLoader.decompiled.cs",
+        "member": "Terraria.ModLoader.NPCLoader.ApplyDifficultyAndPlayerScaling",
+        "detail": "Сначала ModNPC, затем GlobalNPC.",
+        "line": 507
+      },
+      {
+        "path": "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs",
+        "line": 2353,
+        "detail": "OtherStatChanges: конфигурационный BossHealthBoost"
+      },
+      {
+        "path": "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs",
+        "line": 2649,
+        "detail": "Глобальный хук масштабирования"
+      },
+      {
+        "path": "sources/decompiled/CalamityMod.Systems/DeathDifficulty.cs",
+        "line": 78,
+        "detail": "Death.BackBoneGameModeID и FavoredDifficultyAtTier"
+      },
+      {
+        "path": "sources/decompiled/CalamityMod.Systems/DifficultyModeSystem.cs",
+        "line": 141,
+        "detail": "Master с Revengeance переключается в Death"
+      }
+    ]
+  },
+  "bosses": {
+    "DesertScourge": {
+      "npc": "DesertScourgeHead",
+      "name": "Desert Scourge",
+      "health": {
+        "classic": 4000,
+        "expert": 6400,
+        "revenge": 8000,
+        "master": 8160,
+        "death": 10200,
+        "masterRevenge": 10200
+      },
+      "rawHealth": {
+        "normal": 4000,
+        "revengeance": 5000,
+        "bossRush": 1150000
+      },
+      "healthLabel": "Начальное здоровье, 1 игрок",
+      "damage": {
+        "classic": 40,
+        "expert": 64,
+        "revenge": 64,
+        "master": 96,
+        "death": 96,
+        "masterRevenge": 96
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 4,
+        "expert": 4,
+        "revenge": 4,
+        "master": 4,
+        "death": 4,
+        "masterRevenge": 4
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.DesertScourge/DesertScourgeHead.cs",
+          "line": 100,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.DesertScourge/DesertScourgeHead.cs",
+          "line": 1275,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": [
+        "Здоровье головы; сегменты червя не следует складывать как независимых боссов."
+      ]
+    },
+    "GiantClam": {
+      "npc": "GiantClam",
+      "name": "Giant Clam",
+      "health": {
+        "classic": 1250,
+        "expert": 2500,
+        "revenge": 2500,
+        "master": 3750,
+        "death": 3750,
+        "masterRevenge": 3750
+      },
+      "rawHealth": {
+        "normal": 1250,
+        "revengeance": 1250,
+        "bossRush": null
+      },
+      "healthLabel": "Здоровье до хардмода, 1 игрок",
+      "damage": {
+        "classic": 50,
+        "expert": 100,
+        "revenge": 100,
+        "master": 150,
+        "death": 150,
+        "masterRevenge": 150
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 9999,
+        "expert": 9999,
+        "revenge": 9999,
+        "master": 9999,
+        "death": 9999,
+        "masterRevenge": 9999
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. Собственного дополнительного множителя HP нет.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.SunkenSea/GiantClam.cs",
+          "line": 62,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/tml/Terraria.ModLoader.ModNPC.decompiled.cs",
+          "member": "Terraria.ModLoader.ModNPC.ApplyDifficultyAndPlayerScaling",
+          "detail": "Базовый метод пуст; собственного переопределения у этого NPC нет.",
+          "line": 121
+        }
+      ],
+      "notes": [
+        "Показана версия до хардмода. В хардмоде исходное здоровье меняется с 1250 на 7500.",
+        "Защита 9999 относится к закрытой раковине; после пробуждения — 10 до хардмода или 35 в хардмоде."
+      ],
+      "variants": [
+        {
+          "id": "hardmode",
+          "label": "В хардмоде",
+          "health": {
+            "classic": 7500,
+            "expert": 15000,
+            "revenge": 15000,
+            "master": 22500,
+            "death": 22500,
+            "masterRevenge": 22500
+          },
+          "damage": {
+            "classic": 100,
+            "expert": 200,
+            "revenge": 200,
+            "master": 300,
+            "death": 300,
+            "masterRevenge": 300
+          },
+          "defense": {
+            "classic": 9999,
+            "expert": 9999,
+            "revenge": 9999,
+            "master": 9999,
+            "death": 9999,
+            "masterRevenge": 9999
+          }
+        }
+      ]
+    },
+    "Crabulon": {
+      "npc": "Crabulon",
+      "name": "Crabulon",
+      "health": {
+        "classic": 3500,
+        "expert": 5600,
+        "revenge": 7040,
+        "master": 7140,
+        "death": 8976,
+        "masterRevenge": 8976
+      },
+      "rawHealth": {
+        "normal": 3500,
+        "revengeance": 4400,
+        "bossRush": 500000
+      },
+      "healthLabel": "Начальное здоровье, 1 игрок",
+      "damage": {
+        "classic": 40,
+        "expert": 64,
+        "revenge": 64,
+        "master": 96,
+        "death": 96,
+        "masterRevenge": 96
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 8,
+        "expert": 8,
+        "revenge": 8,
+        "master": 8,
+        "death": 8,
+        "masterRevenge": 8
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.Crabulon/Crabulon.cs",
+          "line": 83,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.Crabulon/Crabulon.cs",
+          "line": 1597,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": []
+    },
+    "HiveMind": {
+      "npc": "HiveMind",
+      "name": "The Hive Mind",
+      "health": {
+        "classic": 5000,
+        "expert": 8000,
+        "revenge": 11200,
+        "master": 10200,
+        "death": 14280,
+        "masterRevenge": 14280
+      },
+      "rawHealth": {
+        "normal": 5000,
+        "revengeance": 7000,
+        "bossRush": 350000
+      },
+      "healthLabel": "Начальное здоровье, 1 игрок",
+      "damage": {
+        "classic": 40,
+        "expert": 64,
+        "revenge": 64,
+        "master": 96,
+        "death": 96,
+        "masterRevenge": 96
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 8,
+        "expert": 8,
+        "revenge": 8,
+        "master": 8,
+        "death": 8,
+        "masterRevenge": 8
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.HiveMind/HiveMind.cs",
+          "line": 159,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.HiveMind/HiveMind.cs",
+          "line": 1486,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": []
+    },
+    "Perforators": {
+      "npc": "PerforatorHive",
+      "name": "The Perforator Hive",
+      "health": {
+        "classic": 4000,
+        "expert": 6400,
+        "revenge": 9200,
+        "master": 8160,
+        "death": 11730,
+        "masterRevenge": 11730
+      },
+      "rawHealth": {
+        "normal": 4000,
+        "revengeance": 5750,
+        "bossRush": 270000
+      },
+      "healthLabel": "Начальное здоровье, 1 игрок",
+      "damage": {
+        "classic": 30,
+        "expert": 48,
+        "revenge": 48,
+        "master": 72,
+        "death": 72,
+        "masterRevenge": 72
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 4,
+        "expert": 4,
+        "revenge": 4,
+        "master": 4,
+        "death": 4,
+        "masterRevenge": 4
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.Perforator/PerforatorHive.cs",
+          "line": 90,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.Perforator/PerforatorHive.cs",
+          "line": 768,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": [
+        "Показано здоровье улья. Черви имеют собственные значения, приведённые отдельно."
+      ],
+      "components": [
+        {
+          "npc": "PerforatorHeadSmall",
+          "name": "The Perforator",
+          "health": {
+            "classic": 900,
+            "expert": 1800,
+            "revenge": 2300,
+            "master": 2700,
+            "death": 3450,
+            "masterRevenge": 3450
+          },
+          "rawHealth": {
+            "normal": 900,
+            "revengeance": 1150,
+            "bossRush": 50000
+          },
+          "healthLabel": "Начальное здоровье, 1 игрок",
+          "damage": {
+            "classic": 22,
+            "expert": 44,
+            "revenge": 44,
+            "master": 66,
+            "death": 66,
+            "masterRevenge": 66
+          },
+          "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+          "defense": {
+            "classic": null,
+            "expert": null,
+            "revenge": null,
+            "master": null,
+            "death": null,
+            "masterRevenge": null
+          },
+          "defenseLabel": "Защита при создании NPC",
+          "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. Собственного дополнительного множителя HP нет.",
+          "evidence": [
+            {
+              "path": "sources/decompiled/CalamityMod.NPCs.Perforator/PerforatorHeadSmall.cs",
+              "line": 51,
+              "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+            },
+            {
+              "path": "sources/tml/Terraria.ModLoader.ModNPC.decompiled.cs",
+              "member": "Terraria.ModLoader.ModNPC.ApplyDifficultyAndPlayerScaling",
+              "detail": "Базовый метод пуст; собственного переопределения у этого NPC нет.",
+              "line": 121
+            }
+          ],
+          "notes": []
+        },
+        {
+          "npc": "PerforatorHeadMedium",
+          "name": "The Perforator",
+          "health": {
+            "classic": 120,
+            "expert": 240,
+            "revenge": 300,
+            "master": 360,
+            "death": 450,
+            "masterRevenge": 450
+          },
+          "rawHealth": {
+            "normal": 120,
+            "revengeance": 150,
+            "bossRush": 7000
+          },
+          "healthLabel": "Начальное здоровье, 1 игрок",
+          "damage": {
+            "classic": 24,
+            "expert": 48,
+            "revenge": 48,
+            "master": 72,
+            "death": 72,
+            "masterRevenge": 72
+          },
+          "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+          "defense": {
+            "classic": 2,
+            "expert": 2,
+            "revenge": 2,
+            "master": 2,
+            "death": 2,
+            "masterRevenge": 2
+          },
+          "defenseLabel": "Защита при создании NPC",
+          "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. Собственного дополнительного множителя HP нет.",
+          "evidence": [
+            {
+              "path": "sources/decompiled/CalamityMod.NPCs.Perforator/PerforatorHeadMedium.cs",
+              "line": 49,
+              "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+            },
+            {
+              "path": "sources/tml/Terraria.ModLoader.ModNPC.decompiled.cs",
+              "member": "Terraria.ModLoader.ModNPC.ApplyDifficultyAndPlayerScaling",
+              "detail": "Базовый метод пуст; собственного переопределения у этого NPC нет.",
+              "line": 121
+            }
+          ],
+          "notes": [
+            "Значение относится к голове конкретного червя, а не ко всей встрече с Perforators."
+          ]
+        },
+        {
+          "npc": "PerforatorHeadLarge",
+          "name": "The Perforator",
+          "health": {
+            "classic": 2000,
+            "expert": 4000,
+            "revenge": 5200,
+            "master": 6000,
+            "death": 7800,
+            "masterRevenge": 7800
+          },
+          "rawHealth": {
+            "normal": 2000,
+            "revengeance": 2600,
+            "bossRush": 80000
+          },
+          "healthLabel": "Начальное здоровье, 1 игрок",
+          "damage": {
+            "classic": 40,
+            "expert": 80,
+            "revenge": 80,
+            "master": 120,
+            "death": 120,
+            "masterRevenge": 120
+          },
+          "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+          "defense": {
+            "classic": 4,
+            "expert": 4,
+            "revenge": 4,
+            "master": 4,
+            "death": 4,
+            "masterRevenge": 4
+          },
+          "defenseLabel": "Защита при создании NPC",
+          "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. Собственного дополнительного множителя HP нет.",
+          "evidence": [
+            {
+              "path": "sources/decompiled/CalamityMod.NPCs.Perforator/PerforatorHeadLarge.cs",
+              "line": 55,
+              "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+            },
+            {
+              "path": "sources/tml/Terraria.ModLoader.ModNPC.decompiled.cs",
+              "member": "Terraria.ModLoader.ModNPC.ApplyDifficultyAndPlayerScaling",
+              "detail": "Базовый метод пуст; собственного переопределения у этого NPC нет.",
+              "line": 121
+            }
+          ],
+          "notes": []
+        }
+      ]
+    },
+    "SlimeGod": {
+      "npc": "SlimeGodCore",
+      "name": "The Slime God",
+      "health": {
+        "classic": 420,
+        "expert": 840,
+        "revenge": 840,
+        "master": 1260,
+        "death": 1260,
+        "masterRevenge": 1260
+      },
+      "rawHealth": {
+        "normal": 420,
+        "revengeance": 420,
+        "bossRush": null
+      },
+      "healthLabel": "Здоровье неуязвимого ядра, 1 игрок",
+      "damage": {
+        "classic": 0,
+        "expert": 0,
+        "revenge": 0,
+        "master": 0,
+        "death": 0,
+        "masterRevenge": 0
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 6,
+        "expert": 6,
+        "revenge": 6,
+        "master": 6,
+        "death": 6,
+        "masterRevenge": 6
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. Собственного дополнительного множителя HP нет.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.SlimeGod/SlimeGodCore.cs",
+          "line": 64,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/tml/Terraria.ModLoader.ModNPC.decompiled.cs",
+          "member": "Terraria.ModLoader.ModNPC.ApplyDifficultyAndPlayerScaling",
+          "detail": "Базовый метод пуст; собственного переопределения у этого NPC нет.",
+          "line": 121
+        }
+      ],
+      "notes": [
+        "420 — исходное здоровье неуязвимого ядра, а не запас здоровья всей битвы. Для боя смотрите обоих паладинов ниже.",
+        "У ядра нет собственного множителя 0.8 и bossAdjustment; его Max HP только проходит общий множитель режима."
+      ],
+      "components": [
+        {
+          "npc": "EbonianPaladin",
+          "name": "Ebonian Paladin",
+          "health": {
+            "classic": 8000,
+            "expert": 12800,
+            "revenge": 15360,
+            "master": 16320,
+            "death": 19584,
+            "masterRevenge": 19584
+          },
+          "rawHealth": {
+            "normal": 8000,
+            "revengeance": 9600,
+            "bossRush": 220000
+          },
+          "healthLabel": "Начальное здоровье, 1 игрок",
+          "damage": {
+            "classic": 40,
+            "expert": 80,
+            "revenge": 80,
+            "master": 120,
+            "death": 120,
+            "masterRevenge": 120
+          },
+          "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+          "defense": {
+            "classic": 10,
+            "expert": 10,
+            "revenge": 10,
+            "master": 10,
+            "death": 10,
+            "masterRevenge": 10
+          },
+          "defenseLabel": "Защита при создании NPC",
+          "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+          "evidence": [
+            {
+              "path": "sources/decompiled/CalamityMod.NPCs.SlimeGod/EbonianPaladin.cs",
+              "line": 28,
+              "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+            },
+            {
+              "path": "sources/decompiled/CalamityMod.NPCs.SlimeGod/EbonianPaladin.cs",
+              "line": 986,
+              "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+            }
+          ],
+          "notes": []
+        },
+        {
+          "npc": "CrimulanPaladin",
+          "name": "Crimulan Paladin",
+          "health": {
+            "classic": 7500,
+            "expert": 12000,
+            "revenge": 14400,
+            "master": 15300,
+            "death": 18360,
+            "masterRevenge": 18360
+          },
+          "rawHealth": {
+            "normal": 7500,
+            "revengeance": 9000,
+            "bossRush": 160000
+          },
+          "healthLabel": "Начальное здоровье, 1 игрок",
+          "damage": {
+            "classic": 42,
+            "expert": 84,
+            "revenge": 84,
+            "master": 126,
+            "death": 126,
+            "masterRevenge": 126
+          },
+          "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+          "defense": {
+            "classic": 12,
+            "expert": 12,
+            "revenge": 12,
+            "master": 12,
+            "death": 12,
+            "masterRevenge": 12
+          },
+          "defenseLabel": "Защита при создании NPC",
+          "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+          "evidence": [
+            {
+              "path": "sources/decompiled/CalamityMod.NPCs.SlimeGod/CrimulanPaladin.cs",
+              "line": 28,
+              "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+            },
+            {
+              "path": "sources/decompiled/CalamityMod.NPCs.SlimeGod/CrimulanPaladin.cs",
+              "line": 918,
+              "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+            }
+          ],
+          "notes": []
+        }
+      ]
+    },
+    "Cryogen": {
+      "npc": "Cryogen",
+      "name": "Cryogen",
+      "health": {
+        "classic": 25000,
+        "expert": 40000,
+        "revenge": 76800,
+        "master": 51000,
+        "death": 97920,
+        "masterRevenge": 97920
+      },
+      "rawHealth": {
+        "normal": 25000,
+        "revengeance": 48000,
+        "bossRush": 300000
+      },
+      "healthLabel": "Начальное здоровье, 1 игрок",
+      "damage": {
+        "classic": 69,
+        "expert": 138,
+        "revenge": 138,
+        "master": 207,
+        "death": 207,
+        "masterRevenge": 207
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 15,
+        "expert": 15,
+        "revenge": 15,
+        "master": 15,
+        "death": 15,
+        "masterRevenge": 15
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.Cryogen/Cryogen.cs",
+          "line": 103,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.Cryogen/Cryogen.cs",
+          "line": 1575,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": []
+    },
+    "AquaticScourge": {
+      "npc": "AquaticScourgeHead",
+      "name": "Aquatic Scourge",
+      "health": {
+        "classic": 80000,
+        "expert": 128000,
+        "revenge": 153600,
+        "master": 163200,
+        "death": 195840,
+        "masterRevenge": 195840
+      },
+      "rawHealth": {
+        "normal": 80000,
+        "revengeance": 96000,
+        "bossRush": 1000000
+      },
+      "healthLabel": "Начальное здоровье, 1 игрок",
+      "damage": {
+        "classic": 85,
+        "expert": 170,
+        "revenge": 170,
+        "master": 255,
+        "death": 255,
+        "masterRevenge": 255
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 10,
+        "expert": 10,
+        "revenge": 10,
+        "master": 10,
+        "death": 10,
+        "masterRevenge": 10
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.AquaticScourge/AquaticScourgeHead.cs",
+          "line": 58,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.AquaticScourge/AquaticScourgeHead.cs",
+          "line": 857,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": [
+        "Здоровье головы; сегменты не суммируются как отдельные боссы."
+      ]
+    },
+    "CragmawMire": {
+      "npc": "CragmawMire",
+      "name": "Cragmaw Mire",
+      "health": {
+        "classic": 4000,
+        "expert": 6400,
+        "revenge": 6400,
+        "master": 9600,
+        "death": 9600,
+        "masterRevenge": 9600
+      },
+      "rawHealth": {
+        "normal": 4000,
+        "revengeance": 4000,
+        "bossRush": null
+      },
+      "healthLabel": "Здоровье Tier 2, 1 игрок",
+      "damage": {
+        "classic": 66,
+        "expert": 112,
+        "revenge": 112,
+        "master": 168,
+        "death": 168,
+        "masterRevenge": 168
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 80,
+        "expert": 80,
+        "revenge": 80,
+        "master": 80,
+        "death": 80,
+        "masterRevenge": 80
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance); для 1 игрока balance=1.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.AcidRain/CragmawMire.cs",
+          "line": 89,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.AcidRain/CragmawMire.cs",
+          "line": 555,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": [
+        "Показан Acid Rain Tier 2. После Polterghast исходное здоровье 80630, урон 160, защита 80."
+      ],
+      "variants": [
+        {
+          "id": "postPolterghast",
+          "label": "После Polterghast",
+          "health": {
+            "classic": 80630,
+            "expert": 129008,
+            "revenge": 129008,
+            "master": 193512,
+            "death": 193512,
+            "masterRevenge": 193512
+          },
+          "damage": {
+            "classic": 160,
+            "expert": 272,
+            "revenge": 272,
+            "master": 408,
+            "death": 408,
+            "masterRevenge": 408
+          },
+          "defense": {
+            "classic": 80,
+            "expert": 80,
+            "revenge": 80,
+            "master": 80,
+            "death": 80,
+            "masterRevenge": 80
+          }
+        }
+      ]
+    },
+    "BrimstoneElemental": {
+      "npc": "BrimstoneElemental",
+      "name": "Brimstone Elemental",
+      "health": {
+        "classic": 30000,
+        "expert": 48000,
+        "revenge": 78720,
+        "master": 61200,
+        "death": 100368,
+        "masterRevenge": 100368
+      },
+      "rawHealth": {
+        "normal": 30000,
+        "revengeance": 49200,
+        "bossRush": 500000
+      },
+      "healthLabel": "Начальное здоровье, 1 игрок",
+      "damage": {
+        "classic": 56,
+        "expert": 112,
+        "revenge": 112,
+        "master": 168,
+        "death": 168,
+        "masterRevenge": 168
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 15,
+        "expert": 15,
+        "revenge": 15,
+        "master": 15,
+        "death": 15,
+        "masterRevenge": 15
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.BrimstoneElemental/BrimstoneElemental.cs",
+          "line": 79,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.BrimstoneElemental/BrimstoneElemental.cs",
+          "line": 1099,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": []
+    },
+    "CalamitasClone": {
+      "npc": "CalamitasClone",
+      "name": "Calamitas Clone",
+      "health": {
+        "classic": 30000,
+        "expert": 48000,
+        "revenge": 75000,
+        "master": 61200,
+        "death": 95625,
+        "masterRevenge": 95625
+      },
+      "rawHealth": {
+        "normal": 30000,
+        "revengeance": 46875,
+        "bossRush": 520000
+      },
+      "healthLabel": "Начальное здоровье, 1 игрок",
+      "damage": {
+        "classic": 70,
+        "expert": 140,
+        "revenge": 140,
+        "master": 210,
+        "death": 210,
+        "masterRevenge": 210
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 25,
+        "expert": 25,
+        "revenge": 25,
+        "master": 25,
+        "death": 25,
+        "masterRevenge": 25
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.CalClone/CalamitasClone.cs",
+          "line": 215,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.CalClone/CalamitasClone.cs",
+          "line": 1510,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": []
+    },
+    "GreatSandShark": {
+      "npc": "GreatSandShark",
+      "name": "Great Sand Shark",
+      "health": {
+        "classic": 9200,
+        "expert": 14720,
+        "revenge": 17600,
+        "master": 22080,
+        "death": 26400,
+        "masterRevenge": 26400
+      },
+      "rawHealth": {
+        "normal": 9200,
+        "revengeance": 11000,
+        "bossRush": null
+      },
+      "healthLabel": "Начальное здоровье, 1 игрок",
+      "damage": {
+        "classic": 100,
+        "expert": 160,
+        "revenge": 160,
+        "master": 240,
+        "death": 240,
+        "masterRevenge": 240
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 40,
+        "expert": 40,
+        "revenge": 40,
+        "master": 40,
+        "death": 40,
+        "masterRevenge": 40
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance); для 1 игрока balance=1.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.GreatSandShark/GreatSandShark.cs",
+          "line": 48,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.GreatSandShark/GreatSandShark.cs",
+          "line": 900,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": []
+    },
+    "Leviathan": {
+      "npc": "Leviathan",
+      "name": "The Leviathan",
+      "health": {
+        "classic": 50000,
+        "expert": 80000,
+        "revenge": 108000,
+        "master": 102000,
+        "death": 137700,
+        "masterRevenge": 137700
+      },
+      "rawHealth": {
+        "normal": 50000,
+        "revengeance": 67500,
+        "bossRush": 600000
+      },
+      "healthLabel": "Начальное здоровье, 1 игрок",
+      "damage": {
+        "classic": 100,
+        "expert": 200,
+        "revenge": 200,
+        "master": 300,
+        "death": 300,
+        "masterRevenge": 300
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 40,
+        "expert": 40,
+        "revenge": 40,
+        "master": 40,
+        "death": 40,
+        "masterRevenge": 40
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.Leviathan/Leviathan.cs",
+          "line": 70,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.Leviathan/Leviathan.cs",
+          "line": 1195,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": [
+        "Показан The Leviathan. Anahita — отдельная часть встречи с собственным здоровьем."
+      ],
+      "components": [
+        {
+          "npc": "Anahita",
+          "name": "Anahita",
+          "health": {
+            "classic": 25000,
+            "expert": 40000,
+            "revenge": 67200,
+            "master": 51000,
+            "death": 85680,
+            "masterRevenge": 85680
+          },
+          "rawHealth": {
+            "normal": 25000,
+            "revengeance": 42000,
+            "bossRush": 260000
+          },
+          "healthLabel": "Начальное здоровье, 1 игрок",
+          "damage": {
+            "classic": 50,
+            "expert": 100,
+            "revenge": 100,
+            "master": 150,
+            "death": 150,
+            "masterRevenge": 150
+          },
+          "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+          "defense": {
+            "classic": 20,
+            "expert": 20,
+            "revenge": 20,
+            "master": 20,
+            "death": 20,
+            "masterRevenge": 20
+          },
+          "defenseLabel": "Защита при создании NPC",
+          "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+          "evidence": [
+            {
+              "path": "sources/decompiled/CalamityMod.NPCs.Leviathan/Anahita.cs",
+              "line": 78,
+              "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+            },
+            {
+              "path": "sources/decompiled/CalamityMod.NPCs.Leviathan/Anahita.cs",
+              "line": 1284,
+              "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+            }
+          ],
+          "notes": []
+        }
+      ]
+    },
+    "AstrumAureus": {
+      "npc": "AstrumAureus",
+      "name": "Astrum Aureus",
+      "health": {
+        "classic": 75000,
+        "expert": 120000,
+        "revenge": 192000,
+        "master": 153000,
+        "death": 244800,
+        "masterRevenge": 244800
+      },
+      "rawHealth": {
+        "normal": 75000,
+        "revengeance": 120000,
+        "bossRush": 740000
+      },
+      "healthLabel": "Начальное здоровье, 1 игрок",
+      "damage": {
+        "classic": 80,
+        "expert": 160,
+        "revenge": 160,
+        "master": 240,
+        "death": 240,
+        "masterRevenge": 240
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 40,
+        "expert": 40,
+        "revenge": 40,
+        "master": 40,
+        "death": 40,
+        "masterRevenge": 40
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.AstrumAureus/AstrumAureus.cs",
+          "line": 110,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.AstrumAureus/AstrumAureus.cs",
+          "line": 1738,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": []
+    },
+    "PlaguebringerGoliath": {
+      "npc": "PlaguebringerGoliath",
+      "name": "The Plaguebringer Goliath",
+      "health": {
+        "classic": 70000,
+        "expert": 112000,
+        "revenge": 168000,
+        "master": 142800,
+        "death": 214200,
+        "masterRevenge": 214200
+      },
+      "rawHealth": {
+        "normal": 70000,
+        "revengeance": 105000,
+        "bossRush": 370000
+      },
+      "healthLabel": "Начальное здоровье, 1 игрок",
+      "damage": {
+        "classic": 75,
+        "expert": 150,
+        "revenge": 150,
+        "master": 225,
+        "death": 225,
+        "masterRevenge": 225
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 50,
+        "expert": 50,
+        "revenge": 50,
+        "master": 50,
+        "death": 50,
+        "masterRevenge": 50
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.PlaguebringerGoliath/PlaguebringerGoliath.cs",
+          "line": 101,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.PlaguebringerGoliath/PlaguebringerGoliath.cs",
+          "line": 1677,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": []
+    },
+    "Ravager": {
+      "npc": "RavagerBody",
+      "name": "Ravager",
+      "health": {
+        "classic": 30000,
+        "expert": 48000,
+        "revenge": 86400,
+        "master": 61200,
+        "death": 110160,
+        "masterRevenge": 110160
+      },
+      "rawHealth": {
+        "normal": 30000,
+        "revengeance": 54000,
+        "bossRush": 460000
+      },
+      "healthLabel": "Здоровье до Providence, 1 игрок",
+      "damage": {
+        "classic": 90,
+        "expert": 180,
+        "revenge": 180,
+        "master": 270,
+        "death": 270,
+        "masterRevenge": 270
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 55,
+        "expert": 55,
+        "revenge": 55,
+        "master": 55,
+        "death": 55,
+        "masterRevenge": 55
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.Ravager/RavagerBody.cs",
+          "line": 84,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.Ravager/RavagerBody.cs",
+          "line": 1220,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": [
+        "Показана версия до победы над Providence. После Providence здоровье тела и конечностей умножается на 4, защита на 2, исходный контактный урон на 1.5.",
+        "Здоровье тела не включает запас здоровья конечностей."
+      ],
+      "components": [
+        {
+          "npc": "RavagerHead",
+          "name": "Ravager Head",
+          "health": {
+            "classic": 20000,
+            "expert": 40000,
+            "revenge": 40000,
+            "master": 60000,
+            "death": 60000,
+            "masterRevenge": 60000
+          },
+          "rawHealth": {
+            "normal": 20000,
+            "revengeance": 20000,
+            "bossRush": null
+          },
+          "healthLabel": "Здоровье до Providence, 1 игрок",
+          "damage": {
+            "classic": 0,
+            "expert": 0,
+            "revenge": 0,
+            "master": 0,
+            "death": 0,
+            "masterRevenge": 0
+          },
+          "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+          "defense": {
+            "classic": 40,
+            "expert": 40,
+            "revenge": 40,
+            "master": 40,
+            "death": 40,
+            "masterRevenge": 40
+          },
+          "defenseLabel": "Защита при создании NPC",
+          "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. Собственного дополнительного множителя HP нет.",
+          "evidence": [
+            {
+              "path": "sources/decompiled/CalamityMod.NPCs.Ravager/RavagerHead.cs",
+              "line": 30,
+              "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+            },
+            {
+              "path": "sources/tml/Terraria.ModLoader.ModNPC.decompiled.cs",
+              "member": "Terraria.ModLoader.ModNPC.ApplyDifficultyAndPlayerScaling",
+              "detail": "Базовый метод пуст; собственного переопределения у этого NPC нет.",
+              "line": 121
+            }
+          ],
+          "notes": [],
+          "variants": [
+            {
+              "id": "postProvidence",
+              "label": "После Providence",
+              "health": {
+                "classic": 80000,
+                "expert": 160000,
+                "revenge": 160000,
+                "master": 240000,
+                "death": 240000,
+                "masterRevenge": 240000
+              },
+              "damage": {
+                "classic": 0,
+                "expert": 0,
+                "revenge": 0,
+                "master": 0,
+                "death": 0,
+                "masterRevenge": 0
+              },
+              "defense": {
+                "classic": 80,
+                "expert": 80,
+                "revenge": 80,
+                "master": 80,
+                "death": 80,
+                "masterRevenge": 80
+              }
+            }
+          ]
+        },
+        {
+          "npc": "RavagerClawLeft",
+          "name": "Ravager Claw Left",
+          "health": {
+            "classic": 12500,
+            "expert": 25000,
+            "revenge": 25000,
+            "master": 37500,
+            "death": 37500,
+            "masterRevenge": 37500
+          },
+          "rawHealth": {
+            "normal": 12500,
+            "revengeance": 12500,
+            "bossRush": null
+          },
+          "healthLabel": "Здоровье до Providence, 1 игрок",
+          "damage": {
+            "classic": 75,
+            "expert": 150,
+            "revenge": 150,
+            "master": 225,
+            "death": 225,
+            "masterRevenge": 225
+          },
+          "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+          "defense": {
+            "classic": 40,
+            "expert": 40,
+            "revenge": 40,
+            "master": 40,
+            "death": 40,
+            "masterRevenge": 40
+          },
+          "defenseLabel": "Защита при создании NPC",
+          "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. Собственного дополнительного множителя HP нет.",
+          "evidence": [
+            {
+              "path": "sources/decompiled/CalamityMod.NPCs.Ravager/RavagerClawLeft.cs",
+              "line": 23,
+              "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+            },
+            {
+              "path": "sources/tml/Terraria.ModLoader.ModNPC.decompiled.cs",
+              "member": "Terraria.ModLoader.ModNPC.ApplyDifficultyAndPlayerScaling",
+              "detail": "Базовый метод пуст; собственного переопределения у этого NPC нет.",
+              "line": 121
+            }
+          ],
+          "notes": [],
+          "variants": [
+            {
+              "id": "postProvidence",
+              "label": "После Providence",
+              "health": {
+                "classic": 50000,
+                "expert": 100000,
+                "revenge": 100000,
+                "master": 150000,
+                "death": 150000,
+                "masterRevenge": 150000
+              },
+              "damage": {
+                "classic": 112,
+                "expert": 224,
+                "revenge": 224,
+                "master": 336,
+                "death": 336,
+                "masterRevenge": 336
+              },
+              "defense": {
+                "classic": 80,
+                "expert": 80,
+                "revenge": 80,
+                "master": 80,
+                "death": 80,
+                "masterRevenge": 80
+              }
+            }
+          ]
+        },
+        {
+          "npc": "RavagerClawRight",
+          "name": "Ravager Claw Right",
+          "health": {
+            "classic": 12500,
+            "expert": 25000,
+            "revenge": 25000,
+            "master": 37500,
+            "death": 37500,
+            "masterRevenge": 37500
+          },
+          "rawHealth": {
+            "normal": 12500,
+            "revengeance": 12500,
+            "bossRush": null
+          },
+          "healthLabel": "Здоровье до Providence, 1 игрок",
+          "damage": {
+            "classic": 75,
+            "expert": 150,
+            "revenge": 150,
+            "master": 225,
+            "death": 225,
+            "masterRevenge": 225
+          },
+          "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+          "defense": {
+            "classic": 40,
+            "expert": 40,
+            "revenge": 40,
+            "master": 40,
+            "death": 40,
+            "masterRevenge": 40
+          },
+          "defenseLabel": "Защита при создании NPC",
+          "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. Собственного дополнительного множителя HP нет.",
+          "evidence": [
+            {
+              "path": "sources/decompiled/CalamityMod.NPCs.Ravager/RavagerClawRight.cs",
+              "line": 23,
+              "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+            },
+            {
+              "path": "sources/tml/Terraria.ModLoader.ModNPC.decompiled.cs",
+              "member": "Terraria.ModLoader.ModNPC.ApplyDifficultyAndPlayerScaling",
+              "detail": "Базовый метод пуст; собственного переопределения у этого NPC нет.",
+              "line": 121
+            }
+          ],
+          "notes": [],
+          "variants": [
+            {
+              "id": "postProvidence",
+              "label": "После Providence",
+              "health": {
+                "classic": 50000,
+                "expert": 100000,
+                "revenge": 100000,
+                "master": 150000,
+                "death": 150000,
+                "masterRevenge": 150000
+              },
+              "damage": {
+                "classic": 112,
+                "expert": 224,
+                "revenge": 224,
+                "master": 336,
+                "death": 336,
+                "masterRevenge": 336
+              },
+              "defense": {
+                "classic": 80,
+                "expert": 80,
+                "revenge": 80,
+                "master": 80,
+                "death": 80,
+                "masterRevenge": 80
+              }
+            }
+          ]
+        },
+        {
+          "npc": "RavagerLegLeft",
+          "name": "Ravager Leg Left",
+          "health": {
+            "classic": 12500,
+            "expert": 25000,
+            "revenge": 25000,
+            "master": 37500,
+            "death": 37500,
+            "masterRevenge": 37500
+          },
+          "rawHealth": {
+            "normal": 12500,
+            "revengeance": 12500,
+            "bossRush": null
+          },
+          "healthLabel": "Здоровье до Providence, 1 игрок",
+          "damage": {
+            "classic": 0,
+            "expert": 0,
+            "revenge": 0,
+            "master": 0,
+            "death": 0,
+            "masterRevenge": 0
+          },
+          "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+          "defense": {
+            "classic": 40,
+            "expert": 40,
+            "revenge": 40,
+            "master": 40,
+            "death": 40,
+            "masterRevenge": 40
+          },
+          "defenseLabel": "Защита при создании NPC",
+          "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. Собственного дополнительного множителя HP нет.",
+          "evidence": [
+            {
+              "path": "sources/decompiled/CalamityMod.NPCs.Ravager/RavagerLegLeft.cs",
+              "line": 21,
+              "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+            },
+            {
+              "path": "sources/tml/Terraria.ModLoader.ModNPC.decompiled.cs",
+              "member": "Terraria.ModLoader.ModNPC.ApplyDifficultyAndPlayerScaling",
+              "detail": "Базовый метод пуст; собственного переопределения у этого NPC нет.",
+              "line": 121
+            }
+          ],
+          "notes": [],
+          "variants": [
+            {
+              "id": "postProvidence",
+              "label": "После Providence",
+              "health": {
+                "classic": 50000,
+                "expert": 100000,
+                "revenge": 100000,
+                "master": 150000,
+                "death": 150000,
+                "masterRevenge": 150000
+              },
+              "damage": {
+                "classic": 0,
+                "expert": 0,
+                "revenge": 0,
+                "master": 0,
+                "death": 0,
+                "masterRevenge": 0
+              },
+              "defense": {
+                "classic": 80,
+                "expert": 80,
+                "revenge": 80,
+                "master": 80,
+                "death": 80,
+                "masterRevenge": 80
+              }
+            }
+          ]
+        },
+        {
+          "npc": "RavagerLegRight",
+          "name": "Ravager Leg Right",
+          "health": {
+            "classic": 12500,
+            "expert": 25000,
+            "revenge": 25000,
+            "master": 37500,
+            "death": 37500,
+            "masterRevenge": 37500
+          },
+          "rawHealth": {
+            "normal": 12500,
+            "revengeance": 12500,
+            "bossRush": null
+          },
+          "healthLabel": "Здоровье до Providence, 1 игрок",
+          "damage": {
+            "classic": 0,
+            "expert": 0,
+            "revenge": 0,
+            "master": 0,
+            "death": 0,
+            "masterRevenge": 0
+          },
+          "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+          "defense": {
+            "classic": 40,
+            "expert": 40,
+            "revenge": 40,
+            "master": 40,
+            "death": 40,
+            "masterRevenge": 40
+          },
+          "defenseLabel": "Защита при создании NPC",
+          "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. Собственного дополнительного множителя HP нет.",
+          "evidence": [
+            {
+              "path": "sources/decompiled/CalamityMod.NPCs.Ravager/RavagerLegRight.cs",
+              "line": 21,
+              "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+            },
+            {
+              "path": "sources/tml/Terraria.ModLoader.ModNPC.decompiled.cs",
+              "member": "Terraria.ModLoader.ModNPC.ApplyDifficultyAndPlayerScaling",
+              "detail": "Базовый метод пуст; собственного переопределения у этого NPC нет.",
+              "line": 121
+            }
+          ],
+          "notes": [],
+          "variants": [
+            {
+              "id": "postProvidence",
+              "label": "После Providence",
+              "health": {
+                "classic": 50000,
+                "expert": 100000,
+                "revenge": 100000,
+                "master": 150000,
+                "death": 150000,
+                "masterRevenge": 150000
+              },
+              "damage": {
+                "classic": 0,
+                "expert": 0,
+                "revenge": 0,
+                "master": 0,
+                "death": 0,
+                "masterRevenge": 0
+              },
+              "defense": {
+                "classic": 80,
+                "expert": 80,
+                "revenge": 80,
+                "master": 80,
+                "death": 80,
+                "masterRevenge": 80
+              }
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "postProvidence",
+          "label": "После Providence",
+          "health": {
+            "classic": 120000,
+            "expert": 192000,
+            "revenge": 345600,
+            "master": 244800,
+            "death": 440640,
+            "masterRevenge": 440640
+          },
+          "damage": {
+            "classic": 135,
+            "expert": 270,
+            "revenge": 270,
+            "master": 405,
+            "death": 405,
+            "masterRevenge": 405
+          },
+          "defense": {
+            "classic": 110,
+            "expert": 110,
+            "revenge": 110,
+            "master": 110,
+            "death": 110,
+            "masterRevenge": 110
+          }
+        }
+      ]
+    },
+    "AstrumDeus": {
+      "npc": "AstrumDeusHead",
+      "name": "Astrum Deus",
+      "health": {
+        "classic": 150000,
+        "expert": 240000,
+        "revenge": 384000,
+        "master": 306000,
+        "death": 489600,
+        "masterRevenge": 489600
+      },
+      "rawHealth": {
+        "normal": 150000,
+        "revengeance": 240000,
+        "bossRush": 650000
+      },
+      "healthLabel": "Начальное здоровье, 1 игрок",
+      "damage": {
+        "classic": 120,
+        "expert": 240,
+        "revenge": 240,
+        "master": 360,
+        "death": 360,
+        "masterRevenge": 360
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 20,
+        "expert": 20,
+        "revenge": 20,
+        "master": 20,
+        "death": 20,
+        "masterRevenge": 20
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.AstrumDeus/AstrumDeusHead.cs",
+          "line": 99,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.AstrumDeus/AstrumDeusHead.cs",
+          "line": 1217,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": [
+        "Показано начальное Max HP одной головы; разделение червей и устройство полосы босса не превращают это число в суммарный урон за всю битву."
+      ]
+    },
+    "ProfanedGuardians": {
+      "npc": "ProfanedGuardianCommander",
+      "name": "Guardian Commander",
+      "health": {
+        "classic": 80000,
+        "expert": 128000,
+        "revenge": 192000,
+        "master": 163200,
+        "death": 244800,
+        "masterRevenge": 244800
+      },
+      "rawHealth": {
+        "normal": 80000,
+        "revengeance": 120000,
+        "bossRush": 200000
+      },
+      "healthLabel": "Начальное здоровье, 1 игрок",
+      "damage": {
+        "classic": 120,
+        "expert": 240,
+        "revenge": 240,
+        "master": 360,
+        "death": 360,
+        "masterRevenge": 360
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 40,
+        "expert": 40,
+        "revenge": 40,
+        "master": 40,
+        "death": 40,
+        "masterRevenge": 40
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.ProfanedGuardians/ProfanedGuardianCommander.cs",
+          "line": 85,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.ProfanedGuardians/ProfanedGuardianCommander.cs",
+          "line": 1796,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": [
+        "Показан Commander. Defender и Healer имеют отдельные запасы здоровья.",
+        "Значение — начальный максимум; лечение во время битвы может увеличить требуемый суммарный урон."
+      ],
+      "components": [
+        {
+          "npc": "ProfanedGuardianDefender",
+          "name": "Guardian Defender",
+          "health": {
+            "classic": 32000,
+            "expert": 64000,
+            "revenge": 96000,
+            "master": 96000,
+            "death": 144000,
+            "masterRevenge": 144000
+          },
+          "rawHealth": {
+            "normal": 32000,
+            "revengeance": 48000,
+            "bossRush": 35000
+          },
+          "healthLabel": "Начальное здоровье, 1 игрок",
+          "damage": {
+            "classic": 108,
+            "expert": 216,
+            "revenge": 216,
+            "master": 324,
+            "death": 324,
+            "masterRevenge": 324
+          },
+          "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+          "defense": {
+            "classic": 50,
+            "expert": 50,
+            "revenge": 50,
+            "master": 50,
+            "death": 50,
+            "masterRevenge": 50
+          },
+          "defenseLabel": "Защита при создании NPC",
+          "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. Собственного дополнительного множителя HP нет.",
+          "evidence": [
+            {
+              "path": "sources/decompiled/CalamityMod.NPCs.ProfanedGuardians/ProfanedGuardianDefender.cs",
+              "line": 69,
+              "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+            },
+            {
+              "path": "sources/tml/Terraria.ModLoader.ModNPC.decompiled.cs",
+              "member": "Terraria.ModLoader.ModNPC.ApplyDifficultyAndPlayerScaling",
+              "detail": "Базовый метод пуст; собственного переопределения у этого NPC нет.",
+              "line": 121
+            }
+          ],
+          "notes": []
+        },
+        {
+          "npc": "ProfanedGuardianHealer",
+          "name": "Guardian Healer",
+          "health": {
+            "classic": 48000,
+            "expert": 96000,
+            "revenge": 144000,
+            "master": 144000,
+            "death": 216000,
+            "masterRevenge": 216000
+          },
+          "rawHealth": {
+            "normal": 48000,
+            "revengeance": 72000,
+            "bossRush": 50000
+          },
+          "healthLabel": "Начальное здоровье, 1 игрок",
+          "damage": {
+            "classic": 0,
+            "expert": 0,
+            "revenge": 0,
+            "master": 0,
+            "death": 0,
+            "masterRevenge": 0
+          },
+          "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+          "defense": {
+            "classic": 30,
+            "expert": 30,
+            "revenge": 30,
+            "master": 30,
+            "death": 30,
+            "masterRevenge": 30
+          },
+          "defenseLabel": "Защита при создании NPC",
+          "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. Собственного дополнительного множителя HP нет.",
+          "evidence": [
+            {
+              "path": "sources/decompiled/CalamityMod.NPCs.ProfanedGuardians/ProfanedGuardianHealer.cs",
+              "line": 88,
+              "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+            },
+            {
+              "path": "sources/tml/Terraria.ModLoader.ModNPC.decompiled.cs",
+              "member": "Terraria.ModLoader.ModNPC.ApplyDifficultyAndPlayerScaling",
+              "detail": "Базовый метод пуст; собственного переопределения у этого NPC нет.",
+              "line": 121
+            }
+          ],
+          "notes": [
+            "Урон при создании равен 0; NPC всё равно проходит Expert scaling благодаря NeedsExpertScaling."
+          ]
+        }
+      ]
+    },
+    "Dragonfolly": {
+      "npc": "Dragonfolly",
+      "name": "Dragonfolly",
+      "health": {
+        "classic": 150000,
+        "expert": 240000,
+        "revenge": 360000,
+        "master": 306000,
+        "death": 459000,
+        "masterRevenge": 459000
+      },
+      "rawHealth": {
+        "normal": 150000,
+        "revengeance": 225000,
+        "bossRush": 300000
+      },
+      "healthLabel": "Начальное здоровье, 1 игрок",
+      "damage": {
+        "classic": 80,
+        "expert": 160,
+        "revenge": 160,
+        "master": 240,
+        "death": 240,
+        "masterRevenge": 240
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 40,
+        "expert": 40,
+        "revenge": 40,
+        "master": 40,
+        "death": 40,
+        "masterRevenge": 40
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.Bumblebirb/Dragonfolly.cs",
+          "line": 68,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.Bumblebirb/Dragonfolly.cs",
+          "line": 1795,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": []
+    },
+    "Providence": {
+      "npc": "Providence",
+      "name": "Providence, the Profaned Goddess",
+      "health": {
+        "classic": 250000,
+        "expert": 400000,
+        "revenge": 600000,
+        "master": 510000,
+        "death": 765000,
+        "masterRevenge": 765000
+      },
+      "rawHealth": {
+        "normal": 250000,
+        "revengeance": 375000,
+        "bossRush": 1250000
+      },
+      "healthLabel": "Начальное здоровье, 1 игрок",
+      "damage": {
+        "classic": 0,
+        "expert": 0,
+        "revenge": 0,
+        "master": 0,
+        "death": 0,
+        "masterRevenge": 0
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 50,
+        "expert": 50,
+        "revenge": 50,
+        "master": 50,
+        "death": 50,
+        "masterRevenge": 50
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.Providence/Providence.cs",
+          "line": 346,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.Providence/Providence.cs",
+          "line": 3358,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": [
+        "Контактный урон при создании равен 0; это не означает, что атаки Providence безвредны."
+      ]
+    },
+    "CeaselessVoid": {
+      "npc": "CeaselessVoid",
+      "name": "Ceaseless Void",
+      "health": {
+        "classic": 50000,
+        "expert": 80000,
+        "revenge": 124800,
+        "master": 102000,
+        "death": 159120,
+        "masterRevenge": 159120
+      },
+      "rawHealth": {
+        "normal": 50000,
+        "revengeance": 78000,
+        "bossRush": 72000
+      },
+      "healthLabel": "Начальное здоровье, 1 игрок",
+      "damage": {
+        "classic": 180,
+        "expert": 360,
+        "revenge": 360,
+        "master": 540,
+        "death": 540,
+        "masterRevenge": 540
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 80,
+        "expert": 80,
+        "revenge": 80,
+        "master": 80,
+        "death": 80,
+        "masterRevenge": 80
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.CeaselessVoid/CeaselessVoid.cs",
+          "line": 65,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.CeaselessVoid/CeaselessVoid.cs",
+          "line": 1007,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": [
+        "Dark Energy имеют отдельный запас здоровья и фазы; число основного NPC не описывает весь объём урона за встречу."
+      ],
+      "components": [
+        {
+          "npc": "DarkEnergy",
+          "name": "Dark Energy",
+          "health": {
+            "classic": 12000,
+            "expert": 12000,
+            "revenge": 12000,
+            "master": 18000,
+            "death": 18000,
+            "masterRevenge": 18000
+          },
+          "rawHealth": {
+            "normal": 12000,
+            "revengeance": 12000,
+            "bossRush": 20000
+          },
+          "healthLabel": "Начальное здоровье, 1 игрок",
+          "damage": {
+            "classic": 120,
+            "expert": 240,
+            "revenge": 240,
+            "master": 360,
+            "death": 360,
+            "masterRevenge": 360
+          },
+          "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+          "defense": {
+            "classic": 50,
+            "expert": 50,
+            "revenge": 50,
+            "master": 50,
+            "death": 50,
+            "masterRevenge": 50
+          },
+          "defenseLabel": "Защита при создании NPC",
+          "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.5 × balance); для 1 игрока balance=1.",
+          "evidence": [
+            {
+              "path": "sources/decompiled/CalamityMod.NPCs.CeaselessVoid/DarkEnergy.cs",
+              "line": 48,
+              "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+            },
+            {
+              "path": "sources/decompiled/CalamityMod.NPCs.CeaselessVoid/DarkEnergy.cs",
+              "line": 390,
+              "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+            }
+          ],
+          "notes": [
+            "Это отдельный NPC Dark Energy; их число и повторные появления зависят от механики Ceaseless Void."
+          ]
+        }
+      ]
+    },
+    "StormWeaver": {
+      "npc": "StormWeaverHead",
+      "name": "Storm Weaver",
+      "health": {
+        "classic": 825000,
+        "expert": 1320000,
+        "revenge": 1320000,
+        "master": 1683000,
+        "death": 1683000,
+        "masterRevenge": 1683000
+      },
+      "rawHealth": {
+        "normal": 825000,
+        "revengeance": 825000,
+        "bossRush": 500000
+      },
+      "healthLabel": "Начальное здоровье, 1 игрок",
+      "damage": {
+        "classic": 180,
+        "expert": 360,
+        "revenge": 360,
+        "master": 540,
+        "death": 540,
+        "masterRevenge": 540
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 150,
+        "expert": 150,
+        "revenge": 150,
+        "master": 150,
+        "death": 150,
+        "masterRevenge": 150
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.StormWeaver/StormWeaverHead.cs",
+          "line": 92,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.StormWeaver/StormWeaverHead.cs",
+          "line": 1139,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": [
+        "Здоровье головы. Защита 150 относится к начальной бронированной фазе; у неё также отдельное сильное снижение урона."
+      ]
+    },
+    "Signus": {
+      "npc": "Signus",
+      "name": "Signus",
+      "health": {
+        "classic": 250000,
+        "expert": 400000,
+        "revenge": 600000,
+        "master": 510000,
+        "death": 765000,
+        "masterRevenge": 765000
+      },
+      "rawHealth": {
+        "normal": 250000,
+        "revengeance": 375000,
+        "bossRush": 380000
+      },
+      "healthLabel": "Начальное здоровье, 1 игрок",
+      "damage": {
+        "classic": 160,
+        "expert": 320,
+        "revenge": 320,
+        "master": 480,
+        "death": 480,
+        "masterRevenge": 480
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 60,
+        "expert": 60,
+        "revenge": 60,
+        "master": 60,
+        "death": 60,
+        "masterRevenge": 60
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.Signus/Signus.cs",
+          "line": 84,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.Signus/Signus.cs",
+          "line": 1239,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": []
+    },
+    "Polterghast": {
+      "npc": "Polterghast",
+      "name": "Polterghast",
+      "health": {
+        "classic": 280000,
+        "expert": 448000,
+        "revenge": 672000,
+        "master": 571200,
+        "death": 856800,
+        "masterRevenge": 856800
+      },
+      "rawHealth": {
+        "normal": 280000,
+        "revengeance": 420000,
+        "bossRush": 325000
+      },
+      "healthLabel": "Начальное здоровье, 1 игрок",
+      "damage": {
+        "classic": 120,
+        "expert": 240,
+        "revenge": 240,
+        "master": 360,
+        "death": 360,
+        "masterRevenge": 360
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 90,
+        "expert": 90,
+        "revenge": 90,
+        "master": 90,
+        "death": 90,
+        "masterRevenge": 90
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.Polterghast/Polterghast.cs",
+          "line": 141,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.Polterghast/Polterghast.cs",
+          "line": 1531,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": [
+        "Polter Phantom — отдельный NPC фазы; не прибавляйте его здоровье к основной полосе без учёта механики встречи."
+      ],
+      "components": [
+        {
+          "npc": "PolterPhantom",
+          "name": "Polterghast",
+          "health": {
+            "classic": 62500,
+            "expert": 100000,
+            "revenge": 120000,
+            "master": 150000,
+            "death": 180000,
+            "masterRevenge": 180000
+          },
+          "rawHealth": {
+            "normal": 62500,
+            "revengeance": 75000,
+            "bossRush": 60000
+          },
+          "healthLabel": "Начальное здоровье, 1 игрок",
+          "damage": {
+            "classic": 180,
+            "expert": 360,
+            "revenge": 360,
+            "master": 540,
+            "death": 540,
+            "masterRevenge": 540
+          },
+          "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+          "defense": {
+            "classic": 45,
+            "expert": 45,
+            "revenge": 45,
+            "master": 45,
+            "death": 45,
+            "masterRevenge": 45
+          },
+          "defenseLabel": "Защита при создании NPC",
+          "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance); для 1 игрока balance=1.",
+          "evidence": [
+            {
+              "path": "sources/decompiled/CalamityMod.NPCs.Polterghast/PolterPhantom.cs",
+              "line": 39,
+              "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+            },
+            {
+              "path": "sources/decompiled/CalamityMod.NPCs.Polterghast/PolterPhantom.cs",
+              "line": 712,
+              "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+            }
+          ],
+          "notes": []
+        }
+      ]
+    },
+    "Mauler": {
+      "npc": "Mauler",
+      "name": "Mauler",
+      "health": {
+        "classic": 90000,
+        "expert": 144000,
+        "revenge": 144000,
+        "master": 216000,
+        "death": 216000,
+        "masterRevenge": 216000
+      },
+      "rawHealth": {
+        "normal": 90000,
+        "revengeance": 90000,
+        "bossRush": null
+      },
+      "healthLabel": "Начальное здоровье, 1 игрок",
+      "damage": {
+        "classic": 135,
+        "expert": 270,
+        "revenge": 270,
+        "master": 405,
+        "death": 405,
+        "masterRevenge": 405
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 50,
+        "expert": 50,
+        "revenge": 50,
+        "master": 50,
+        "death": 50,
+        "masterRevenge": 50
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance); для 1 игрока balance=1.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.AcidRain/Mauler.cs",
+          "line": 91,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.AcidRain/Mauler.cs",
+          "line": 617,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": []
+    },
+    "NuclearTerror": {
+      "npc": "NuclearTerror",
+      "name": "Nuclear Terror",
+      "health": {
+        "classic": 90000,
+        "expert": 144000,
+        "revenge": 144000,
+        "master": 216000,
+        "death": 216000,
+        "masterRevenge": 216000
+      },
+      "rawHealth": {
+        "normal": 90000,
+        "revengeance": 90000,
+        "bossRush": null
+      },
+      "healthLabel": "Начальное здоровье, 1 игрок",
+      "damage": {
+        "classic": 135,
+        "expert": 229,
+        "revenge": 229,
+        "master": 344,
+        "death": 344,
+        "masterRevenge": 344
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 50,
+        "expert": 50,
+        "revenge": 50,
+        "master": 50,
+        "death": 50,
+        "masterRevenge": 50
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance); для 1 игрока balance=1.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.AcidRain/NuclearTerror.cs",
+          "line": 125,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.AcidRain/NuclearTerror.cs",
+          "line": 683,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": []
+    },
+    "OldDuke": {
+      "npc": "OldDuke",
+      "name": "The Old Duke",
+      "health": {
+        "classic": 400000,
+        "expert": 640000,
+        "revenge": 960000,
+        "master": 816000,
+        "death": 1224000,
+        "masterRevenge": 1224000
+      },
+      "rawHealth": {
+        "normal": 400000,
+        "revengeance": 600000,
+        "bossRush": 400000
+      },
+      "healthLabel": "Начальное здоровье, 1 игрок",
+      "damage": {
+        "classic": 140,
+        "expert": 280,
+        "revenge": 280,
+        "master": 420,
+        "death": 420,
+        "masterRevenge": 420
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 90,
+        "expert": 90,
+        "revenge": 90,
+        "master": 90,
+        "death": 90,
+        "masterRevenge": 90
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.OldDuke/OldDuke.cs",
+          "line": 108,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.OldDuke/OldDuke.cs",
+          "line": 2223,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": []
+    },
+    "DevourerofGods": {
+      "npc": "DevourerofGodsHead",
+      "name": "The Devourer of Gods",
+      "health": {
+        "classic": 750000,
+        "expert": 1200000,
+        "revenge": 1440000,
+        "master": 1530000,
+        "death": 1836000,
+        "masterRevenge": 1836000
+      },
+      "rawHealth": {
+        "normal": 750000,
+        "revengeance": 900000,
+        "bossRush": 1500000
+      },
+      "healthLabel": "Начальное здоровье, 1 игрок",
+      "damage": {
+        "classic": 235,
+        "expert": 470,
+        "revenge": 470,
+        "master": 705,
+        "death": 705,
+        "masterRevenge": 705
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 50,
+        "expert": 50,
+        "revenge": 50,
+        "master": 50,
+        "death": 50,
+        "masterRevenge": 50
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.DevourerofGods/DevourerofGodsHead.cs",
+          "line": 313,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.DevourerofGods/DevourerofGodsHead.cs",
+          "line": 3322,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": [
+        "Здоровье головы; показатели отдельных сегментов и фаз не являются независимыми общими запасами босса."
+      ]
+    },
+    "Yharon": {
+      "npc": "Yharon",
+      "name": "Yharon, Dragon of Rebirth",
+      "health": {
+        "classic": 1000000,
+        "expert": 1600000,
+        "revenge": 2496000,
+        "master": 2040000,
+        "death": 3182400,
+        "masterRevenge": 3182400
+      },
+      "rawHealth": {
+        "normal": 1000000,
+        "revengeance": 1560000,
+        "bossRush": 740000
+      },
+      "healthLabel": "Начальное здоровье, 1 игрок",
+      "damage": {
+        "classic": 210,
+        "expert": 420,
+        "revenge": 420,
+        "master": 630,
+        "death": 630,
+        "masterRevenge": 630
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 90,
+        "expert": 90,
+        "revenge": 90,
+        "master": 90,
+        "death": 90,
+        "masterRevenge": 90
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.Yharon/Yharon.cs",
+          "line": 123,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.Yharon/Yharon.cs",
+          "line": 3771,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": []
+    },
+    "ExoMechs": {
+      "npc": "Apollo",
+      "name": "XS-03 Apollo",
+      "health": {
+        "classic": 1000000,
+        "expert": 1600000,
+        "revenge": 2392000,
+        "master": 2040000,
+        "death": 3049800,
+        "masterRevenge": 3049800
+      },
+      "rawHealth": {
+        "normal": 1000000,
+        "revengeance": 1495000,
+        "bossRush": 650000
+      },
+      "healthLabel": "Начальное здоровье, 1 игрок",
+      "damage": {
+        "classic": 240,
+        "expert": 480,
+        "revenge": 480,
+        "master": 720,
+        "death": 720,
+        "masterRevenge": 720
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 100,
+        "expert": 100,
+        "revenge": 100,
+        "master": 100,
+        "death": 100,
+        "masterRevenge": 100
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.ExoMechs.Apollo/Apollo.cs",
+          "line": 161,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.ExoMechs.Apollo/Apollo.cs",
+          "line": 2000,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": [
+        "Показан Apollo. Ares, Artemis и Thanatos приведены отдельно; связь здоровья близнецов и порядок добивания требуют отдельного учёта."
+      ],
+      "components": [
+        {
+          "npc": "AresBody",
+          "name": "XF-09 Ares",
+          "health": {
+            "classic": 1000000,
+            "expert": 1600000,
+            "revenge": 2392000,
+            "master": 2040000,
+            "death": 3049800,
+            "masterRevenge": 3049800
+          },
+          "rawHealth": {
+            "normal": 1000000,
+            "revengeance": 1495000,
+            "bossRush": 650000
+          },
+          "healthLabel": "Начальное здоровье, 1 игрок",
+          "damage": {
+            "classic": 0,
+            "expert": 0,
+            "revenge": 0,
+            "master": 0,
+            "death": 0,
+            "masterRevenge": 0
+          },
+          "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+          "defense": {
+            "classic": 100,
+            "expert": 100,
+            "revenge": 100,
+            "master": 100,
+            "death": 100,
+            "masterRevenge": 100
+          },
+          "defenseLabel": "Защита при создании NPC",
+          "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+          "evidence": [
+            {
+              "path": "sources/decompiled/CalamityMod.NPCs.ExoMechs.Ares/AresBody.cs",
+              "line": 256,
+              "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+            },
+            {
+              "path": "sources/decompiled/CalamityMod.NPCs.ExoMechs.Ares/AresBody.cs",
+              "line": 2168,
+              "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+            }
+          ],
+          "notes": [
+            "Урон тела при создании равен 0; оружие Ares и его снаряды имеют отдельный урон."
+          ]
+        },
+        {
+          "npc": "Artemis",
+          "name": "XS-01 Artemis",
+          "health": {
+            "classic": 1000000,
+            "expert": 1600000,
+            "revenge": 2392000,
+            "master": 2040000,
+            "death": 3049800,
+            "masterRevenge": 3049800
+          },
+          "rawHealth": {
+            "normal": 1000000,
+            "revengeance": 1495000,
+            "bossRush": 650000
+          },
+          "healthLabel": "Начальное здоровье, 1 игрок",
+          "damage": {
+            "classic": 190,
+            "expert": 380,
+            "revenge": 380,
+            "master": 570,
+            "death": 570,
+            "masterRevenge": 570
+          },
+          "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+          "defense": {
+            "classic": 100,
+            "expert": 100,
+            "revenge": 100,
+            "master": 100,
+            "death": 100,
+            "masterRevenge": 100
+          },
+          "defenseLabel": "Защита при создании NPC",
+          "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+          "evidence": [
+            {
+              "path": "sources/decompiled/CalamityMod.NPCs.ExoMechs.Artemis/Artemis.cs",
+              "line": 198,
+              "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+            },
+            {
+              "path": "sources/decompiled/CalamityMod.NPCs.ExoMechs.Artemis/Artemis.cs",
+              "line": 1989,
+              "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+            }
+          ],
+          "notes": []
+        },
+        {
+          "npc": "ThanatosHead",
+          "name": "XM-05 Thanatos",
+          "health": {
+            "classic": 800000,
+            "expert": 1280000,
+            "revenge": 1840000,
+            "master": 1632000,
+            "death": 2346000,
+            "masterRevenge": 2346000
+          },
+          "rawHealth": {
+            "normal": 800000,
+            "revengeance": 1150000,
+            "bossRush": 600000
+          },
+          "healthLabel": "Начальное здоровье, 1 игрок",
+          "damage": {
+            "classic": 240,
+            "expert": 480,
+            "revenge": 480,
+            "master": 720,
+            "death": 720,
+            "masterRevenge": 720
+          },
+          "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+          "defense": {
+            "classic": 100,
+            "expert": 100,
+            "revenge": 100,
+            "master": 100,
+            "death": 100,
+            "masterRevenge": 100
+          },
+          "defenseLabel": "Защита при создании NPC",
+          "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+          "evidence": [
+            {
+              "path": "sources/decompiled/CalamityMod.NPCs.ExoMechs.Thanatos/ThanatosHead.cs",
+              "line": 181,
+              "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+            },
+            {
+              "path": "sources/decompiled/CalamityMod.NPCs.ExoMechs.Thanatos/ThanatosHead.cs",
+              "line": 1371,
+              "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+            }
+          ],
+          "notes": []
+        }
+      ]
+    },
+    "Calamitas": {
+      "npc": "SupremeCalamitas",
+      "name": "Supreme Witch, Calamitas",
+      "health": {
+        "classic": 750000,
+        "expert": 1200000,
+        "revenge": 1840000,
+        "master": 1530000,
+        "death": 2346000,
+        "masterRevenge": 2346000
+      },
+      "rawHealth": {
+        "normal": 750000,
+        "revengeance": 1150000,
+        "bossRush": 900000
+      },
+      "healthLabel": "Начальное здоровье, 1 игрок",
+      "damage": {
+        "classic": 210,
+        "expert": 420,
+        "revenge": 420,
+        "master": 630,
+        "death": 630,
+        "masterRevenge": 630
+      },
+      "damageLabel": "Урон при создании NPC; фазы и снаряды отдельно",
+      "defense": {
+        "classic": 100,
+        "expert": 100,
+        "revenge": 100,
+        "master": 100,
+        "death": 100,
+        "masterRevenge": 100
+      },
+      "defenseLabel": "Защита при создании NPC",
+      "scaling": "Terraria: HP ×1 / ×2 / ×3 в Classic / Expert / Master. В Expert+ затем int(HP × 0.8 × balance × bossAdjustment); для 1 игрока balance=1, bossAdjustment=0.85 в Master и 1 в Expert.",
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.SupremeCalamitas/SupremeCalamitas.cs",
+          "line": 456,
+          "detail": "SetDefaults: исходные характеристики; изменения специальных миров исключены."
+        },
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.SupremeCalamitas/SupremeCalamitas.cs",
+          "line": 5365,
+          "detail": "ApplyDifficultyAndPlayerScaling: множители после общего масштаба Terraria."
+        }
+      ],
+      "notes": []
+    }
+  },
+  "lootConditions": {
+    "normalOnly": {
+      "label": "Только классический режим",
+      "expression": "!Main.expertMode",
+      "modes": [
+        "classic"
+      ],
+      "notes": [],
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod/DropHelper.cs",
+          "line": 1182,
+          "detail": "DefineNormalOnlyDropSet -> Conditions.NotExpert"
+        }
+      ]
+    },
+    "expert": {
+      "label": "Expert и выше",
+      "expression": "Main.expertMode",
+      "modes": [
+        "expert",
+        "revenge",
+        "master",
+        "death"
+      ],
+      "notes": [],
+      "evidence": [
+        {
+          "path": "sources/tml/Terraria.GameContent.ItemDropRules.Conditions.decompiled.cs",
+          "member": "Terraria.GameContent.ItemDropRules.Conditions.IsExpert.CanDrop",
+          "line": 623
+        }
+      ]
+    },
+    "bossBag": {
+      "label": "Сумка босса: Expert и выше",
+      "expression": "DropBasedOnExpertMode(DropNothing(), per-client boss bag)",
+      "modes": [
+        "expert",
+        "revenge",
+        "master",
+        "death"
+      ],
+      "notes": [
+        "Содержимое сумки вычисляется отдельной таблицей ModifyItemLoot; нельзя выдавать обычный дроп NPC за содержимое сумки."
+      ],
+      "evidence": [
+        {
+          "path": "sources/tml/Terraria.GameContent.ItemDropRules.ItemDropRule.decompiled.cs",
+          "member": "Terraria.GameContent.ItemDropRules.ItemDropRule.BossBag",
+          "line": 10
+        }
+      ],
+      "chance": 100
+    },
+    "master": {
+      "label": "Только Master или Death",
+      "expression": "Main.masterMode",
+      "modes": [
+        "master",
+        "death"
+      ],
+      "notes": [],
+      "evidence": [
+        {
+          "path": "sources/tml/Terraria.GameContent.ItemDropRules.Conditions.decompiled.cs",
+          "member": "Terraria.GameContent.ItemDropRules.Conditions.IsMasterMode.CanDrop",
+          "line": 645
+        }
+      ]
+    },
+    "revAndMaster": {
+      "label": "Revengeance ИЛИ Master",
+      "expression": "Main.masterMode || CalamityWorld.revenge",
+      "modes": [
+        "revenge",
+        "master",
+        "death"
+      ],
+      "notes": [
+        "Имя RevAndMaster вводит в заблуждение: в коде используется OR, а не AND."
+      ],
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod/DropHelper.cs",
+          "line": 348,
+          "detail": "RevAndMaster"
+        },
+        {
+          "path": "sources/decompiled/CalamityMod/CalamityConditions.cs",
+          "line": 100,
+          "detail": "InRevengeanceModeOrMasterMode"
+        }
+      ]
+    },
+    "revNoMaster": {
+      "label": "Revengeance без Master",
+      "expression": "!Main.masterMode && CalamityWorld.revenge",
+      "modes": [
+        "revenge"
+      ],
+      "notes": [],
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod/CalamityConditions.cs",
+          "line": 98,
+          "detail": "InRevengeanceModeNotMasterMode"
+        }
+      ]
+    },
+    "revenge": {
+      "label": "Revengeance или Death",
+      "expression": "CalamityWorld.revenge",
+      "modes": [
+        "revenge",
+        "death"
+      ],
+      "notes": [],
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod/CalamityConditions.cs",
+          "line": 96,
+          "detail": "InRevengeanceMode"
+        }
+      ]
+    },
+    "death": {
+      "label": "Только Death",
+      "expression": "CalamityWorld.death",
+      "modes": [
+        "death"
+      ],
+      "notes": [
+        "Применять только к строкам, где такой предикат есть в источнике; сама редкость предмета не доказывает это условие."
+      ],
+      "evidence": []
+    },
+    "revBagAccessories": {
+      "label": "Аксессуары Revengeance из сумок",
+      "expression": "CalamityWorld.revenge; OneFromOptionsDropRule(20,1,HeartofDarkness,StressPills)",
+      "modes": [
+        "revenge",
+        "death"
+      ],
+      "notes": [
+        "Суммарно 5% на один из двух аксессуаров; по 2.5% на каждый при нулевой удаче. Условие проверяется при открытии сумки."
+      ],
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod/DropHelper.cs",
+          "line": 452,
+          "detail": "AddRevBagAccessories"
+        }
+      ],
+      "items": [
+        "HeartofDarkness",
+        "StressPills"
+      ],
+      "combinedChance": 5,
+      "individualChance": 2.5
+    },
+    "normalWeaponGroup": {
+      "label": "Оружие CalamityStyle в Classic",
+      "expression": "p=1/4; шанс отдельного предмета p+(1-p)^n/n",
+      "modes": [
+        "classic"
+      ],
+      "notes": [
+        "Это независимые броски на каждый предмет с гарантией одного случайного предмета, если все броски провалились; n — размер группы. Показанные проценты предполагают нулевую удачу."
+      ],
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod/DropHelper.cs",
+          "line": 250,
+          "detail": "NormalWeaponDropRateFraction"
+        },
+        {
+          "path": "sources/decompiled/CalamityMod/DropHelper.cs",
+          "line": 141,
+          "detail": "TryDroppingItem"
+        },
+        {
+          "path": "sources/decompiled/CalamityMod/DropHelper.cs",
+          "line": 167,
+          "detail": "ReportDroprates"
+        }
+      ],
+      "baseChance": 25
+    },
+    "bagWeaponGroup": {
+      "label": "Оружие CalamityStyle из сумки",
+      "expression": "p=1/3; шанс отдельного предмета p+(1-p)^n/n",
+      "modes": [
+        "expert",
+        "revenge",
+        "master",
+        "death"
+      ],
+      "notes": [
+        "Для группы из пяти предметов: 35.9671% на каждый из сумки; обычная группа с p=1/4 даёт 29.7461%. Не вся добыча использует эти групповые правила."
+      ],
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod/DropHelper.cs",
+          "line": 256,
+          "detail": "BagWeaponDropRateFraction"
+        },
+        {
+          "path": "sources/decompiled/CalamityMod/DropHelper.cs",
+          "line": 167,
+          "detail": "ReportDroprates"
+        }
+      ],
+      "baseChance": 33.333333333333336
+    },
+    "gfb": {
+      "label": "Только Get fixed boi / Zenith",
+      "expression": "Main.zenithWorld",
+      "modes": null,
+      "notes": [
+        "Не следует скрывать или подтверждать по одной лишь сложности: это отдельное условие специального мира."
+      ],
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod/DropHelper.cs",
+          "line": 344,
+          "detail": "GFB -> Condition.ZenithWorld"
+        }
+      ]
+    },
+    "firstKill": {
+      "label": "Первая победа в мире",
+      "expression": "!DownedBossSystem.downed<boss>",
+      "modes": null,
+      "notes": [
+        "Не гарантируется выбором режима. Проверяется соответствующий флаг победы конкретного босса."
+      ],
+      "evidence": [
+        {
+          "path": "sources/decompiled/CalamityMod.NPCs.DesertScourge/DesertScourgeHead.cs",
+          "line": 1197,
+          "detail": "Пример: LoreDesertScourge"
+        }
+      ]
+    },
+    "otherConditional": {
+      "label": "Дополнительное условие",
+      "expression": "predicate from source",
+      "modes": null,
+      "notes": [
+        "Время суток, биом, особый способ убийства, мир, прогресс и первая победа проверяются отдельно. Неизвестное условие нельзя считать выполненным только из-за выбранной сложности."
+      ],
+      "evidence": []
+    }
+  }
+}

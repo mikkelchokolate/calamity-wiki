@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Неофициальная энциклопедия Calamity Mod 2.2.4: классы, предметы, рецепты, боссы и прохождение.">
+  <title>Calamity Wiki — 2.2.4</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="data/catalog.js" defer></script>
+  <script src="data/guides.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
+  <header class="topbar">
+    <button class="icon-button menu-toggle" id="menu-toggle" type="button" aria-label="Открыть навигацию" aria-expanded="false" aria-controls="sidebar">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <a href="#/" class="brand" aria-label="Calamity Wiki — главная"><img src="assets/theme/logo.png" alt="Calamity" width="532" height="186"><span>НЕОФИЦИАЛЬНАЯ ВИКИ</span></a>
+    <form class="global-search" id="search-form" role="search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
+      <label class="sr-only" for="search">Поиск по вики</label>
+      <input id="search" type="search" placeholder="Предмет, босс, рецепт или механика…" autocomplete="off" aria-controls="search-results">
+      <kbd aria-hidden="true">/</kbd>
+      <div id="search-results" class="search-results" hidden></div>
+    </form>
+    <span class="version">2.2.4 <span class="offline-dot" title="Работает без интернета"></span></span>
+    <button class="icon-button" id="theme-toggle" type="button" aria-label="Включить светлую тему">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+    </button>
+  </header>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <nav aria-label="Разделы вики">
+        <a href="#/" data-nav="home">Главная</a>
+        <a href="#/progression" data-nav="progression">Прохождение</a>
+        <a href="#/classes" data-nav="classes">Классы и сборки</a>
+        <div class="nav-group">Энциклопедия</div>
+        <a href="#/items" data-nav="items">Предметы <span id="nav-item-count"></span></a>
+        <a href="#/bosses" data-nav="bosses">Боссы и события</a>
+        <a href="#/npcs" data-nav="npcs">Бестиарий</a>
+        <a href="#/world" data-nav="world">Биомы и мир</a>
+        <a href="#/mechanics" data-nav="mechanics">Механики и советы</a>
+        <a href="#/buffs" data-nav="buffs">Баффы и дебаффы</a>
+        <div class="nav-group">Ваше прохождение</div>
+        <a href="#/class/Summon" data-nav="Summon" class="class-nav"><span class="class-dot summon"></span>Призыватель <small>вы</small></a>
+        <a href="#/class/Ranged" data-nav="Ranged" class="class-nav"><span class="class-dot ranged"></span>Стрелок <small>друг</small></a>
+        <a href="#/favorites" data-nav="favorites">Избранное</a>
+        <a href="#/sources" data-nav="sources" class="sources-nav">О вики и источниках</a>
+      </nav>
+      <div class="sidebar-foot">Личная энциклопедия<br><strong>Calamity Mod 2.2.4</strong><br>Снимок от 15 ноября 2026</div>
+    </aside>
+    <main id="main" tabindex="-1"><div class="loading">Загружаем локальную энциклопедию…</div></main>
+  </div>
+  <div class="toast" id="toast" role="status" hidden></div>
+  <noscript><p class="notice">Для поиска и переходов включите JavaScript. Вики работает локально и не требует подключения к интернету.</p></noscript>
+</body>
+</html>

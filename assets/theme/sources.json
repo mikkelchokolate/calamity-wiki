@@ -1,0 +1,42 @@
+{
+  "logo.png": {
+    "source": "MainMenu/Logo",
+    "width": 532,
+    "height": 186
+  },
+  "menu-modern.png": {
+    "source": "MainMenu/ModernMenuBackground",
+    "width": 640,
+    "height": 360
+  },
+  "item-slot.png": {
+    "source": "UI/CalamitasEnchantments/CalamitasCurseItemSlot",
+    "width": 48,
+    "height": 50
+  },
+  "classic.png": {
+    "source": "UI/ModeIndicator/ModeIndicator_Classic",
+    "width": 78,
+    "height": 78
+  },
+  "expert.png": {
+    "source": "UI/ModeIndicator/ModeIndicator_Expert",
+    "width": 78,
+    "height": 78
+  },
+  "master.png": {
+    "source": "UI/ModeIndicator/ModeIndicator_Master",
+    "width": 78,
+    "height": 78
+  },
+  "rev.png": {
+    "source": "UI/ModeIndicator/ModeIndicator_Rev",
+    "width": 78,
+    "height": 78
+  },
+  "death.png": {
+    "source": "UI/ModeIndicator/ModeIndicator_Death",
+    "width": 78,
+    "height": 78
+  }
+}

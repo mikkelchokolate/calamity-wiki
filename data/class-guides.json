@@ -1,0 +1,2217 @@
+[
+  {
+    "id": "Melee",
+    "title": "Воин",
+    "summary": "Развитие воина в Calamity 2.2.4: от первых мечей до Auric Tesla и финального оружия. Выбирайте удобную дистанцию атаки и сохраняйте мобильность.",
+    "mechanics": [
+      {
+        "title": "Воин может атаковать с дистанции",
+        "body": "Многие мечи и молоты создают собственные снаряды. Для первого прохождения полезен вариант с безопасной дистанцией; прямые удары используйте в изученных окнах."
+      },
+      {
+        "title": "Скорость атаки работает неодинаково",
+        "body": "Fractured Ark не получает обычное ускорение от бонусов скорости ближнего боя. У разных мечей эти бонусы работают неодинаково: учитывайте свойства оружия, прежде чем менять защиту на скорость."
+      },
+      {
+        "title": "Парирование — отдельное действие",
+        "body": "У Fractured Ark есть действие на ПКМ и собственная механика парирования. Она требует времени и подходящей атаки врага; это не постоянная неуязвимость."
+      },
+      {
+        "title": "Biome Blade меняет способ боя",
+        "body": "Broken Biome Blade и True Biome Blade хранят основную и вторичную настройки. Изучите их до босса: одно название оружия не означает неизменную дальность или один набор ударов."
+      }
+    ],
+    "tips": [
+      "Не оставайтесь внутри хитбокса босса ради прямого удара: контактный урон быстро съедает преимущество брони.",
+      "Проверяйте рывок и высоту платформ с новым оружием. Атака с перемещением может перенести вас в опасную область.",
+      "Сохраняйте Fractured Ark, Broken Biome Blade и их улучшения: поздние рецепты используют прежние ступени.",
+      "Если босс быстро уходит с дистанции, попробуйте другую атаку, а не только ещё один бонус базового урона.",
+      "Reaver в маршруте выбран как вариант мобильности, а не как объявленный максимум урона."
+    ],
+    "coop": [
+      "Вы можете стоять ближе к боссу, но не обещайте группе, что агрессия всегда будет направлена на вас.",
+      "Предупреждайте о развороте: босс, пересекающий стрелка или призывателя, опаснее потерянного удара.",
+      "В опасной фазе отходите вместе с группой. Выживание сохраняет возможности для следующего окна атаки."
+    ],
+    "stages": [
+      {
+        "id": "start",
+        "title": "До первого босса",
+        "description": "Начните с крафтового Wulfrum Screwdriver; найденный Enchanted Sword даёт альтернативу. Обычный металлический комплект — удобная цель раннего сбора.",
+        "weapons": [
+          "WulfrumScrewdriver",
+          "v:EnchantedSword"
+        ],
+        "armor": [
+          "v:PlatinumHelmet",
+          "v:PlatinumChainmail",
+          "v:PlatinumGreaves"
+        ],
+        "accessories": [
+          "v:HermesBoots",
+          "v:CloudinaBottle",
+          "v:FeralClaws"
+        ],
+        "notes": "Wulfrum Screwdriver требует 10 Wulfrum Metal Scrap у наковальни. Enchanted Sword зависит от находки и не обязателен. Platinum можно заменить доступной металлической бронёй.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/WulfrumScrewdriver.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "desert",
+        "title": "После Пустынного Бича",
+        "description": "Victide с головой воина и Urchin Mace дают морскую ветку крафта. Teardrop Cleaver добавляется после победы над Глазом Ктулху.",
+        "weapons": [
+          "UrchinMace",
+          "TeardropCleaver"
+        ],
+        "armor": [
+          "VictideHeadMelee",
+          "VictideBreastplate",
+          "VictideGreaves"
+        ],
+        "accessories": [
+          "v:HermesBoots",
+          "v:FeralClaws",
+          "v:SharkToothNecklace"
+        ],
+        "notes": "Urchin Mace создаётся из 3 Sea Remains, Victide требует 12 на полный комплект. Teardrop Cleaver находится в добыче Глаза Ктулху и его мешка. До выпадения используйте крафтовый вариант: фармить босса ради одной рекомендации не обязательно.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/UrchinMace.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/TeardropCleaver.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideHeadMelee.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideGreaves.cs",
+          "sources/decompiled/CalamityMod.Items/CalamityGlobalItemLoot.cs",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "aerialite",
+        "title": "После Улья или Перфораторов",
+        "description": "Соберите Aerospec для воина. Broken Biome Blade открывает разные настройки, Tainted Blade даёт более прямую цепочку улучшений.",
+        "weapons": [
+          "BrokenBiomeBlade",
+          "TaintedBlade"
+        ],
+        "armor": [
+          "AerospecHeadMelee",
+          "AerospecBreastplate",
+          "AerospecLeggings"
+        ],
+        "accessories": [
+          "v:SpectreBoots",
+          "v:FeralClaws",
+          "v:SharkToothNecklace"
+        ],
+        "notes": "Broken Biome Blade требует деревянный меч, Aerialite Bar, Hellstone Bar, землю и камень. Tainted Blade — Acidwood, материал босса заражения и Deathweed. Aerospec требует 45 Aerialite Bar и 5 перьев. Настройки Biome Blade стоит изучить до опасной попытки.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/BrokenBiomeBlade.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/TaintedBlade.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecHeadMelee.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecLeggings.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "pre-hardmode",
+        "title": "После Бога слизней: Стена плоти",
+        "description": "Переходите на Statigel и выбирайте Fractured Ark с парированием либо Gelitic Blade. У Стены плоти сохраняйте свободу движения.",
+        "weapons": [
+          "FracturedArk",
+          "GeliticBlade"
+        ],
+        "armor": [
+          "StatigelHeadMelee",
+          "StatigelArmor",
+          "StatigelGreaves"
+        ],
+        "accessories": [
+          "v:SpectreBoots",
+          "v:FeralClaws",
+          "v:ObsidianShield"
+        ],
+        "notes": "Fractured Ark использует Enchanted Sword либо Terragrim, 10 Purified Gel и медные/оловянные слитки. Gelitic Blade требует по 14 Purified Gel и Blighted Gel у Solidifier; комплект Statigel — по 30 каждого. Парирование относится к Ark и не появляется у другого меча из-за общего класса.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/FracturedArk.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/GeliticBlade.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Statigel/StatigelHeadMelee.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Statigel/StatigelArmor.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Statigel/StatigelGreaves.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "hardmode",
+        "title": "Начало хардмода",
+        "description": "Palladium с маской воина даёт первую смену брони. True Caustic Edge и Comet Quasher используют ранние хардмодные материалы.",
+        "weapons": [
+          "TrueCausticEdge",
+          "CometQuasher"
+        ],
+        "armor": [
+          "v:PalladiumMask",
+          "v:PalladiumBreastplate",
+          "v:PalladiumLeggings"
+        ],
+        "accessories": [
+          "v:WarriorEmblem",
+          "v:PowerGlove",
+          "v:LightningBoots",
+          "v:CharmofMyths"
+        ],
+        "notes": "True Caustic Edge улучшает Tainted Blade за Cursed Flame/Ichor и Spider Fang. Comet Quasher требует Meteorite Bar, Essence of Sunlight, Fallen Star и Starblight Soot. Доступность руд зависит от настроек раннего хардмода: высокие слитки не обязательно открыты сразу после Стены.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/TrueCausticEdge.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/CometQuasher.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "post-mechs",
+        "title": "Все механические боссы и Криоген",
+        "description": "Наденьте Daedalus. True Biome Blade продолжает знакомые настройки, а Pwnagehammer предлагает другой способ атаки.",
+        "weapons": [
+          "TrueBiomeBlade",
+          "Pwnagehammer"
+        ],
+        "armor": [
+          "DaedalusHeadMelee",
+          "DaedalusBreastplate",
+          "DaedalusLeggings"
+        ],
+        "accessories": [
+          "v:WarriorEmblem",
+          "v:PowerGlove",
+          "AngelTreads",
+          "OrnateShield"
+        ],
+        "notes": "Оба оружия требуют души трёх механических боссов. True Biome Blade дополнительно использует Broken Biome Blade, Pixie Dust и Starblight Soot; Pwnagehammer — Pwnhammer и Hallowed Bar. Daedalus требует Cryonic Bar; Ornate Shield — их же и Crystal Shard.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/TrueBiomeBlade.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/Pwnagehammer.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Daedalus/DaedalusHeadMelee.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Daedalus/DaedalusBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Daedalus/DaedalusLeggings.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AngelTreads.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/OrnateShield.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "post-plantera",
+        "title": "После Плантеры",
+        "description": "Подвижный Reaver помогает учить следующие бои. True Ark of the Ancients и Abyss Blade продолжают две разные оружейные ветки.",
+        "weapons": [
+          "TrueArkoftheAncients",
+          "AbyssBlade"
+        ],
+        "armor": [
+          "ReaverHeadMobility",
+          "ReaverScaleMail",
+          "ReaverCuisses"
+        ],
+        "accessories": [
+          "v:WarriorEmblem",
+          "v:FireGauntlet",
+          "AngelTreads",
+          "AsgardsValor"
+        ],
+        "notes": "Reaver создаётся из Perennial Bar; выбрана голова с бонусами мобильности. True Ark требует Fractured Ark, Starfury и Broken Hero Sword. Abyss Blade — Depth Crusher, Voidstone и Depth Cells. В 2.2.4 Depth Cells открываются после Левиафана, одной Плантеры недостаточно. Asgard’s Valor использует Core of Calamity с эктоплазмой.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/TrueArkoftheAncients.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/AbyssBlade.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Reaver/ReaverHeadMobility.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Reaver/ReaverScaleMail.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Reaver/ReaverCuisses.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AngelTreads.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs.Abyss/Viperfish.cs"
+        ]
+      },
+      {
+        "id": "pre-moon-lord",
+        "title": "После Голема: путь к Лунному лорду",
+        "description": "Hydrothermic для воина даёт комплект из Scoria. Omniblade — крафтовая цель, Soul Harvester — вариант с чумными материалами.",
+        "weapons": [
+          "Omniblade",
+          "SoulHarvester"
+        ],
+        "armor": [
+          "HydrothermicHeadMelee",
+          "HydrothermicArmor",
+          "HydrothermicSubligar"
+        ],
+        "accessories": [
+          "v:WarriorEmblem",
+          "v:FireGauntlet",
+          "AngelTreads",
+          "AsgardsValor"
+        ],
+        "notes": "Omniblade объединяет Katana, 5 Life Alloy и 2 Core of Calamity. Life Alloy включает Scoria; для её добычи нужна кирка от 210, поэтому маршрут относит оружие к этапу после Голема. Soul Harvester требует Death Sickle, Plague Cell Canister и Cursed Flame. Hydrothermic использует 45 Scoria Bar на комплект.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/Omniblade.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/SoulHarvester.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Hydrothermic/HydrothermicHeadMelee.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Hydrothermic/HydrothermicArmor.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Hydrothermic/HydrothermicSubligar.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AngelTreads.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/LifeAlloy.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.Tiles.Ores/ScoriaOre.cs"
+        ]
+      },
+      {
+        "id": "post-moon-lord",
+        "title": "После Лунного лорда: перед Провиденс",
+        "description": "Solar Flare и лунные улучшения готовят к новым боссам. Ark of the Elements продолжает парирование, Stellar Striker — ветку Comet Quasher.",
+        "weapons": [
+          "ArkoftheElements",
+          "StellarStriker"
+        ],
+        "armor": [
+          "v:SolarFlareHelmet",
+          "v:SolarFlareBreastplate",
+          "v:SolarFlareLeggings"
+        ],
+        "accessories": [
+          "v:FireGauntlet",
+          "v:WarriorEmblem",
+          "MoonWalkers",
+          "AsgardsValor"
+        ],
+        "notes": "Ark of the Elements требует True Ark of the Ancients, Luminite, Life Alloy и Solar Fragment. Stellar Striker — Comet Quasher и 5 Luminite Bar. Moon Walkers создаются из Angel Treads, Souls of Flight и Luminite. Это варианты управления, а не числовой рейтинг.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/ArkoftheElements.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/StellarStriker.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories.Wings/MoonWalkers.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "post-providence",
+        "title": "Провиденс → Полтергаст",
+        "description": "Tarragon и Terratomere доступны раньше Bloodflare и трофеев Полтергаста. Улучшайте комплект по мере побед.",
+        "weapons": [
+          "Terratomere",
+          "BansheeHook",
+          "TerrorBlade"
+        ],
+        "armor": [
+          "TarragonHeadMelee",
+          "TarragonBreastplate",
+          "TarragonLeggings",
+          "BloodflareHeadMelee",
+          "BloodflareBodyArmor",
+          "BloodflareCuisses"
+        ],
+        "accessories": [
+          "v:FireGauntlet",
+          "v:WarriorEmblem",
+          "VoidStriders",
+          "AsgardsValor"
+        ],
+        "notes": "Terratomere улучшает Terra Blade за 18 Uelibloom Bar. Banshee Hook и Terror Blade выпадают с Полтергаста. Bloodflare требует Ruinous Soul, а Void Striders — материалы трёх стражей. К первой попытке Полтергаста используйте раннюю часть этой строки.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/Terratomere.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/BansheeHook.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/TerrorBlade.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Tarragon/TarragonHeadMelee.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Tarragon/TarragonBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Tarragon/TarragonLeggings.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Bloodflare/BloodflareHeadMelee.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Bloodflare/BloodflareBodyArmor.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Bloodflare/BloodflareCuisses.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories.Wings/VoidStriders.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
+          "sources/decompiled/CalamityMod.Items.TreasureBags/PolterghastBag.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "post-devourer",
+        "title": "После Пожирателя Богов: перед Яроном",
+        "description": "God Slayer и Cosmilite открывают следующую ступень. Cosmic Shiv продолжает Lightspeed, Essence Flayer имеет прямой рецепт из слитков.",
+        "weapons": [
+          "CosmicShiv",
+          "EssenceFlayer"
+        ],
+        "armor": [
+          "GodSlayerHeadMelee",
+          "GodSlayerChestplate",
+          "GodSlayerLeggings"
+        ],
+        "accessories": [
+          "v:FireGauntlet",
+          "v:WarriorEmblem",
+          "VoidStriders",
+          "AsgardianAegis"
+        ],
+        "notes": "Cosmic Shiv требует Lightspeed и 10 Cosmilite Bar; Essence Flayer — 10 Cosmilite Bar, станция — Cosmic Anvil. God Slayer и Asgardian Aegis требуют Ascendant Spirit Essence из событий после Пожирателя. Для щита сохраните Asgard’s Valor и Elysian Aegis с Провиденс.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/CosmicShiv.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/EssenceFlayer.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.GodSlayer/GodSlayerHeadMelee.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.GodSlayer/GodSlayerChestplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.GodSlayer/GodSlayerLeggings.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories.Wings/VoidStriders.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardianAegis.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/AscendantSpiritEssence.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs.Providence/Providence.cs"
+        ]
+      },
+      {
+        "id": "endgame",
+        "title": "После Ярона и финальные улучшения",
+        "description": "С Auric Tesla сначала соберите Ark of the Cosmos. Exoblade и Draconic Destruction открываются после заключительных побед.",
+        "weapons": [
+          "ArkoftheCosmos",
+          "Exoblade",
+          "DraconicDestruction"
+        ],
+        "armor": [
+          "AuricTeslaHeadMelee",
+          "AuricTeslaBodyArmor",
+          "AuricTeslaCuisses"
+        ],
+        "accessories": [
+          "v:FireGauntlet",
+          "v:WarriorEmblem",
+          "SeraphTracers",
+          "AsgardianAegis"
+        ],
+        "notes": "Ark of the Cosmos использует Four Seasons Galaxia, Ark of the Elements и Auric Bar. Exoblade требует Miracle Matter и доступен после Экзо-мехов. Draconic Destruction требует Shadowspec Bar: нужны материалы Экзо-мехов и Верховной Каламитас. Сохраняйте Tarragon, Bloodflare и God Slayer для Auric Tesla.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/ArkoftheCosmos.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/Exoblade.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/DraconicDestruction.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Auric/AuricTeslaHeadMelee.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Auric/AuricTeslaBodyArmor.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Auric/AuricTeslaCuisses.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories.Wings/SeraphTracers.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardianAegis.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/MiracleMatter.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/ShadowspecBar.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Ranged",
+    "title": "Стрелок",
+    "summary": "Луки, огнестрельное оружие и ракеты на каждом этапе Calamity 2.2.4. Советы по боеприпасам, броне и совместной игре с призывателем помогут собрать подходящий набор.",
+    "mechanics": [
+      {
+        "title": "Стартовая броня этой версии — Snow Ruffian",
+        "body": "В 2.2.4 Snow Ruffian повышает урон стрелка и крит, позволяет планировать и накладывает Frostburn при критах. Desert Prowler теперь относится к разбойнику. Старые рекомендации стартовой брони с Desert Prowler для этой сборки неверны."
+      },
+      {
+        "title": "Оружие может менять свойства боеприпаса",
+        "body": "Aquashard Shotgun превращает обычные Musket Ball в водные осколки, Clamor Rifle — в самонаводящиеся болты. Archerfish меняет обычную пулю на водный снаряд, но сохраняет иной тип специальной пули. Проверяйте механику ствола перед покупкой дорогих патронов."
+      },
+      {
+        "title": "Попадания важнее числа в подсказке",
+        "body": "Разброс, задержка очереди, разгон и способность попасть по движущейся цели часто важнее базового урона. Лук и дробовик на одном этапе — альтернативы под босса и вашу точность, а не обязательные предметы одинаковой силы."
+      },
+      {
+        "title": "Оружие использует разные ресурсы",
+        "body": "Wulfrum Blunderbuss заряжается вульфрумовым ломом либо серебряными монетами. Firestorm Cannon перегревается при непрерывном огне. Запас обычных пуль не решает все задачи оружия с особым управлением."
+      },
+      {
+        "title": "Аксессуар должен соответствовать оружию",
+        "body": "Колчан предназначен для лука; не считайте его автоматической прибавкой к пулемёту. Daawnlight Spirit Origin поощряет попадания по появляющимся отметкам и требует точности. Если эффект мешает контролировать арену, обычный классовый или защитный аксессуар может быть удобнее."
+      },
+      {
+        "title": "Поздние оружия имеют цену ошибки",
+        "body": "Drataliornus разгоняет поток стрел, но получение урона прерывает его и сокращает время полёта крыльев. Для незнакомого боя это условие, которое нужно учитывать, а не безоговорочное преимущество над другим луком."
+      }
+    ],
+    "tips": [
+      "Перед боссом проверьте количество и порядок стопок боеприпасов. Не тратьте дорогие патроны без проверки того, что оружие сохраняет их свойства.",
+      "Держите один вариант для крупных медленных целей и другой для быстрой цели. Не нужно создавать всё из каждой строки.",
+      "Стройте арену так, чтобы блоки не перекрывали линию огня. Следите за выстрелами, которые уходят в стены.",
+      "Во время рывка босса сначала уклонитесь, затем верните прицел. Стрельба ценой гарантированного попадания по вам не даёт стабильного преимущества.",
+      "При смене лука на ружьё проверьте головной убор Shroomite и колчан: бонусы должны совпадать с оружием.",
+      "Сохраняйте цепочки Archerfish → Megalodon → Seadragon и Onyx Blaster → Onyx Chain Blaster → Onyxia.",
+      "В тесной пещере широкая атака может оказаться неудобнее прямой. Большое количество снарядов само по себе не означает больше попаданий.",
+      "Порядок предполагает обычную прогрессию. Secret seeds, другие моды и настройки раннего хардмода могут менять доступность материалов."
+    ],
+    "coop": [
+      "Выберите общий маршрут с призывателем. При одинаковом направлении проще держать босса в прицеле и не вынуждать его пересекать арену через напарника.",
+      "Пусть призыватель поддерживает доступные ослабления, а вы — огонь. Если он занят уклонением, временно помогут подходящие ослабляющие боеприпасы.",
+      "Не рассчитывайте на гарантированное танкование миньонами: они не заменяют контроль движения босса.",
+      "Для поддержки Wulfrum Controller дайте другу возможность держать курсор рядом с вами; дальний рывок может вывести вас из зоны помощи.",
+      "После появления Cosmic Viper Engine пули понадобятся обоим игрокам. Согласуйте типы и разделите запас до вызова босса.",
+      "При смерти друга продолжайте предсказуемое движение и сохраняйте безопасную дистанцию. План возвращения важнее немедленной компенсации всего потерянного урона."
+    ],
+    "stages": [
+      {
+        "id": "start",
+        "title": "До первого босса",
+        "description": "Соберите Snow Ruffian, если готовы добыть мех Flinx. Wulfrum Blunderbuss даёт близкую дробовую атаку, Acidwood Bow — простой дальний вариант.",
+        "weapons": [
+          "WulfrumBlunderbuss",
+          "AcidwoodBow"
+        ],
+        "armor": [
+          "SnowRuffianMask",
+          "SnowRuffianChestplate",
+          "SnowRuffianGreaves"
+        ],
+        "accessories": [
+          "v:HermesBoots",
+          "v:CloudinaBottle",
+          "v:SharkToothNecklace"
+        ],
+        "notes": "Snow Ruffian требует 45 Boreal Wood, 15 Silk и 4 Flinx Fur на комплект; в 2.2.4 это броня стрелка. Blunderbuss создаётся из 10 Wulfrum Metal Scrap и имеет систему зарядки ломом/серебром. Acidwood Bow требует 10 Acidwood у верстака. Shark Tooth Necklace — необязательная добыча Кровавой луны; без неё оставьте обычную защиту.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/WulfrumBlunderbuss.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/AcidwoodBow.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.SnowRuffian/SnowRuffianMask.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.SnowRuffian/SnowRuffianChestplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.SnowRuffian/SnowRuffianGreaves.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "desert",
+        "title": "После Пустынного Бича",
+        "description": "Victide с головой стрелка — следующий классовый комплект. Storm Surge и Reed Blowgun используют морские материалы; Fungicide — альтернатива после Крабулона.",
+        "weapons": [
+          "StormSurge",
+          "ReedBlowgun",
+          "Fungicide"
+        ],
+        "armor": [
+          "VictideHeadRanged",
+          "VictideBreastplate",
+          "VictideGreaves"
+        ],
+        "accessories": [
+          "v:HermesBoots",
+          "v:CloudinaBottle",
+          "v:SharkToothNecklace"
+        ],
+        "notes": "Storm Surge требует Stormlion Mandible, Pearl Shard, Sea Prism и Navystone. Reed Blowgun создаётся из 2 Sea Remains, полный Victide — из 12. Fungicide выпадает с Крабулона: не задерживайте прогрессию ради конкретного случайного оружия. Порядок Крабулона и Пустынного Бича можно менять по комфорту.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/StormSurge.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/ReedBlowgun.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/Fungicide.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideHeadRanged.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideGreaves.cs",
+          "sources/decompiled/CalamityMod.Items.TreasureBags/CrabulonBag.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/SeaRemains.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "aerialite",
+        "title": "После Улья или Перфораторов",
+        "description": "С Aerospec проверьте Galeforce для залпов и Aquashard Shotgun для уверенных близких попаданий. Firestorm Cannon требует контроля перегрева.",
+        "weapons": [
+          "Galeforce",
+          "AquashardShotgun",
+          "FirestormCannon"
+        ],
+        "armor": [
+          "AerospecHeadRanged",
+          "AerospecBreastplate",
+          "AerospecLeggings"
+        ],
+        "accessories": [
+          "v:SpectreBoots",
+          "v:SharkToothNecklace",
+          "v:BandofRegeneration"
+        ],
+        "notes": "Galeforce создаётся из 10 Aerialite Bar. Aquashard Shotgun соединяет Boomstick, 2 Aerialite Bar и 10 Sea Prism; обычные пули становятся дробящимися водными осколками. Firestorm Cannon требует Flare Gun, 10 Hellstone Bar и Illegal Gun Parts. Aerospec использует 45 Aerialite Bar и 5 перьев. Не держите Firestorm до перегрева без учёта его штрафа.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/Galeforce.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/AquashardShotgun.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/FirestormCannon.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecHeadRanged.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecLeggings.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "pre-hardmode",
+        "title": "После Бога слизней: Стена плоти",
+        "description": "Statigel даёт мобильность. Goobow — крафтовая ветка, Archerfish — награда за подготовленное исследование Бездны; Firestorm можно оставить альтернативой.",
+        "weapons": [
+          "Goobow",
+          "Archerfish",
+          "FirestormCannon"
+        ],
+        "armor": [
+          "StatigelHeadRanged",
+          "StatigelArmor",
+          "StatigelGreaves"
+        ],
+        "accessories": [
+          "v:SpectreBoots",
+          "v:SharkToothNecklace",
+          "v:ObsidianShield"
+        ],
+        "notes": "Goobow требует по 14 Purified Gel и Blighted Gel у Solidifier; Statigel — по 30 каждого. Archerfish находится в сундуках Бездны, которые в обычном мире открываются после Скелетрона. Hydrothermal Crate — дополнительный источник уже в хардмоде. Подготовьте дыхание и путь возвращения. Goobow позволяет не откладывать Стену ради конкретного сундука.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/Goobow.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/Archerfish.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/FirestormCannon.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Statigel/StatigelHeadRanged.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Statigel/StatigelArmor.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Statigel/StatigelGreaves.cs",
+          "sources/decompiled/CalamityMod.World/Abyss.cs",
+          "sources/decompiled/CalamityMod.Items.Fishing.SulphurCatches/HydrothermalCrate.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.Tiles.Abyss/AbyssTreasureChest.cs",
+          "sources/decompiled/CalamityMod.Tiles/FurnitureCommon.cs"
+        ]
+      },
+      {
+        "id": "hardmode",
+        "title": "Начало хардмода",
+        "description": "По мере доступа к руде смените ранний комплект на Palladium для стрелка. Flarewing Bow и ванильные хардмодные варианты подойдут для подготовки к первым механическим боссам.",
+        "weapons": [
+          "FlarewingBow",
+          "v:OnyxBlaster",
+          "v:DaedalusStormbow"
+        ],
+        "armor": [
+          "v:PalladiumHelmet",
+          "v:PalladiumBreastplate",
+          "v:PalladiumLeggings"
+        ],
+        "accessories": [
+          "v:RangerEmblem",
+          "v:MagicQuiver",
+          "v:LightningBoots",
+          "v:CharmofMyths"
+        ],
+        "notes": "Flarewing Bow улучшает Hellwing Bow с Essence of Sunlight, Living Fire Block и Obsidian. Onyx Blaster и Daedalus Stormbow требуют отдельных материалов/добычи и не гарантированы сразу после Стены. Palladium Helmet — голова стрелка. Доступ к рудам зависит от настроек раннего хардмода. Magic Quiver выбирайте для лука.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/FlarewingBow.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "post-mechs",
+        "title": "Все механические боссы и Криоген",
+        "description": "Daedalus даёт актуальный комплект. Arbalest стреляет очередями, Clamor Rifle предлагает самонаведение обычных пуль, Frostbite Blaster продаётся Архимагом.",
+        "weapons": [
+          "Arbalest",
+          "ClamorRifle",
+          "FrostbiteBlaster",
+          "v:Megashark"
+        ],
+        "armor": [
+          "DaedalusHeadRanged",
+          "DaedalusBreastplate",
+          "DaedalusLeggings"
+        ],
+        "accessories": [
+          "v:RangerEmblem",
+          "v:MagicQuiver",
+          "AngelTreads",
+          "OrnateShield"
+        ],
+        "notes": "Arbalest требует Mythril/Orichalcum, Cog и Souls of Sight. Clamor Rifle выпадает с Giant Clam только в хардмоде. Для покупки Frostbite Blaster нужно освободить Архимага через Криогена. Daedalus требует Cryonic Bar и высокоуровневую печь. Deadshot Brooch здесь не указан: его Core of Calamity включает эктоплазму после Плантеры.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/Arbalest.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/ClamorRifle.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/FrostbiteBlaster.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Daedalus/DaedalusHeadRanged.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Daedalus/DaedalusBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Daedalus/DaedalusLeggings.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AngelTreads.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/OrnateShield.cs",
+          "sources/decompiled/CalamityMod.NPCs.SunkenSea/GiantClam.cs",
+          "sources/decompiled/CalamityMod.NPCs.TownNPCs/Archmage.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/CoreofCalamity.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "post-plantera",
+        "title": "После Плантеры",
+        "description": "Соберите Shroomite с головой под пули или стрелы. Megalodon продолжает рыбную ветку; The Ballista — крафтовый лук с материалами обновлённого Данжа.",
+        "weapons": [
+          "Megalodon",
+          "TheBallista",
+          "v:TacticalShotgun"
+        ],
+        "armor": [
+          "v:ShroomiteMask",
+          "v:ShroomiteHeadgear",
+          "v:ShroomiteBreastplate",
+          "v:ShroomiteLeggings"
+        ],
+        "accessories": [
+          "DeadshotBrooch",
+          "v:MagicQuiver",
+          "AngelTreads",
+          "AsgardsValor"
+        ],
+        "notes": "В списке две альтернативные головы Shroomite: Mask для пуль, Headgear для стрел. Megalodon соединяет Megashark, Archerfish, Depth Cells и Planty Mush. Depth Cells в 2.2.4 открываются после Левиафана, одной Плантеры недостаточно. The Ballista требует Marrow, Forbidden Fragment и Ectoplasm. Deadshot Brooch и Asgard’s Valor используют Core of Calamity.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/Megalodon.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/TheBallista.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/DeadshotBrooch.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AngelTreads.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/CoreofCalamity.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs.Abyss/Viperfish.cs"
+        ]
+      },
+      {
+        "id": "pre-moon-lord",
+        "title": "После Голема: путь к Лунному лорду",
+        "description": "Plague Reaper и три типа оружия дают выбор под арену. Continental Greatbow строится из Scoria; Plague-Tainted SMG и The Hive требуют чумных материалов.",
+        "weapons": [
+          "ContinentalGreatbow",
+          "PlagueTaintedSMG",
+          "TheHive"
+        ],
+        "armor": [
+          "PlagueReaperMask",
+          "PlagueReaperVest",
+          "PlagueReaperStriders"
+        ],
+        "accessories": [
+          "DeadshotBrooch",
+          "v:MagicQuiver",
+          "AngelTreads",
+          "AsgardsValor"
+        ],
+        "notes": "Continental Greatbow требует 10 Scoria Bar. Plague-Tainted SMG соединяет Black Hawk Remote, Uzi, Helstorm и Infected Armor Plating. The Hive требует Mineral Mortar, бронепластины и Plague Cell Canister; зарядка меняет разброс и полный выстрел. Plague Reaper использует Necro armor, чумные канистры и Nanites. Scoria добывается киркой от 210. Колчан предназначен для лука.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/ContinentalGreatbow.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/PlagueTaintedSMG.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/TheHive.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.PlagueReaper/PlagueReaperMask.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.PlagueReaper/PlagueReaperVest.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.PlagueReaper/PlagueReaperStriders.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/DeadshotBrooch.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AngelTreads.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.Tiles.Ores/ScoriaOre.cs"
+        ]
+      },
+      {
+        "id": "post-moon-lord",
+        "title": "После Лунного лорда: перед Провиденс",
+        "description": "Наденьте Vortex и доведите оружие до лунного тира. Onyx Chain Blaster продолжает существующую цепочку; SDMG зависит от трофея Лунного лорда.",
+        "weapons": [
+          "OnyxChainBlaster",
+          "v:Phantasm",
+          "v:SDMG"
+        ],
+        "armor": [
+          "v:VortexHelmet",
+          "v:VortexBreastplate",
+          "v:VortexLeggings"
+        ],
+        "accessories": [
+          "DaawnlightSpiritOrigin",
+          "v:MagicQuiver",
+          "MoonWalkers",
+          "AsgardsValor"
+        ],
+        "notes": "Onyx Chain Blaster соединяет Onyx Blaster, Chain Gun и 5 Luminite Bar. Daawnlight Spirit Origin требует Deadshot Brooch, детали лабораторий, Luminite и Vortex Fragment. SDMG не обязателен с первой победы. Если прицеливание по отметкам Daawnlight неудобно, оставьте более простой аксессуар и сосредоточьтесь на уклонении.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/OnyxChainBlaster.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/DaawnlightSpiritOrigin.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories.Wings/MoonWalkers.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "post-providence",
+        "title": "Провиденс → стражи → Полтергаст",
+        "description": "Начните с Tarragon и добычи Провиденс. После Полтергаста добавьте Bloodflare, Daemon’s Flame и Seadragon: они не являются подготовкой к самому Полтергасту.",
+        "weapons": [
+          "BlissfulBombardier",
+          "NettlevineGreatbow",
+          "DaemonsFlame",
+          "Seadragon"
+        ],
+        "armor": [
+          "TarragonHeadRanged",
+          "TarragonBreastplate",
+          "TarragonLeggings",
+          "BloodflareHeadRanged",
+          "BloodflareBodyArmor",
+          "BloodflareCuisses"
+        ],
+        "accessories": [
+          "DaawnlightSpiritOrigin",
+          "QuiverofNihility",
+          "VoidStriders",
+          "AsgardsValor"
+        ],
+        "notes": "Blissful Bombardier выпадает с Провиденс; Nettlevine Greatbow создаётся из 12 Uelibloom Bar. Daemon’s Flame — трофей Полтергаста. Seadragon требует Megalodon, Necroplasm, Sea Prism и Armored Shell. Bloodflare использует Ruinous Soul; Quiver of Nihility — Dark Plasma, Void Striders — материалы трёх стражей. Строка объединяет несколько последовательных улучшений.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/BlissfulBombardier.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/NettlevineGreatbow.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/DaemonsFlame.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/Seadragon.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Tarragon/TarragonHeadRanged.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Tarragon/TarragonBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Tarragon/TarragonLeggings.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Bloodflare/BloodflareHeadRanged.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Bloodflare/BloodflareBodyArmor.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Bloodflare/BloodflareCuisses.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/DaawnlightSpiritOrigin.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/QuiverofNihility.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories.Wings/VoidStriders.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
+          "sources/decompiled/CalamityMod.Items.TreasureBags/ProvidenceBag.cs",
+          "sources/decompiled/CalamityMod.Items.TreasureBags/PolterghastBag.cs"
+        ]
+      },
+      {
+        "id": "post-devourer",
+        "title": "После Пожирателя Богов: перед Яроном",
+        "description": "God Slayer и оружие на Cosmilite готовят к поздним боям. SDFMG и Onyxia — пулевые альтернативы, Alluvion продолжает ветку Monsoon.",
+        "weapons": [
+          "SDFMG",
+          "Alluvion",
+          "Onyxia"
+        ],
+        "armor": [
+          "GodSlayerHeadRanged",
+          "GodSlayerChestplate",
+          "GodSlayerLeggings"
+        ],
+        "accessories": [
+          "DaawnlightSpiritOrigin",
+          "QuiverofNihility",
+          "VoidStriders",
+          "AsgardianAegis"
+        ],
+        "notes": "SDFMG требует SDMG, Cosmilite и Endothermic Energy; Alluvion — Monsoon, Cosmilite, Endothermic Energy и Lumenyl. Onyxia использует Onyx Chain Blaster, Cosmilite и Darksun Fragment. God Slayer требует Ascendant Spirit Essence: после Пожирателя повторите затмение и обе праздничные луны. Для Asgardian Aegis сохраните Asgard’s Valor и Elysian Aegis с Провиденс.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/SDFMG.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/Alluvion.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/Onyxia.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.GodSlayer/GodSlayerHeadRanged.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.GodSlayer/GodSlayerChestplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.GodSlayer/GodSlayerLeggings.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/DaawnlightSpiritOrigin.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/QuiverofNihility.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories.Wings/VoidStriders.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardianAegis.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/AscendantSpiritEssence.cs",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs",
+          "sources/decompiled/CalamityMod.NPCs.Providence/Providence.cs"
+        ]
+      },
+      {
+        "id": "endgame",
+        "title": "После Ярона и финальные улучшения",
+        "description": "Auric Tesla и Drataliornus доступны к началу заключительного этапа. Heavenly Gale, Photoviscerator и Condemnation открываются по мере финальных побед.",
+        "weapons": [
+          "Drataliornus",
+          "HeavenlyGale",
+          "Photoviscerator",
+          "Condemnation"
+        ],
+        "armor": [
+          "AuricTeslaHeadRanged",
+          "AuricTeslaBodyArmor",
+          "AuricTeslaCuisses"
+        ],
+        "accessories": [
+          "DaawnlightSpiritOrigin",
+          "QuiverofNihility",
+          "SeraphTracers",
+          "AsgardianAegis"
+        ],
+        "notes": "Drataliornus требует Blossom Flux, Auric Bar, Yharon Soul Fragment и Effulgent Feather; попадание по вам сбивает разгон. Heavenly Gale и Photoviscerator требуют Miracle Matter с Exo Prism и доступны после Экзо-мехов. Condemnation выпадает с Верховной Каламитас. Это последовательность наград, а не набор перед первой встречей с ними.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/Drataliornus.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/HeavenlyGale.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/Photoviscerator.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/Condemnation.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Auric/AuricTeslaHeadRanged.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Auric/AuricTeslaBodyArmor.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Auric/AuricTeslaCuisses.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/DaawnlightSpiritOrigin.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/QuiverofNihility.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories.Wings/SeraphTracers.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardianAegis.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/MiracleMatter.cs",
+          "sources/decompiled/CalamityMod.Items.TreasureBags/CalamitasCoffer.cs"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Magic",
+    "title": "Маг",
+    "summary": "Развитие мага в Calamity 2.2.4 с оружием, бронёй и аксессуарами для каждого этапа. Подбирайте заклинания по расходу маны, траектории и удобству попадания.",
+    "mechanics": [
+      {
+        "title": "Мана определяет темп боя",
+        "body": "Непрерывная стрельба зависит от запаса маны и способа восстановления. Подбирайте оружие и аксессуары так, чтобы пауза на ману не заставляла останавливаться в опасном месте."
+      },
+      {
+        "title": "Сильная атака должна попадать",
+        "body": "Медленные шары, лучи и управляемые снаряды по-разному работают против быстрой цели. Держите альтернативу, если основная атака плохо проходит через арену или не успевает за боссом."
+      },
+      {
+        "title": "Core of Calamity ограничивает ряд улучшений",
+        "body": "Рецепт 2.2.4 включает Ectoplasm. Предметы с этим компонентом нельзя автоматически переносить до Плантеры по старому гайду."
+      },
+      {
+        "title": "У аксессуаров есть условия получения",
+        "body": "Mana Polarizer — предмет режима «Эксперт» из мешка Бога слизней. На другой сложности используйте доступную ману или защиту. Ethereal Talisman относится уже к этапу после Пожирателя Богов."
+      }
+    ],
+    "tips": [
+      "Доведите запас маны до комфортного значения и приготовьте зелья до вызова босса.",
+      "Не меняйте последний аксессуар мобильности на урон только ради большей цифры в подсказке.",
+      "Проверьте, проходят ли атаки через блоки вашей арены. Геометрия может заметно снизить пользу оружия.",
+      "Сохраняйте Frost Bolt и Flare Bolt для Frigidflash Bolt, затем Tears of Heaven: цепочка продолжается дальше.",
+      "Не рассчитывайте на все редкие трофеи подряд. Крафтовый вариант той же стадии позволяет продолжать прогрессию."
+    ],
+    "coop": [
+      "Договоритесь, кто поддерживает ослабления. Повторное наложение одного эффекта не означает двойной эффект.",
+      "Занимайте позицию, с которой виден босс и стрелку не приходится целиться через плотные стены.",
+      "Используйте время уклонения для восстановления маны; союзник может продолжать огонь во время вашей смены позиции."
+    ],
+    "stages": [
+      {
+        "id": "start",
+        "title": "До первого босса",
+        "description": "Wulfrum Prosthesis — прямой ранний крафт, Frost Bolt — вариант из снежных материалов. Jungle armor можно собрать исследованием джунглей.",
+        "weapons": [
+          "WulfrumProsthesis",
+          "FrostBolt"
+        ],
+        "armor": [
+          "v:JungleHat",
+          "v:JungleShirt",
+          "v:JunglePants"
+        ],
+        "accessories": [
+          "v:HermesBoots",
+          "v:CloudinaBottle",
+          "v:BandofStarpower"
+        ],
+        "notes": "Wulfrum Prosthesis требует 10 Wulfrum Metal Scrap. Frost Bolt — лёд, снег, Shiverthorn и Sapphire у книжного шкафа. Jungle armor здесь является целью сбора, а не требованием идти в джунгли без подготовки. Band of Starpower зависит от доступных источников мира; при отсутствии используйте найденную защиту.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/WulfrumProsthesis.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/FrostBolt.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "desert",
+        "title": "После Пустынного Бича",
+        "description": "Victide с головой мага подходит для морского этапа. Aquamarine Staff использует материалы Затонувшего моря; Diamond Staff — вариант при наличии алмазов.",
+        "weapons": [
+          "AquamarineStaff",
+          "v:DiamondStaff"
+        ],
+        "armor": [
+          "VictideHeadMagic",
+          "VictideBreastplate",
+          "VictideGreaves"
+        ],
+        "accessories": [
+          "v:HermesBoots",
+          "v:ManaFlower",
+          "v:BandofStarpower"
+        ],
+        "notes": "Aquamarine Staff улучшает Amethyst Staff либо Topaz Staff с Pearl Shard, Sea Prism и Navystone. Victide требует 12 Sea Remains на комплект. Это варианты доступности материалов, а не утверждение одинаковой эффективности посохов.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/AquamarineStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideHeadMagic.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideGreaves.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/SeaRemains.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "aerialite",
+        "title": "После Улья или Перфораторов",
+        "description": "Aerospec с головой мага даёт классовые бонусы. Tradewinds использует Aerialite, Flare Bolt — материалы Ада.",
+        "weapons": [
+          "Tradewinds",
+          "FlareBolt"
+        ],
+        "armor": [
+          "AerospecHeadMagic",
+          "AerospecBreastplate",
+          "AerospecLeggings"
+        ],
+        "accessories": [
+          "v:SpectreBoots",
+          "v:ManaFlower",
+          "v:CelestialCuffs"
+        ],
+        "notes": "Tradewinds требует 10 Aerialite Bar у книжного шкафа; Flare Bolt — 10 Hellstone Bar, 5 Fireblossom и Ruby. Полный Aerospec требует 45 Aerialite Bar и 5 перьев. Celestial Cuffs включают отдельную цепочку аксессуаров и не обязательны для перехода к Скелетрону.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/Tradewinds.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/FlareBolt.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecHeadMagic.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecLeggings.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "pre-hardmode",
+        "title": "После Бога слизней: Стена плоти",
+        "description": "Statigel поддерживает поздний дохардмод. Night’s Ray — сборная крафтовая цель, Black Anurian — ответвление в Бездну.",
+        "weapons": [
+          "NightsRay",
+          "BlackAnurian"
+        ],
+        "armor": [
+          "StatigelHeadMagic",
+          "StatigelArmor",
+          "StatigelGreaves"
+        ],
+        "accessories": [
+          "v:SpectreBoots",
+          "v:ManaFlower",
+          "v:CelestialCuffs",
+          "ManaPolarizer"
+        ],
+        "notes": "Night’s Ray соединяет Vilethorn/Crimson Rod, Magic Missile, Wand of Frosting, Amber Staff и Purified Gel; в Remix-мире ингредиент отличается. Black Anurian находится в сундуках Бездны после Скелетрона; Hydrothermal Crate даёт источник уже в хардмоде. Mana Polarizer — награда из мешка Бога слизней в режиме «Эксперт»; при другой сложности замените аксессуар.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/NightsRay.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/BlackAnurian.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Statigel/StatigelHeadMagic.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Statigel/StatigelArmor.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Statigel/StatigelGreaves.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/ManaPolarizer.cs",
+          "sources/decompiled/CalamityMod.World/Abyss.cs",
+          "sources/decompiled/CalamityMod.Items.Fishing.SulphurCatches/HydrothermalCrate.cs",
+          "sources/decompiled/CalamityMod.Items.TreasureBags/SlimeGodBag.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.Tiles.Abyss/AbyssTreasureChest.cs",
+          "sources/decompiled/CalamityMod.Tiles/FurnitureCommon.cs"
+        ]
+      },
+      {
+        "id": "hardmode",
+        "title": "Начало хардмода",
+        "description": "Palladium с головой мага — вариант первой брони. Frigidflash Bolt продолжает ранние заклинания; Poseidon добывается с хардмодного Giant Clam.",
+        "weapons": [
+          "FrigidflashBolt",
+          "Poseidon"
+        ],
+        "armor": [
+          "v:PalladiumHeadgear",
+          "v:PalladiumBreastplate",
+          "v:PalladiumLeggings"
+        ],
+        "accessories": [
+          "v:SorcererEmblem",
+          "v:ManaFlower",
+          "v:CelestialCuffs",
+          "v:LightningBoots"
+        ],
+        "notes": "Frigidflash Bolt требует Frost Bolt, Flare Bolt, Essence of Havoc и Essence of Eleum у книжного шкафа. Poseidon входит в таблицу Giant Clam только в хардмоде. Доступ к рудам Palladium и более высоким станциям сверяйте с настройками раннего хардмода.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/FrigidflashBolt.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/Poseidon.cs",
+          "sources/decompiled/CalamityMod.NPCs.SunkenSea/GiantClam.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "post-mechs",
+        "title": "Все механические боссы и Криоген",
+        "description": "Соберите Daedalus для мага. Cryophobia продаётся Архимагом после механических боссов; Relic of Ruin и Rainbow Rod — крафтовые альтернативы.",
+        "weapons": [
+          "Cryophobia",
+          "RelicofRuin",
+          "v:RainbowRod"
+        ],
+        "armor": [
+          "DaedalusHeadMagic",
+          "DaedalusBreastplate",
+          "DaedalusLeggings"
+        ],
+        "accessories": [
+          "v:SorcererEmblem",
+          "v:ManaFlower",
+          "AngelTreads",
+          "OrnateShield"
+        ],
+        "notes": "Cryophobia продаётся у Архимага после победы над всеми тремя механическими боссами. Relic of Ruin требует Spell Tome, Adamantite/Titanium и Forbidden Fragment. Daedalus и Ornate Shield используют Cryonic Bar. Создавать все варианты до Плантеры не обязательно.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/Cryophobia.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/RelicofRuin.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Daedalus/DaedalusHeadMagic.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Daedalus/DaedalusBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Daedalus/DaedalusLeggings.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AngelTreads.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/OrnateShield.cs",
+          "sources/decompiled/CalamityMod.NPCs.TownNPCs/Archmage.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "post-plantera",
+        "title": "После Плантеры",
+        "description": "Выбран Spectre с маской урона. Tears of Heaven использует эктоплазму; Atlantis — награда за Левиафана и Анахиту.",
+        "weapons": [
+          "TearsofHeaven",
+          "Atlantis"
+        ],
+        "armor": [
+          "v:SpectreMask",
+          "v:SpectreRobe",
+          "v:SpectrePants"
+        ],
+        "accessories": [
+          "v:CelestialEmblem",
+          "v:ManaFlower",
+          "AngelTreads",
+          "AsgardsValor"
+        ],
+        "notes": "Tears of Heaven объединяет Frigidflash Bolt, Water Bolt, Sea Prism и Ectoplasm. Atlantis находится в добыче Левиафана. Маска Spectre и капюшон дают разные варианты комплекта; здесь выбрана маска Spectre. Asgard’s Valor требует Core of Calamity с эктоплазмой.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/TearsofHeaven.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/Atlantis.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AngelTreads.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
+          "sources/decompiled/CalamityMod.Items.TreasureBags/LeviathanBag.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/CoreofCalamity.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "pre-moon-lord",
+        "title": "После Голема: путь к Лунному лорду",
+        "description": "Hydrothermic для мага даёт крафтовый комплект. Plague Staff и Razorpine — варианты из разных дополнительных сражений.",
+        "weapons": [
+          "PlagueStaff",
+          "v:Razorpine"
+        ],
+        "armor": [
+          "HydrothermicHeadMagic",
+          "HydrothermicArmor",
+          "HydrothermicSubligar"
+        ],
+        "accessories": [
+          "SigilofCalamitas",
+          "v:ManaFlower",
+          "AngelTreads",
+          "AsgardsValor"
+        ],
+        "notes": "Plague Staff выпадает с Plaguebringer Goliath; Razorpine относится к Frost Moon и не обязателен, если прошлое оружие устраивает. Hydrothermic требует 45 Scoria Bar. Sigil of Calamitas использует Celestial Emblem, Scoria и Ashes of Calamity. Для Scoria нужна кирка от 210; в этом маршруте она отнесена после Голема.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/PlagueStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Hydrothermic/HydrothermicHeadMagic.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Hydrothermic/HydrothermicArmor.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Hydrothermic/HydrothermicSubligar.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/SigilofCalamitas.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AngelTreads.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
+          "sources/decompiled/CalamityMod.Items.TreasureBags/PlaguebringerGoliathBag.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.Tiles.Ores/ScoriaOre.cs"
+        ]
+      },
+      {
+        "id": "post-moon-lord",
+        "title": "После Лунного лорда: перед Провиденс",
+        "description": "Nebula и лунные улучшения готовят к следующей прогрессии. Nuclear Fury и Ultra Liquidator используют разные знакомые заклинания.",
+        "weapons": [
+          "NuclearFury",
+          "UltraLiquidator"
+        ],
+        "armor": [
+          "v:NebulaHelmet",
+          "v:NebulaBreastplate",
+          "v:NebulaLeggings"
+        ],
+        "accessories": [
+          "SigilofCalamitas",
+          "v:ManaFlower",
+          "MoonWalkers",
+          "AsgardsValor"
+        ],
+        "notes": "Nuclear Fury требует Razorblade Typhoon, Poseidon и Luminite; Ultra Liquidator — Infernal Rift, Aqua Scepter, Luminite и Nebula Fragment. Moon Walkers создаются из Angel Treads, Souls of Flight и Luminite. Рецепты этой строки не требуют трофеев Провиденс.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/NuclearFury.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/UltraLiquidator.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/SigilofCalamitas.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories.Wings/MoonWalkers.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "post-providence",
+        "title": "Провиденс → стражи → Полтергаст",
+        "description": "Tarragon — ранняя часть стадии, Bloodflare появляется после Полтергаста. Mistlestorm и Phantasmal Fury открываются при разных сочетаниях поздних материалов.",
+        "weapons": [
+          "Mistlestorm",
+          "PhantasmalFury"
+        ],
+        "armor": [
+          "TarragonHeadMagic",
+          "TarragonBreastplate",
+          "TarragonLeggings",
+          "BloodflareHeadMagic",
+          "BloodflareBodyArmor",
+          "BloodflareCuisses"
+        ],
+        "accessories": [
+          "SigilofCalamitas",
+          "v:ManaFlower",
+          "VoidStriders",
+          "AsgardsValor"
+        ],
+        "notes": "Mistlestorm требует Razorpine, Leaf Blower, Uelibloom и Dark Plasma с Ceaseless Void. Phantasmal Fury использует Spectre Staff, Ruinous Soul и Dark Plasma, поэтому требует также Полтергаста. Bloodflare тоже использует Ruinous Soul. Это последовательные улучшения, а не полный набор сразу после Провиденс.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/Mistlestorm.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/PhantasmalFury.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Tarragon/TarragonHeadMagic.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Tarragon/TarragonBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Tarragon/TarragonLeggings.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Bloodflare/BloodflareHeadMagic.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Bloodflare/BloodflareBodyArmor.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Bloodflare/BloodflareCuisses.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/SigilofCalamitas.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories.Wings/VoidStriders.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
+          "sources/decompiled/CalamityMod.Items.TreasureBags/PolterghastBag.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "post-devourer",
+        "title": "После Пожирателя Богов: перед Яроном",
+        "description": "Silva и Ethereal Talisman — цель подготовки после событий. Face Melter использует Cosmilite; Dark Spark можно сохранить как ранее открывшуюся альтернативу.",
+        "weapons": [
+          "FaceMelter",
+          "DarkSpark"
+        ],
+        "armor": [
+          "SilvaHeadMagic",
+          "SilvaArmor",
+          "SilvaLeggings"
+        ],
+        "accessories": [
+          "EtherealTalisman",
+          "TheSponge",
+          "VoidStriders",
+          "AsgardianAegis"
+        ],
+        "notes": "Face Melter соединяет The Axe, Magical Harp, Cosmilite и Nightmare Fuel. Dark Spark требует Last Prism, Dark Plasma, Ruinous Soul и Divine Geode и доступен раньше этой стадии. Silva и Ethereal Talisman используют Ascendant Spirit Essence после Пожирателя. Для Asgardian Aegis сохраните Asgard’s Valor и Elysian Aegis с Провиденс.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/FaceMelter.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/DarkSpark.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Silva/SilvaHeadMagic.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Silva/SilvaArmor.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Silva/SilvaLeggings.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/EtherealTalisman.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/TheSponge.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories.Wings/VoidStriders.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardianAegis.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/AscendantSpiritEssence.cs",
+          "sources/decompiled/CalamityMod.NPCs.Providence/Providence.cs"
+        ]
+      },
+      {
+        "id": "endgame",
+        "title": "После Ярона и финальные улучшения",
+        "description": "Auric Tesla и Helium Flash доступны к началу заключительных боёв. Subsuming Vortex и Eternity — ступени после финальных побед.",
+        "weapons": [
+          "HeliumFlash",
+          "SubsumingVortex",
+          "Eternity"
+        ],
+        "armor": [
+          "AuricTeslaHeadMagic",
+          "AuricTeslaBodyArmor",
+          "AuricTeslaCuisses"
+        ],
+        "accessories": [
+          "EtherealTalisman",
+          "TheSponge",
+          "SeraphTracers",
+          "AsgardianAegis"
+        ],
+        "notes": "Helium Flash требует Venusian Trident, Forbidden Sun, Auric Bar и фрагменты. Subsuming Vortex использует Miracle Matter с Exo Prism после Экзо-мехов. Eternity требует Heresy с Верховной Каламитас и Shadowspec Bar, для которого нужны также Экзо-мехи. Сохраняйте Tarragon, Bloodflare и Silva для Auric Tesla.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/HeliumFlash.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/SubsumingVortex.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/Eternity.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Auric/AuricTeslaHeadMagic.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Auric/AuricTeslaBodyArmor.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Auric/AuricTeslaCuisses.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/EtherealTalisman.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/TheSponge.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories.Wings/SeraphTracers.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardianAegis.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/MiracleMatter.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/ShadowspecBar.cs"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Summon",
+    "title": "Призыватель",
+    "summary": "Развитие призывателя в Calamity 2.2.4: миньоны, турели, хлысты и броня от старта до финальных боссов. Отдельные советы помогут распределить роли и ослабления в паре со стрелком.",
+    "mechanics": [
+      {
+        "title": "Урон продолжается, пока вы уклоняетесь",
+        "body": "Миньоны преследуют цель сами, но им нужны подходящая дистанция, траектория и иногда прямая видимость. Следите, действительно ли они попадают в босса: число на посохе не показывает итоговую эффективность."
+      },
+      {
+        "title": "В 2.2.4 обычные метки хлыстов не складываются",
+        "body": "Новая обычная метка хлыста заменяет предыдущую, поэтому их прибавки не складываются. Постоянная смена хлыстов ради суммы всех меток здесь не помогает. Метка Void Concentration Staff и некоторые специальные эффекты могут сочетаться с меткой хлыста."
+      },
+      {
+        "title": "Выберите один удобный хлыст",
+        "body": "Метки ванильных хлыстов изменены Calamity. Поддерживайте метку, когда сближение безопасно. Старые числовые значения из чистой Terraria и советы о постоянной смене хлыстов нельзя автоматически переносить в эту сборку."
+      },
+      {
+        "title": "Чужое оружие в руке может ослабить призыв",
+        "body": "Если держать оружие другого класса, урон миньонов обычно снижается. Инструменты и некоторые особые комплекты являются исключениями. Для активной атаки подходят хлысты, Cnidarian и другое оружие призывателя. Оружие стрелка в вашей группе не снижает урон ваших миньонов."
+      },
+      {
+        "title": "Миньоны, турели и дополнительные призывы",
+        "body": "Не все призывы используют одинаковые слоты. Squirrel Squire Staff — турель; Frost Blossom допускает один цветок; Slime Puppet прямо указан как призыв без расхода слотов миньонов. Проверяйте ограничение предмета и не пытайтесь заполнить все слоты одним уникальным призывом."
+      },
+      {
+        "title": "Wulfrum Controller поддерживает союзника",
+        "body": "Удержание ПКМ переключает дроидов в режим усиления: они перестают атаковать и дают восстановление здоровья и защиту. Наведение курсора достаточно близко к союзнику позволяет поддерживать его. Это обмен вашего урона на поддержку, а не бесплатное усиление."
+      },
+      {
+        "title": "Caustic Staff полезен группе",
+        "body": "Драконы всегда наносят сильное горение и яд; дополнительные драконы открывают Cursed Inferno, Ichor и Marked for Death. Учитывайте иммунитет босса. Поддержка может помочь стрелку, даже когда посох уже перестал быть вашим основным источником урона."
+      },
+      {
+        "title": "Поздние посохи требуют особого управления",
+        "body": "Void Concentration Staff требует четыре слота и по ПКМ фокусирует цель. Cosmic Viper Engine расходует пули из инвентаря. Saros Possession усиливается повторными призывами, а при заполненных слотах получает активный луч. Это не всегда простая замена одного миньона другим."
+      }
+    ],
+    "tips": [
+      "Перед попыткой восстановите призывы, используйте Summoning Potion и доступные станционные усиления. После смерти заново проверьте слоты.",
+      "Сначала обеспечьте скорость, крылья и удобный рывок. Выживание важнее небольшой прибавки урона на аксессуаре.",
+      "Держите один удобный хлыст на панели. Не входите в контакт с боссом только ради обновления метки.",
+      "Турель ставьте на маршруте босса и переносите при смене половины арены.",
+      "Обычный крит персонажа и крит специальных эффектов меток призыва — разные механизмы. Не переносите сборку стрелка на призывателя по одному показателю.",
+      "Сохраняйте цепочку Wulfrum Battery → Jelly-Charged Battery → Star-Tainted Generator → Nucleogenesis. Финальный крафт требует ресурсов после Пожирателя Богов.",
+      "Eye of Night, Plantation Staff и Legion of Celestia образуют цепочку крафта: прежний посох пригодится дальше.",
+      "В 2.2.4 Slime Puppet Staff создаётся из двух видов геля и не расходует обычные слоты миньонов; это отдельное дополнение к основному набору."
+    ],
+    "coop": [
+      "Договоритесь о направлении движения по арене. Встречные развороты заставляют босса пересекать обоих игроков и затрудняют стрельбу.",
+      "Вы можете уделять больше внимания уклонению и мелким врагам, пока друг поддерживает огонь. Это тактика, а не гарантия выбора стрелка целью босса.",
+      "В начале игры используйте поддержку Wulfrum Controller во время передышки или восстановления напарника; дроиды в этом режиме не атакуют.",
+      "В хардмоде согласуйте Ichor и другие ослабления: проверьте иммунитет босса и не тратьте обоим игрокам смену оружия на один эффект.",
+      "После Ceaseless Void метка Void Concentration Staff реагирует и на попадания союзника. Польза зависит от босса и состава призывов.",
+      "С Cosmic Viper Engine запас пуль нужен и вам. Разделите боеприпасы заранее, чтобы случайно не оставить друга без основного запаса."
+    ],
+    "stages": [
+      {
+        "id": "start",
+        "title": "До первого босса",
+        "description": "Начните с Wulfrum Controller как основного миньона. Добавьте белку-турель и один ледяной цветок: они выполняют разные роли и не требуют редкого раннего трофея.",
+        "weapons": [
+          "WulfrumController",
+          "SquirrelSquireStaff",
+          "FrostBlossomStaff"
+        ],
+        "armor": [
+          "WulfrumHat",
+          "WulfrumJacket",
+          "WulfrumOveralls"
+        ],
+        "accessories": [
+          "v:HermesBoots",
+          "v:CloudinaBottle",
+          "WulfrumBattery"
+        ],
+        "notes": "Вульфрумовая броня требует 45 Wulfrum Metal Scrap и 3 Energy Core на комплект; посох — ещё 10 лома. Белка создаётся из дерева и жёлудя у верстака, цветок — из льда, Boreal Wood и Shiverthorn у наковальни. Wulfrum Battery выпадает из вульфрумовых врагов и не гарантируется сразу.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/WulfrumController.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/SquirrelSquireStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/FrostBlossomStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Wulfrum/WulfrumHat.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Wulfrum/WulfrumJacket.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Wulfrum/WulfrumOveralls.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/WulfrumBattery.cs",
+          "sources/decompiled/CalamityMod.NPCs.NormalNPCs/WulfrumDrone.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/WulfrumControllerPlayer.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod/CalamityUtils.cs",
+          "sources/decompiled/CalamityMod.CalPlayer/CalamityPlayer.cs",
+          "sources/decompiled/CalamityMod.DataStructures/SummonTag.cs",
+          "sources/decompiled/CalamityMod.Buffs/CalamityGlobalBuff.cs"
+        ]
+      },
+      {
+        "id": "desert",
+        "title": "После Пустынного Бича",
+        "description": "Соберите Victide с головой призывателя. Belladonna — основной миньон, Sun Spirit — ещё один вариант, Cnidarian даёт активную атаку с меткой.",
+        "weapons": [
+          "BelladonnaSpiritStaff",
+          "SunSpiritStaff",
+          "Cnidarian"
+        ],
+        "armor": [
+          "VictideHeadSummon",
+          "VictideBreastplate",
+          "VictideGreaves"
+        ],
+        "accessories": [
+          "SpiritGlyph",
+          "VoltaicJelly",
+          "v:HermesBoots",
+          "v:CloudinaBottle"
+        ],
+        "notes": "Victide требует 12 Sea Remains на набор, Cnidarian — ещё 2. Belladonna создаётся из Vine, Jungle Spores, Stinger и Rich Mahogany; Sun Spirit — из Amber, Antlion Mandible и Palm Wood. Spirit Glyph требует 5 алмазов и 15 обсидиана. Voltaic Jelly выпадает из Ghost Bell только после Пустынного Бича.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/BelladonnaSpiritStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/SunSpiritStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/Cnidarian.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideHeadSummon.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideGreaves.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/SpiritGlyph.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/VoltaicJelly.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/SeaRemains.cs",
+          "sources/decompiled/CalamityMod.NPCs.SunkenSea/GhostBell.cs",
+          "sources/decompiled/CalamityMod.Buffs/CalamityGlobalBuff.cs",
+          "sources/decompiled/CalamityMod.DataStructures/SummonTag.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "aerialite",
+        "title": "После Улья или Перфораторов",
+        "description": "Переходите на Aerospec для призывателя. Выберите посох своего заражения, оставьте активный Snapthorn и добавьте огненную турель при удобной арене.",
+        "weapons": [
+          "VileFeeder",
+          "ScabRipper",
+          "CinderBlossomStaff",
+          "v:ThornWhip"
+        ],
+        "armor": [
+          "AerospecHeadSummon",
+          "AerospecBreastplate",
+          "AerospecLeggings"
+        ],
+        "accessories": [
+          "SpiritGlyph",
+          "VoltaicJelly",
+          "v:SpectreBoots",
+          "v:PygmyNecklace"
+        ],
+        "notes": "Vile Feeder и Scab Ripper — альтернативы порчи и багрянца: нужны соответствующие слитки, чешуя/образцы и древесина. Оба сразу не требуются. Cinder Blossom: 10 Hellstone Bar, 10 Ash Wood и 5 Fireblossom. Aerospec: 45 Aerialite Bar и 5 перьев. Порядок Скелетрона, Королевы пчёл и Ада можно менять.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/VileFeeder.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/ScabRipper.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/CinderBlossomStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecHeadSummon.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecLeggings.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/SpiritGlyph.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/VoltaicJelly.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "pre-hardmode",
+        "title": "После Бога слизней: Стена плоти",
+        "description": "Соберите Statigel и Eye of Night. Slime Puppet добавляет призыв без расхода слотов; Spinal Tap удобен для активной атаки при безопасной дистанции.",
+        "weapons": [
+          "EyeOfNight",
+          "SlimePuppetStaff",
+          "v:BoneWhip"
+        ],
+        "armor": [
+          "StatigelHeadSummon",
+          "StatigelArmor",
+          "StatigelGreaves"
+        ],
+        "accessories": [
+          "JellyChargedBattery",
+          "SpiritGlyph",
+          "v:SpectreBoots",
+          "v:PygmyNecklace"
+        ],
+        "notes": "Eye of Night объединяет Vile Feeder или Scab Ripper, Staff of Necrosteocytes, Belladonna, Imp Staff и 10 Purified Gel у алтаря. Slime Puppet требует по 14 Purified Gel и Blighted Gel; Statigel — по 30 каждого, станция — Solidifier. Jelly-Charged Battery использует Wulfrum Battery, Voltaic Jelly, Purified Gel и Stormlion Mandible. Подготовьте длинный путь по Аду.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/EyeOfNight.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/SlimePuppetStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Statigel/StatigelHeadSummon.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Statigel/StatigelArmor.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Statigel/StatigelGreaves.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/JellyChargedBattery.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/SpiritGlyph.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "hardmode",
+        "title": "Начало хардмода",
+        "description": "Паучий набор даёт доступную основу слотов. Сравните Caustic Staff с Haunted Scroll; Tundra Flame Blossoms добавляйте по мере получения нужных слитков и наковальни.",
+        "weapons": [
+          "CausticStaff",
+          "HauntedScroll",
+          "TundraFlameBlossomsStaff",
+          "v:FireWhip"
+        ],
+        "armor": [
+          "v:SpiderMask",
+          "v:SpiderBreastplate",
+          "v:SpiderGreaves"
+        ],
+        "accessories": [
+          "JellyChargedBattery",
+          "v:SummonerEmblem",
+          "v:LightningBoots",
+          "v:CharmofMyths"
+        ],
+        "notes": "Caustic Staff: слитки заражения, Cursed Flame/Ichor и Souls of Night у алтаря. Haunted Scroll: древесина, души света/ночи и три Food Platter. Tundra Flame Blossoms соединяет огненный и ледяной цветки с Mythril/Orichalcum. При изменённой прогрессии руд мифриловая наковальня не обязательно доступна сразу после Стены. Firecracker — вариант добычи Стены, а не обязательный предмет.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/CausticStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/HauntedScroll.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/TundraFlameBlossomsStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/JellyChargedBattery.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "post-mechs",
+        "title": "Все механические боссы и Криоген",
+        "description": "С Daedalus пробуйте солдат-големов или Entropy’s Vigil. Vengeful Sun усиливается повторными призывами; Durendal используйте как один основной хлыст.",
+        "weapons": [
+          "DaedalusGolemStaff",
+          "EntropysVigil",
+          "VengefulSunStaff",
+          "v:SwordWhip"
+        ],
+        "armor": [
+          "DaedalusHeadSummon",
+          "DaedalusBreastplate",
+          "DaedalusLeggings"
+        ],
+        "accessories": [
+          "JellyChargedBattery",
+          "v:SummonerEmblem",
+          "AngelTreads",
+          "OrnateShield"
+        ],
+        "notes": "Daedalus и посох голема требуют Cryonic Bar, которые выплавляются в Adamantite/Titanium Forge. Entropy’s Vigil выпадает с клона Каламитас. Vengeful Sun требует Sun Spirit, Moon Stone и души трёх механических боссов. Angel Treads также требует все три вида душ. Ornate Shield создаётся из Cryonic Bar и Crystal Shard; Asgard’s Valor ещё требует эктоплазму в составе Core of Calamity.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/DaedalusGolemStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/EntropysVigil.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/VengefulSunStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Daedalus/DaedalusHeadSummon.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Daedalus/DaedalusBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Daedalus/DaedalusLeggings.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/JellyChargedBattery.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AngelTreads.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/OrnateShield.cs",
+          "sources/decompiled/CalamityMod.Items.TreasureBags/CalamitasCloneBag.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/CryonicBar.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/CoreofCalamity.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "post-plantera",
+        "title": "После Плантеры",
+        "description": "Используйте Tiki и новые растительные призывы. Plantation Staff ограничен одной мини-Плантерой; Viral Sprout позволяет делать упор на несколько духов и их яд.",
+        "weapons": [
+          "PlantationStaff",
+          "ViralSprout",
+          "v:MaceWhip"
+        ],
+        "armor": [
+          "v:TikiMask",
+          "v:TikiShirt",
+          "v:TikiPants"
+        ],
+        "accessories": [
+          "StatisBlessing",
+          "v:NecromanticScroll",
+          "AngelTreads",
+          "AsgardsValor"
+        ],
+        "notes": "Plantation Staff создаётся из Eye of Night и 12 Living Shard; Viral Sprout — из 10 Perennial Bar. Morning Star ищите в обновлённом Данже. Statis’ Blessing требует Papyrus Scarab и поэтому также добычу Pumpkin Moon; до этого оставляйте Summoner Emblem. Asgard’s Valor требует эктоплазму и материалы клона Каламитас. Resurrection Butterfly перенесён дальше: его Life Alloy включает Scoria.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/PlantationStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/ViralSprout.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/StatisBlessing.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AngelTreads.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/LifeAlloy.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/CoreofCalamity.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "pre-moon-lord",
+        "title": "После Голема: путь к Лунному лорду",
+        "description": "Plaguebringer — классовый вариант брони. Выберите Fuel Cell Bundle либо Resurrection Butterfly, добавьте Wither Blossoms и один подходящий хлыст.",
+        "weapons": [
+          "FuelCellBundle",
+          "ResurrectionButterfly",
+          "WitherBlossomsStaff",
+          "v:RainbowWhip"
+        ],
+        "armor": [
+          "PlaguebringerVisor",
+          "PlaguebringerCarapace",
+          "PlaguebringerPistons"
+        ],
+        "accessories": [
+          "StarTaintedGenerator",
+          "StatisBlessing",
+          "AngelTreads",
+          "AsgardsValor"
+        ],
+        "notes": "Fuel Cell Bundle и Infected Armor Plating для брони добываются с Plaguebringer Goliath. Wither Blossoms улучшает Tundra Flame Blossoms за Plague Cell Canister. Resurrection Butterfly требует Life Alloy, Butterfly Dust, Silk и Ectoplasm. Kaleidoscope выпадает с Императрицы света; можно сохранить Morning Star до его получения. Star-Tainted Generator требует Life Alloy и отдельных аксессуаров. Scoria добывается киркой с силой от 210.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/FuelCellBundle.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/ResurrectionButterfly.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/WitherBlossomsStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Plaguebringer/PlaguebringerVisor.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Plaguebringer/PlaguebringerCarapace.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Plaguebringer/PlaguebringerPistons.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/StarTaintedGenerator.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/StatisBlessing.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AngelTreads.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
+          "sources/decompiled/CalamityMod.Items.TreasureBags/PlaguebringerGoliathBag.cs",
+          "sources/decompiled/CalamityMod.Items/CalamityGlobalItemLoot.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/LifeAlloy.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.Tiles.Ores/ScoriaOre.cs"
+        ]
+      },
+      {
+        "id": "post-moon-lord",
+        "title": "После Лунного лорда: перед Провиденс",
+        "description": "Наденьте Stardust и улучшайте знакомые посохи. Legion of Celestia и Flowers of Mortality развивают растительную ветку; Tactical Plague Engine — чумную.",
+        "weapons": [
+          "LegionofCelestia",
+          "FlowersOfMortality",
+          "TacticalPlagueEngine",
+          "v:RainbowWhip"
+        ],
+        "armor": [
+          "v:StardustHelmet",
+          "v:StardustBreastplate",
+          "v:StardustLeggings"
+        ],
+        "accessories": [
+          "StatisCurse",
+          "StarTaintedGenerator",
+          "MoonWalkers",
+          "AsgardsValor"
+        ],
+        "notes": "Legion of Celestia требует Plantation Staff, Blade Staff, Luminite, Life Alloy и Stardust Fragment. Flowers of Mortality использует Wither Blossoms и аналогичные материалы. Tactical Plague Engine соединяет Black Hawk Remote, Fuel Cell Bundle и Luminite. Statis’ Curse требует The First Shadowflame и Stardust Fragment; Moon Walkers — Angel Treads, Souls of Flight и Luminite.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/LegionofCelestia.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/FlowersOfMortality.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/TacticalPlagueEngine.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/StatisCurse.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/StarTaintedGenerator.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories.Wings/MoonWalkers.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs",
+          "sources/decompiled/CalamityMod.DataStructures/SummonTag.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "post-providence",
+        "title": "Провиденс → стражи → Полтергаст",
+        "description": "Начните с Tarragon и Virid Vanguard. После Ceaseless Void можно выделить четыре слота под Void Concentration; после Полтергаста доступны Sirius и Bloodflare.",
+        "weapons": [
+          "ViridVanguard",
+          "Sirius",
+          "VoidConcentrationStaff",
+          "v:RainbowWhip"
+        ],
+        "armor": [
+          "TarragonHeadSummon",
+          "TarragonBreastplate",
+          "TarragonLeggings",
+          "BloodflareHeadSummon",
+          "BloodflareBodyArmor",
+          "BloodflareCuisses"
+        ],
+        "accessories": [
+          "StatisCurse",
+          "StarTaintedGenerator",
+          "VoidStriders",
+          "AsgardsValor"
+        ],
+        "notes": "Это последовательные шаги, а не выдача всего набора сразу. Tarragon и Virid Vanguard требуют Uelibloom после Провиденс. Void Concentration выпадает с Ceaseless Void и по ПКМ меняет защитный режим на метку цели. Sirius и Bloodflare требуют Ruinous Soul с Полтергаста. Void Striders использует материалы трёх стражей.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/ViridVanguard.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/Sirius.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/VoidConcentrationStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Tarragon/TarragonHeadSummon.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Tarragon/TarragonBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Tarragon/TarragonLeggings.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Bloodflare/BloodflareHeadSummon.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Bloodflare/BloodflareBodyArmor.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Bloodflare/BloodflareCuisses.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/StatisCurse.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/StarTaintedGenerator.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories.Wings/VoidStriders.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
+          "sources/decompiled/CalamityMod.Items.TreasureBags/CeaselessVoidBag.cs",
+          "sources/decompiled/CalamityMod.Items.TreasureBags/PolterghastBag.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "post-devourer",
+        "title": "После Пожирателя Богов: перед Яроном",
+        "description": "Соберите Silva и Nucleogenesis. Cosmic Viper Engine, Corvid Harbringer и Mirror of Kalandra дают разные типы миньонов; Endo Hydra выполняет роль турели.",
+        "weapons": [
+          "CosmicViperEngine",
+          "CorvidHarbringerStaff",
+          "MirrorofKalandra",
+          "EndoHydraStaff"
+        ],
+        "armor": [
+          "SilvaHeadSummon",
+          "SilvaArmor",
+          "SilvaLeggings"
+        ],
+        "accessories": [
+          "Nucleogenesis",
+          "VoidStriders",
+          "AsgardianAegis",
+          "TheSponge"
+        ],
+        "notes": "Cosmic Viper Engine улучшает Tactical Plague Engine за Cosmilite и расходует ваши пули. Corvid Harbringer требует Raven Staff, Cosmilite и Nightmare Fuel; Endo Hydra — Frost Hydra, Cosmilite и Endothermic Energy. Mirror of Kalandra создаётся рядом с Shimmer из зеркала, Cosmilite и Divine Geode. Silva и Nucleogenesis требуют Ascendant Spirit Essence: повторите затмение, Pumpkin Moon и Frost Moon. Для Asgardian Aegis сохраните Asgard’s Valor и Elysian Aegis с Провиденс.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/CosmicViperEngine.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/CorvidHarbringerStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/MirrorofKalandra.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/EndoHydraStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Silva/SilvaHeadSummon.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Silva/SilvaArmor.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Silva/SilvaLeggings.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/Nucleogenesis.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories.Wings/VoidStriders.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardianAegis.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/TheSponge.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/AscendantSpiritEssence.cs",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs",
+          "sources/decompiled/CalamityMod.NPCs.Providence/Providence.cs"
+        ]
+      },
+      {
+        "id": "endgame",
+        "title": "После Ярона и финальные улучшения",
+        "description": "К первым попыткам Экзо-мехов и Верховной Каламитас используйте Auric Tesla и посохи после Ярона. Затем улучшайте оружие по добыче финальных боссов.",
+        "weapons": [
+          "MidnightSunBeacon",
+          "SarosPossession",
+          "CosmicImmaterializer",
+          "TemporalUmbrella"
+        ],
+        "armor": [
+          "AuricTeslaHeadSummon",
+          "AuricTeslaBodyArmor",
+          "AuricTeslaCuisses"
+        ],
+        "accessories": [
+          "Nucleogenesis",
+          "SeraphTracers",
+          "AsgardianAegis",
+          "TheSponge"
+        ],
+        "notes": "Midnight Sun Beacon и Saros Possession требуют Auric Bar и Darksun Fragment и подходят к началу стадии. Cosmic Immaterializer требует Miracle Matter с Exo Prism и открывается после Экзо-мехов. Temporal Umbrella требует Shadowspec Bar: нужны Exo Prism и Ashes of Annihilation с Верховной Каламитас. Auric Tesla поглощает старые комплекты: сохраните Tarragon, Bloodflare и Silva.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/MidnightSunBeacon.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/SarosPossession.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/CosmicImmaterializer.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/TemporalUmbrella.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Auric/AuricTeslaHeadSummon.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Auric/AuricTeslaBodyArmor.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Auric/AuricTeslaCuisses.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/Nucleogenesis.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories.Wings/SeraphTracers.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardianAegis.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/TheSponge.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/AuricBar.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/MiracleMatter.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/ShadowspecBar.cs"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Rogue",
+    "title": "Разбойник",
+    "summary": "Развитие разбойника в Calamity 2.2.4 с актуальной бронёй и вариантами метательного оружия. Осваивайте скрытные удары и выбирайте подходящий ритм атак под каждого босса.",
+    "mechanics": [
+      {
+        "title": "Скрытность меняет саму атаку",
+        "body": "Скрытный удар может менять урон, скорость и поведение снаряда. Непрерывные броски и паузы для восстановления скрытности дают разный ритм боя: учитывайте особый эффект каждого оружия."
+      },
+      {
+        "title": "Нужен комплект со скрытностью",
+        "body": "Desert Prowler в 2.2.4 стал комплектом разбойника, а Snow Ruffian теперь принадлежит стрелку. Позднее выбирайте голову разбойника многоклассового набора. Прибавка защиты сама по себе не заменяет условие для скрытных ударов."
+      },
+      {
+        "title": "Wulfrum Knife имеет полезную ПКМ",
+        "body": "Ножи застревают во врагах; ПКМ возвращает их и восстанавливает скрытность. Возврат временно разрешает скрытные удары без брони разбойника. Это особенность ножа, а не общее правило класса."
+      },
+      {
+        "title": "Меньше агрессии — не полная невидимость",
+        "body": "Mirage Mirror ускоряет восстановление скрытности в движении и стоя и снижает агрессию. Всё равно нужно уклоняться: нельзя гарантировать, что босс выберет другого игрока."
+      }
+    ],
+    "tips": [
+      "Сравните обычные атаки с прицельным скрытным ударом. Не считайте каждый скрытный удар автоматически самым выгодным на любой цели.",
+      "В паузах продолжайте уклоняться. Остановка ради восстановления опасна против разгоняющегося босса.",
+      "Следите за возвращением бумерангов и ножей: смена оружия меняет ритм и дистанцию.",
+      "Сохраняйте Coin of Deceit для Ruin Medallion, Mirage Mirror для поздних зеркал и старое оружие для последующих рецептов.",
+      "При смене брони проверяйте шкалу скрытности и выбор головы разбойника."
+    ],
+    "coop": [
+      "Пока стрелок поддерживает огонь, можно выбирать момент для скрытного удара. Это удобный ритм, а не гарантия большего общего урона.",
+      "Не ломайте общий маршрут только ради удобного броска: босс может развернуться через напарников.",
+      "Даже при сниженной агрессии сохраняйте путь отхода и предупреждайте группу о резкой смене позиции."
+    ],
+    "stages": [
+      {
+        "id": "start",
+        "title": "До первого босса",
+        "description": "Desert Prowler — актуальный стартовый комплект разбойника. Wulfrum Knife помогает освоить возврат ножей, Crystalline добавляет разделяющийся снаряд.",
+        "weapons": [
+          "WulfrumKnife",
+          "Crystalline"
+        ],
+        "armor": [
+          "DesertProwlerHat",
+          "DesertProwlerShirt",
+          "DesertProwlerPants"
+        ],
+        "accessories": [
+          "v:HermesBoots",
+          "v:CloudinaBottle",
+          "RaidersTalisman"
+        ],
+        "notes": "Desert Prowler требует 6 Stormlion Mandible и 23 Silk у Loom на комплект. Wulfrum Knife создаётся из 10 Wulfrum Metal Scrap; Crystalline — из этого ножа, 3 Diamond и 3 Fallen Star. Raider’s Talisman использует Leather, Flinx Fur и Obsidian. В 2.2.4 этот комплект больше не относится к стрелку.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/WulfrumKnife.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/Crystalline.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.DesertProwler/DesertProwlerHat.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.DesertProwler/DesertProwlerShirt.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.DesertProwler/DesertProwlerPants.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/RaidersTalisman.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/RogueWeapon.cs",
+          "sources/decompiled/CalamityMod.CalPlayer/CalamityPlayer.cs"
+        ]
+      },
+      {
+        "id": "desert",
+        "title": "После Пустынного Бича",
+        "description": "С Victide для разбойника попробуйте Scourge of the Desert либо Sand Dollar. Второй вариант связан с поселением морского NPC.",
+        "weapons": [
+          "ScourgeoftheDesert",
+          "SandDollar"
+        ],
+        "armor": [
+          "VictideHeadRogue",
+          "VictideBreastplate",
+          "VictideGreaves"
+        ],
+        "accessories": [
+          "RaidersTalisman",
+          "v:HermesBoots",
+          "v:CloudinaBottle"
+        ],
+        "notes": "Scourge of the Desert выпадает с Пустынного Бича. Sand Dollar продаётся у Sea King (Амидиаса), для доступа к которому нужно исследовать Затонувшее море. Victide требует 12 Sea Remains на комплект. Это две возможности получения; добывать обе не обязательно.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/ScourgeoftheDesert.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/SandDollar.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideHeadRogue.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideGreaves.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/RaidersTalisman.cs",
+          "sources/decompiled/CalamityMod.Items.TreasureBags/DesertScourgeBag.cs",
+          "sources/decompiled/CalamityMod.NPCs.TownNPCs/SeaKing.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "aerialite",
+        "title": "После Улья или Перфораторов",
+        "description": "Aerospec с головой разбойника даёт следующую ступень скрытности. Feather Knife — прямой крафт, Mycoroot можно оставить как более раннюю альтернативу.",
+        "weapons": [
+          "FeatherKnife",
+          "Mycoroot"
+        ],
+        "armor": [
+          "AerospecHeadRogue",
+          "AerospecBreastplate",
+          "AerospecLeggings"
+        ],
+        "accessories": [
+          "CoinofDeceit",
+          "RaidersTalisman",
+          "v:SpectreBoots"
+        ],
+        "notes": "Feather Knife требует 10 Aerialite Bar; Mycoroot выпадает с Крабулона и доступен раньше этой стадии. Aerospec использует 45 Aerialite Bar и 5 перьев на комплект. Coin of Deceit создаётся из медных/оловянных слитков и слитков заражения; его эффект меняет расход скрытности.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/FeatherKnife.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/Mycoroot.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecHeadRogue.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecLeggings.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/CoinofDeceit.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/RaidersTalisman.cs",
+          "sources/decompiled/CalamityMod.Items.TreasureBags/CrabulonBag.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "pre-hardmode",
+        "title": "После Бога слизней: Стена плоти",
+        "description": "Statigel и Gel Dart дают крафтовую подготовку. Lionfish — альтернативная добыча Бездны, если экспедиция уже подготовлена.",
+        "weapons": [
+          "GelDart",
+          "Lionfish"
+        ],
+        "armor": [
+          "StatigelHeadRogue",
+          "StatigelArmor",
+          "StatigelGreaves"
+        ],
+        "accessories": [
+          "CoinofDeceit",
+          "RaidersTalisman",
+          "MirageMirror",
+          "v:SpectreBoots"
+        ],
+        "notes": "Gel Dart требует по 14 Purified Gel и Blighted Gel у Solidifier, Statigel — по 30 каждого. Lionfish находится в сундуках Бездны после Скелетрона; Hydrothermal Crate добавляет источник в хардмоде. Mirage Mirror создаётся из Magic/Ice Mirror, Black Lens и 50 Bone у Tinkerer’s Workshop. Скрытный Gel Dart отличается по траектории от обычного броска.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/GelDart.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/Lionfish.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Statigel/StatigelHeadRogue.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Statigel/StatigelArmor.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Statigel/StatigelGreaves.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/CoinofDeceit.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/RaidersTalisman.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/MirageMirror.cs",
+          "sources/decompiled/CalamityMod.World/Abyss.cs",
+          "sources/decompiled/CalamityMod.Items.Fishing.SulphurCatches/HydrothermalCrate.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.Tiles.Abyss/AbyssTreasureChest.cs",
+          "sources/decompiled/CalamityMod.Tiles/FurnitureCommon.cs"
+        ]
+      },
+      {
+        "id": "hardmode",
+        "title": "Начало хардмода",
+        "description": "Titan Heart сохраняет классовую скрытность. Cobalt Kunai и Palladium Javelin — простые варианты из первых хардмодных слитков.",
+        "weapons": [
+          "CobaltKunai",
+          "PalladiumJavelin"
+        ],
+        "armor": [
+          "TitanHeartMask",
+          "TitanHeartMantle",
+          "TitanHeartBoots"
+        ],
+        "accessories": [
+          "RogueEmblem",
+          "CoinofDeceit",
+          "MirageMirror",
+          "v:LightningBoots"
+        ],
+        "notes": "Titan Heart armor требует Astral Monolith и по одному Titan Heart на часть. Оба оружия создаются из 10 соответствующих слитков у обычной наковальни. Rogue Emblem входит в добычу Стены плоти, а не производится рецептом эмблемы мстителя. При иной генерации руд выбирайте доступный вариант.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/CobaltKunai.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/PalladiumJavelin.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.TitanHeart/TitanHeartMask.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.TitanHeart/TitanHeartMantle.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.TitanHeart/TitanHeartBoots.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/RogueEmblem.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/CoinofDeceit.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/MirageMirror.cs",
+          "sources/decompiled/CalamityMod.Items/CalamityGlobalItemLoot.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ]
+      },
+      {
+        "id": "post-mechs",
+        "title": "Все механические боссы и Криоген",
+        "description": "Daedalus с головой разбойника поддерживает следующий тир. Kelvin Catalyst и Stormfront Razor дают разные эффекты скрытных ударов.",
+        "weapons": [
+          "KelvinCatalyst",
+          "StormfrontRazor"
+        ],
+        "armor": [
+          "DaedalusHeadRogue",
+          "DaedalusBreastplate",
+          "DaedalusLeggings"
+        ],
+        "accessories": [
+          "RogueEmblem",
+          "RuinMedallion",
+          "AngelTreads",
+          "OrnateShield"
+        ],
+        "notes": "Kelvin Catalyst соединяет Ice Star, Avalanche, Hoarfrost Bow, Icebreaker, Snowstorm Staff и Essence of Eleum. Stormfront Razor использует Cinquedea, Mythril/Orichalcum, Essence of Sunlight, Sea Prism и Stormlion Mandible. Ruin Medallion улучшает Coin of Deceit за Unholy Core и Essence of Havoc. Все компоненты не гарантированы сразу после первого механического босса.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/KelvinCatalyst.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/StormfrontRazor.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Daedalus/DaedalusHeadRogue.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Daedalus/DaedalusBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Daedalus/DaedalusLeggings.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/RogueEmblem.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/RuinMedallion.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AngelTreads.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/OrnateShield.cs"
+        ]
+      },
+      {
+        "id": "post-plantera",
+        "title": "После Плантеры",
+        "description": "Umbraphile — комплект разбойника из Solar Veil и Hallowed Bar. Mangrove Chakram и Samsara Slicer дают две крафтовые ветки с растительными материалами.",
+        "weapons": [
+          "MangroveChakram",
+          "SamsaraSlicer"
+        ],
+        "armor": [
+          "UmbraphileHood",
+          "UmbraphileRegalia",
+          "UmbraphileBoots"
+        ],
+        "accessories": [
+          "RogueEmblem",
+          "VampiricTalisman",
+          "AngelTreads",
+          "AsgardsValor"
+        ],
+        "notes": "Mangrove Chakram требует 10 Perennial Bar; Samsara Slicer соединяет Equanimity, Brimblade и 12 Living Shard. Umbraphile использует 44 Solar Veil и 34 Hallowed Bar на комплект. Vampiric Talisman требует Raider’s Talisman, Rotten Dogtooth, Solar Veil и Broken Bat Wing; понадобится дополнительная добыча события.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/MangroveChakram.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/SamsaraSlicer.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Umbraphile/UmbraphileHood.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Umbraphile/UmbraphileRegalia.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Umbraphile/UmbraphileBoots.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/RogueEmblem.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/VampiricTalisman.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AngelTreads.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs"
+        ]
+      },
+      {
+        "id": "pre-moon-lord",
+        "title": "После Голема: путь к Лунному лорду",
+        "description": "Hydrothermic с головой разбойника — крафтовая броня из Scoria. Оба оружия этой строки связаны с Plaguebringer Goliath.",
+        "weapons": [
+          "TheSyringe",
+          "Malachite"
+        ],
+        "armor": [
+          "HydrothermicHeadRogue",
+          "HydrothermicArmor",
+          "HydrothermicSubligar"
+        ],
+        "accessories": [
+          "RogueEmblem",
+          "VampiricTalisman",
+          "AngelTreads",
+          "AsgardsValor"
+        ],
+        "notes": "The Syringe входит в обычный набор оружия босса; у Malachite отдельное более редкое правило выпадения. Не задерживайте прогрессию ради Malachite. Hydrothermic требует 45 Scoria Bar на комплект; для добычи Scoria нужна кирка от 210. Раннее оружие остаётся резервом до получения трофея.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/TheSyringe.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/Malachite.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Hydrothermic/HydrothermicHeadRogue.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Hydrothermic/HydrothermicArmor.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Hydrothermic/HydrothermicSubligar.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/RogueEmblem.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/VampiricTalisman.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AngelTreads.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
+          "sources/decompiled/CalamityMod.Items.TreasureBags/PlaguebringerGoliathBag.cs",
+          "sources/decompiled/CalamityMod.NPCs.PlaguebringerGoliath/PlaguebringerGoliath.cs",
+          "sources/decompiled/CalamityMod.Tiles.Ores/ScoriaOre.cs"
+        ]
+      },
+      {
+        "id": "post-moon-lord",
+        "title": "После Лунного лорда: перед Провиденс",
+        "description": "Empyrean — послелунный комплект разбойника. Lunar Kunai гарантируется материалами, Utensil Poker зависит от трофея Лунного лорда.",
+        "weapons": [
+          "LunarKunai",
+          "UtensilPoker"
+        ],
+        "armor": [
+          "EmpyreanMask",
+          "EmpyreanCloak",
+          "EmpyreanCuisses"
+        ],
+        "accessories": [
+          "RogueEmblem",
+          "VampiricTalisman",
+          "MoonWalkers",
+          "AsgardsValor"
+        ],
+        "notes": "Lunar Kunai создаётся из 5 Luminite Bar у Ancient Manipulator. Utensil Poker добавлен в таблицу оружия Лунного лорда. Empyrean требует 45 Meld Blob и 36 Luminite Bar на набор. Эта строка не предполагает выпадения случайного предмета с первой победы.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/LunarKunai.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/UtensilPoker.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Empyrean/EmpyreanMask.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Empyrean/EmpyreanCloak.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Empyrean/EmpyreanCuisses.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/RogueEmblem.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/VampiricTalisman.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories.Wings/MoonWalkers.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
+          "sources/decompiled/CalamityMod.Items/CalamityGlobalItemLoot.cs"
+        ]
+      },
+      {
+        "id": "post-providence",
+        "title": "Провиденс → Полтергаст",
+        "description": "Начните с Tarragon, его дротиков и трофея Провиденс. Bloodflare и Ghoulish Gouger добавляются после Полтергаста.",
+        "weapons": [
+          "TarragonThrowingDart",
+          "MoltenAmputator",
+          "GhoulishGouger"
+        ],
+        "armor": [
+          "TarragonHeadRogue",
+          "TarragonBreastplate",
+          "TarragonLeggings",
+          "BloodflareHeadRogue",
+          "BloodflareBodyArmor",
+          "BloodflareCuisses"
+        ],
+        "accessories": [
+          "RogueEmblem",
+          "VampiricTalisman",
+          "VoidStriders",
+          "AsgardsValor"
+        ],
+        "notes": "Tarragon Throwing Dart требует 12 Uelibloom Bar; Molten Amputator выпадает с Провиденс. Ghoulish Gouger — добыча Полтергаста, Bloodflare использует его Ruinous Soul. Void Striders требует материалы трёх стражей. Это последовательные улучшения, не полный набор до всех перечисленных боссов.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/TarragonThrowingDart.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/MoltenAmputator.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/GhoulishGouger.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Tarragon/TarragonHeadRogue.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Tarragon/TarragonBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Tarragon/TarragonLeggings.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Bloodflare/BloodflareHeadRogue.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Bloodflare/BloodflareBodyArmor.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Bloodflare/BloodflareCuisses.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/RogueEmblem.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/VampiricTalisman.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories.Wings/VoidStriders.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
+          "sources/decompiled/CalamityMod.Items.TreasureBags/ProvidenceBag.cs",
+          "sources/decompiled/CalamityMod.Items.TreasureBags/PolterghastBag.cs"
+        ]
+      },
+      {
+        "id": "post-devourer",
+        "title": "После Пожирателя Богов: перед Яроном",
+        "description": "God Slayer и Cosmilite открывают Executioner’s Blade и Time Bolt. Nanotech и Eclipse Mirror собираются после повторных событий.",
+        "weapons": [
+          "ExecutionersBlade",
+          "TimeBolt"
+        ],
+        "armor": [
+          "GodSlayerHeadRogue",
+          "GodSlayerChestplate",
+          "GodSlayerLeggings"
+        ],
+        "accessories": [
+          "Nanotech",
+          "EclipseMirror",
+          "VoidStriders",
+          "AsgardianAegis"
+        ],
+        "notes": "Executioner’s Blade требует 10 Cosmilite Bar. Time Bolt соединяет Lunar Kunai, Stellar Knife, Gold Watch, Cosmilite и Endothermic Energy. Eclipse Mirror использует Darksun Fragment; Nanotech и God Slayer — Ascendant Spirit Essence. Повторите затмение и праздничные луны. Для Asgardian Aegis сохраните Asgard’s Valor и Elysian Aegis с Провиденс. Временное поле не означает полную остановку любого босса.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/ExecutionersBlade.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/TimeBolt.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.GodSlayer/GodSlayerHeadRogue.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.GodSlayer/GodSlayerChestplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.GodSlayer/GodSlayerLeggings.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/Nanotech.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/EclipseMirror.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories.Wings/VoidStriders.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardianAegis.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/AscendantSpiritEssence.cs",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs",
+          "sources/decompiled/CalamityMod.NPCs.Providence/Providence.cs"
+        ]
+      },
+      {
+        "id": "endgame",
+        "title": "После Ярона и финальные улучшения",
+        "description": "Auric Tesla и Seraphim готовят к финальным боссам. Celestus, Supernova и Scarlet Devil относятся к наградам после соответствующих побед.",
+        "weapons": [
+          "Seraphim",
+          "Celestus",
+          "Supernova",
+          "ScarletDevil"
+        ],
+        "armor": [
+          "AuricTeslaHeadRogue",
+          "AuricTeslaBodyArmor",
+          "AuricTeslaCuisses"
+        ],
+        "accessories": [
+          "Nanotech",
+          "EclipseMirror",
+          "SeraphTracers",
+          "AsgardianAegis"
+        ],
+        "notes": "Seraphim улучшает Shattered Dawn за Auric Bar. Celestus и Supernova требуют Miracle Matter с Exo Prism после Экзо-мехов. Scarlet Devil требует Shadowspec Bar с материалами обоих финальных боссов. Сохраняйте Tarragon, Bloodflare и God Slayer для Auric Tesla.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/Seraphim.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/Celestus.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/Supernova.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/ScarletDevil.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Auric/AuricTeslaHeadRogue.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Auric/AuricTeslaBodyArmor.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Auric/AuricTeslaCuisses.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/Nanotech.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/EclipseMirror.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories.Wings/SeraphTracers.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/AsgardianAegis.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/MiracleMatter.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/ShadowspecBar.cs"
+        ]
+      }
+    ]
+  }
+]

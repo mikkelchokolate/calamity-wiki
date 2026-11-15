@@ -1,0 +1,2 @@
+https://raw.githubusercontent.com/google/fonts/main/ofl/tiny5/Tiny5%5BBLED%2CJITT%2CROND%2Cwdth%2Cwght%5D.ttf
+https://github.com/google/fonts/tree/main/ofl/tiny5
