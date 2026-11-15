@@ -36,7 +36,7 @@
     "stages": [
       {
         "id": "start",
-        "title": "До первого босса",
+        "title": "Начало мира: перед Королём слизней",
         "description": "Начните с крафтового Wulfrum Screwdriver; найденный Enchanted Sword даёт альтернативу. Обычный металлический комплект — удобная цель раннего сбора.",
         "weapons": [
           "WulfrumScrewdriver",
@@ -56,7 +56,44 @@
         "evidence": [
           "sources/decompiled/CalamityMod.Items.Weapons.Melee/WulfrumScrewdriver.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
         ]
+      },
+      {
+        "id": "king-slime",
+        "title": "После Короля слизней: Пустынный бич",
+        "description": "Король слизней — необязательная первая проверка. Сохраните удобное раннее оружие и подготовьте арену в пустыне для Пустынного бича. Crown Jewel — дополнительный вариант аксессуара, если он выпал.",
+        "weapons": [
+          "WulfrumScrewdriver",
+          "v:EnchantedSword"
+        ],
+        "armor": [
+          "v:PlatinumHelmet",
+          "v:PlatinumChainmail",
+          "v:PlatinumGreaves"
+        ],
+        "accessories": [
+          "v:HermesBoots",
+          "v:CloudinaBottle",
+          "v:FeralClaws",
+          "CrownJewel"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/WulfrumScrewdriver.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
+        ],
+        "addedCheckpoint": true
       },
       {
         "id": "desert",
@@ -86,7 +123,84 @@
           "sources/decompiled/CalamityMod.Items/CalamityGlobalItemLoot.cs",
           "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
         ]
+      },
+      {
+        "id": "eye",
+        "title": "После Глаза Ктулху: босс Искажения или Багрянца",
+        "description": "Следующая развилка зависит от мира: Пожиратель миров в Искажении или Мозг Ктулху в Багрянце. Оба остаются полноценной частью Calamity. Подготовьте оружие против нескольких целей и место для уклонения.",
+        "weapons": [
+          "UrchinMace",
+          "TeardropCleaver"
+        ],
+        "armor": [
+          "VictideHeadMelee",
+          "VictideBreastplate",
+          "VictideGreaves"
+        ],
+        "accessories": [
+          "v:HermesBoots",
+          "v:FeralClaws",
+          "v:SharkToothNecklace"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/UrchinMace.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/TeardropCleaver.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideHeadMelee.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideGreaves.cs",
+          "sources/decompiled/CalamityMod.Items/CalamityGlobalItemLoot.cs",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
+        ],
+        "addedCheckpoint": true
+      },
+      {
+        "id": "evil-boss",
+        "title": "После Пожирателя миров или Мозга: Улей и Перфораторы",
+        "description": "Материалы заражённого босса помогают улучшить кирку и броню. В Искажении готовьтесь к Улью разума, в Багрянце — к Перфораторам. Победа над одним из них открывает следующий набор аэролитового снаряжения.",
+        "weapons": [
+          "UrchinMace",
+          "TeardropCleaver"
+        ],
+        "armor": [
+          "VictideHeadMelee",
+          "VictideBreastplate",
+          "VictideGreaves"
+        ],
+        "accessories": [
+          "v:HermesBoots",
+          "v:FeralClaws",
+          "v:SharkToothNecklace"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/UrchinMace.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/TeardropCleaver.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideHeadMelee.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideGreaves.cs",
+          "sources/decompiled/CalamityMod.Items/CalamityGlobalItemLoot.cs",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs",
+          "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
+        ],
+        "addedCheckpoint": true
       },
       {
         "id": "aerialite",
@@ -114,7 +228,83 @@
           "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecBreastplate.cs",
           "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecLeggings.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
         ]
+      },
+      {
+        "id": "queen-bee",
+        "title": "После Королевы пчёл: Скелетрон и Данж",
+        "description": "Пчелиные награды дают альтернативы текущему снаряжению. Перед Скелетроном проверьте мобильность и начинайте бой в начале ночи. Циклоп-олень — ещё одна необязательная снежная ветка этого этапа.",
+        "weapons": [
+          "BrokenBiomeBlade",
+          "TaintedBlade",
+          "v:BeeKeeper"
+        ],
+        "armor": [
+          "AerospecHeadMelee",
+          "AerospecBreastplate",
+          "AerospecLeggings"
+        ],
+        "accessories": [
+          "v:SpectreBoots",
+          "v:FeralClaws",
+          "v:SharkToothNecklace"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/BrokenBiomeBlade.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/TaintedBlade.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecHeadMelee.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecLeggings.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
+        ],
+        "addedCheckpoint": true
+      },
+      {
+        "id": "skeletron",
+        "title": "После Скелетрона: Данж и Бог слизней",
+        "description": "Исследуйте Данж, найдите подходящее классу оружие и материалы. Затем готовьтесь к Богу слизней. Победа над Скелетроном сама по себе ещё не включает хардмод.",
+        "weapons": [
+          "BrokenBiomeBlade",
+          "TaintedBlade"
+        ],
+        "armor": [
+          "AerospecHeadMelee",
+          "AerospecBreastplate",
+          "AerospecLeggings"
+        ],
+        "accessories": [
+          "v:SpectreBoots",
+          "v:FeralClaws",
+          "v:SharkToothNecklace"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/BrokenBiomeBlade.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/TaintedBlade.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecHeadMelee.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecLeggings.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
+        ],
+        "addedCheckpoint": true
       },
       {
         "id": "pre-hardmode",
@@ -142,6 +332,11 @@
           "sources/decompiled/CalamityMod.Items.Armor.Statigel/StatigelArmor.cs",
           "sources/decompiled/CalamityMod.Items.Armor.Statigel/StatigelGreaves.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
         ]
       },
       {
@@ -168,7 +363,111 @@
           "sources/decompiled/CalamityMod.Items.Weapons.Melee/TrueCausticEdge.cs",
           "sources/decompiled/CalamityMod.Items.Weapons.Melee/CometQuasher.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
         ]
+      },
+      {
+        "id": "queen-slime",
+        "title": "Королева слизней и Криоген: перед механикой",
+        "description": "Освойтесь в хардмоде, улучшите крылья и защиту. Королева слизней — дополнительная ветка; Криоген открывает криониковое снаряжение. Не считайте их победы заменой механическим боссам.",
+        "weapons": [
+          "TrueCausticEdge",
+          "CometQuasher"
+        ],
+        "armor": [
+          "v:PalladiumMask",
+          "v:PalladiumBreastplate",
+          "v:PalladiumLeggings"
+        ],
+        "accessories": [
+          "v:WarriorEmblem",
+          "v:PowerGlove",
+          "v:LightningBoots",
+          "v:CharmofMyths"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/TrueCausticEdge.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/CometQuasher.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
+        ],
+        "addedCheckpoint": true
+      },
+      {
+        "id": "first-mech",
+        "title": "После первого механического босса",
+        "description": "Можно выбирать между Уничтожителем, Близнецами и Скелетроном Праймом. При включённой переработке руд Calamity первая победа продвигает руды, а характеристики следующего меха меняются. Проверьте статью «Руды раннего хардмода».",
+        "weapons": [
+          "TrueCausticEdge",
+          "CometQuasher"
+        ],
+        "armor": [
+          "v:PalladiumMask",
+          "v:PalladiumBreastplate",
+          "v:PalladiumLeggings"
+        ],
+        "accessories": [
+          "v:WarriorEmblem",
+          "v:PowerGlove",
+          "v:LightningBoots",
+          "v:CharmofMyths"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/TrueCausticEdge.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/CometQuasher.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
+        ],
+        "addedCheckpoint": true
+      },
+      {
+        "id": "second-mech",
+        "title": "После двух механических боссов",
+        "description": "Подготовьтесь к оставшемуся механическому боссу. При переработке руд уже доступна следующая пара руд, но освящённые слитки и окончание ветки зависят от всей тройки. Не обязательно менять каждую вещь после одной победы.",
+        "weapons": [
+          "TrueCausticEdge",
+          "CometQuasher"
+        ],
+        "armor": [
+          "v:PalladiumMask",
+          "v:PalladiumBreastplate",
+          "v:PalladiumLeggings"
+        ],
+        "accessories": [
+          "v:WarriorEmblem",
+          "v:PowerGlove",
+          "v:LightningBoots",
+          "v:CharmofMyths"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/TrueCausticEdge.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Melee/CometQuasher.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
+        ],
+        "addedCheckpoint": true
       },
       {
         "id": "post-mechs",
@@ -199,6 +498,11 @@
           "sources/decompiled/CalamityMod.Items.Accessories/AngelTreads.cs",
           "sources/decompiled/CalamityMod.Items.Accessories/OrnateShield.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
         ]
       },
       {
@@ -231,6 +535,11 @@
           "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
           "sources/vanilla/vanilla-ids.json",
           "sources/decompiled/CalamityMod.NPCs.Abyss/Viperfish.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
         ]
       },
       {
@@ -264,6 +573,11 @@
           "sources/decompiled/CalamityMod.Items.Materials/LifeAlloy.cs",
           "sources/vanilla/vanilla-ids.json",
           "sources/decompiled/CalamityMod.Tiles.Ores/ScoriaOre.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
         ]
       },
       {
@@ -292,6 +606,11 @@
           "sources/decompiled/CalamityMod.Items.Accessories.Wings/MoonWalkers.cs",
           "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
         ]
       },
       {
@@ -332,6 +651,11 @@
           "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
           "sources/decompiled/CalamityMod.Items.TreasureBags/PolterghastBag.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
         ]
       },
       {
@@ -365,6 +689,11 @@
           "sources/decompiled/CalamityMod.Items.Materials/AscendantSpiritEssence.cs",
           "sources/vanilla/vanilla-ids.json",
           "sources/decompiled/CalamityMod.NPCs.Providence/Providence.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
         ]
       },
       {
@@ -400,6 +729,11 @@
           "sources/decompiled/CalamityMod.Items.Materials/MiracleMatter.cs",
           "sources/decompiled/CalamityMod.Items.Materials/ShadowspecBar.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
         ]
       }
     ]
@@ -455,7 +789,7 @@
     "stages": [
       {
         "id": "start",
-        "title": "До первого босса",
+        "title": "Начало мира: перед Королём слизней",
         "description": "Соберите Snow Ruffian, если готовы добыть мех Flinx. Wulfrum Blunderbuss даёт близкую дробовую атаку, Acidwood Bow — простой дальний вариант.",
         "weapons": [
           "WulfrumBlunderbuss",
@@ -479,7 +813,54 @@
           "sources/decompiled/CalamityMod.Items.Armor.SnowRuffian/SnowRuffianChestplate.cs",
           "sources/decompiled/CalamityMod.Items.Armor.SnowRuffian/SnowRuffianGreaves.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ArcheryPotion",
+          "v:MusketBall",
+          "v:WoodenArrow"
         ]
+      },
+      {
+        "id": "king-slime",
+        "title": "После Короля слизней: Пустынный бич",
+        "description": "Король слизней — необязательная первая проверка. Сохраните удобное раннее оружие и подготовьте арену в пустыне для Пустынного бича. Crown Jewel — дополнительный вариант аксессуара, если он выпал.",
+        "weapons": [
+          "WulfrumBlunderbuss",
+          "AcidwoodBow"
+        ],
+        "armor": [
+          "SnowRuffianMask",
+          "SnowRuffianChestplate",
+          "SnowRuffianGreaves"
+        ],
+        "accessories": [
+          "v:HermesBoots",
+          "v:CloudinaBottle",
+          "v:SharkToothNecklace",
+          "CrownJewel"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/WulfrumBlunderbuss.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/AcidwoodBow.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.SnowRuffian/SnowRuffianMask.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.SnowRuffian/SnowRuffianChestplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.SnowRuffian/SnowRuffianGreaves.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ArcheryPotion",
+          "v:MusketBall",
+          "v:WoodenArrow"
+        ],
+        "addedCheckpoint": true
       },
       {
         "id": "desert",
@@ -511,7 +892,99 @@
           "sources/decompiled/CalamityMod.Items.TreasureBags/CrabulonBag.cs",
           "sources/decompiled/CalamityMod.Items.Materials/SeaRemains.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ArcheryPotion",
+          "v:MusketBall",
+          "v:WoodenArrow"
         ]
+      },
+      {
+        "id": "eye",
+        "title": "После Глаза Ктулху: босс Искажения или Багрянца",
+        "description": "Следующая развилка зависит от мира: Пожиратель миров в Искажении или Мозг Ктулху в Багрянце. Оба остаются полноценной частью Calamity. Подготовьте оружие против нескольких целей и место для уклонения.",
+        "weapons": [
+          "StormSurge",
+          "ReedBlowgun",
+          "Fungicide"
+        ],
+        "armor": [
+          "VictideHeadRanged",
+          "VictideBreastplate",
+          "VictideGreaves"
+        ],
+        "accessories": [
+          "v:HermesBoots",
+          "v:CloudinaBottle",
+          "v:SharkToothNecklace"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/StormSurge.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/ReedBlowgun.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/Fungicide.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideHeadRanged.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideGreaves.cs",
+          "sources/decompiled/CalamityMod.Items.TreasureBags/CrabulonBag.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/SeaRemains.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ArcheryPotion",
+          "v:MusketBall",
+          "v:WoodenArrow"
+        ],
+        "addedCheckpoint": true
+      },
+      {
+        "id": "evil-boss",
+        "title": "После Пожирателя миров или Мозга: Улей и Перфораторы",
+        "description": "Материалы заражённого босса помогают улучшить кирку и броню. В Искажении готовьтесь к Улью разума, в Багрянце — к Перфораторам. Победа над одним из них открывает следующий набор аэролитового снаряжения.",
+        "weapons": [
+          "StormSurge",
+          "ReedBlowgun",
+          "Fungicide"
+        ],
+        "armor": [
+          "VictideHeadRanged",
+          "VictideBreastplate",
+          "VictideGreaves"
+        ],
+        "accessories": [
+          "v:HermesBoots",
+          "v:CloudinaBottle",
+          "v:SharkToothNecklace"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/StormSurge.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/ReedBlowgun.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/Fungicide.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideHeadRanged.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideGreaves.cs",
+          "sources/decompiled/CalamityMod.Items.TreasureBags/CrabulonBag.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/SeaRemains.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ArcheryPotion",
+          "v:MusketBall",
+          "v:WoodenArrow"
+        ],
+        "addedCheckpoint": true
       },
       {
         "id": "aerialite",
@@ -541,7 +1014,96 @@
           "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecBreastplate.cs",
           "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecLeggings.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ArcheryPotion",
+          "v:MusketBall",
+          "v:WoodenArrow"
         ]
+      },
+      {
+        "id": "queen-bee",
+        "title": "После Королевы пчёл: Скелетрон и Данж",
+        "description": "Пчелиные награды дают альтернативы текущему снаряжению. Перед Скелетроном проверьте мобильность и начинайте бой в начале ночи. Циклоп-олень — ещё одна необязательная снежная ветка этого этапа.",
+        "weapons": [
+          "Galeforce",
+          "AquashardShotgun",
+          "FirestormCannon",
+          "v:BeesKnees"
+        ],
+        "armor": [
+          "AerospecHeadRanged",
+          "AerospecBreastplate",
+          "AerospecLeggings"
+        ],
+        "accessories": [
+          "v:SpectreBoots",
+          "v:SharkToothNecklace",
+          "v:BandofRegeneration"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/Galeforce.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/AquashardShotgun.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/FirestormCannon.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecHeadRanged.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecLeggings.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ArcheryPotion",
+          "v:MusketBall",
+          "v:WoodenArrow"
+        ],
+        "addedCheckpoint": true
+      },
+      {
+        "id": "skeletron",
+        "title": "После Скелетрона: Данж и Бог слизней",
+        "description": "Исследуйте Данж, найдите подходящее классу оружие и материалы. Затем готовьтесь к Богу слизней. Победа над Скелетроном сама по себе ещё не включает хардмод.",
+        "weapons": [
+          "Galeforce",
+          "AquashardShotgun",
+          "FirestormCannon"
+        ],
+        "armor": [
+          "AerospecHeadRanged",
+          "AerospecBreastplate",
+          "AerospecLeggings"
+        ],
+        "accessories": [
+          "v:SpectreBoots",
+          "v:SharkToothNecklace",
+          "v:BandofRegeneration"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/Galeforce.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/AquashardShotgun.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/FirestormCannon.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecHeadRanged.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecLeggings.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ArcheryPotion",
+          "v:MusketBall",
+          "v:WoodenArrow"
+        ],
+        "addedCheckpoint": true
       },
       {
         "id": "pre-hardmode",
@@ -575,6 +1137,14 @@
           "sources/vanilla/vanilla-ids.json",
           "sources/decompiled/CalamityMod.Tiles.Abyss/AbyssTreasureChest.cs",
           "sources/decompiled/CalamityMod.Tiles/FurnitureCommon.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ArcheryPotion",
+          "v:MusketBall",
+          "v:WoodenArrow"
         ]
       },
       {
@@ -601,7 +1171,123 @@
         "evidence": [
           "sources/decompiled/CalamityMod.Items.Weapons.Ranged/FlarewingBow.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ArcheryPotion",
+          "v:MusketBall",
+          "v:WoodenArrow"
         ]
+      },
+      {
+        "id": "queen-slime",
+        "title": "Королева слизней и Криоген: перед механикой",
+        "description": "Освойтесь в хардмоде, улучшите крылья и защиту. Королева слизней — дополнительная ветка; Криоген открывает криониковое снаряжение. Не считайте их победы заменой механическим боссам.",
+        "weapons": [
+          "FlarewingBow",
+          "v:OnyxBlaster",
+          "v:DaedalusStormbow"
+        ],
+        "armor": [
+          "v:PalladiumHelmet",
+          "v:PalladiumBreastplate",
+          "v:PalladiumLeggings"
+        ],
+        "accessories": [
+          "v:RangerEmblem",
+          "v:MagicQuiver",
+          "v:LightningBoots",
+          "v:CharmofMyths"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/FlarewingBow.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ArcheryPotion",
+          "v:MusketBall",
+          "v:WoodenArrow"
+        ],
+        "addedCheckpoint": true
+      },
+      {
+        "id": "first-mech",
+        "title": "После первого механического босса",
+        "description": "Можно выбирать между Уничтожителем, Близнецами и Скелетроном Праймом. При включённой переработке руд Calamity первая победа продвигает руды, а характеристики следующего меха меняются. Проверьте статью «Руды раннего хардмода».",
+        "weapons": [
+          "FlarewingBow",
+          "v:OnyxBlaster",
+          "v:DaedalusStormbow"
+        ],
+        "armor": [
+          "v:PalladiumHelmet",
+          "v:PalladiumBreastplate",
+          "v:PalladiumLeggings"
+        ],
+        "accessories": [
+          "v:RangerEmblem",
+          "v:MagicQuiver",
+          "v:LightningBoots",
+          "v:CharmofMyths"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/FlarewingBow.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ArcheryPotion",
+          "v:MusketBall",
+          "v:WoodenArrow"
+        ],
+        "addedCheckpoint": true
+      },
+      {
+        "id": "second-mech",
+        "title": "После двух механических боссов",
+        "description": "Подготовьтесь к оставшемуся механическому боссу. При переработке руд уже доступна следующая пара руд, но освящённые слитки и окончание ветки зависят от всей тройки. Не обязательно менять каждую вещь после одной победы.",
+        "weapons": [
+          "FlarewingBow",
+          "v:OnyxBlaster",
+          "v:DaedalusStormbow"
+        ],
+        "armor": [
+          "v:PalladiumHelmet",
+          "v:PalladiumBreastplate",
+          "v:PalladiumLeggings"
+        ],
+        "accessories": [
+          "v:RangerEmblem",
+          "v:MagicQuiver",
+          "v:LightningBoots",
+          "v:CharmofMyths"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Ranged/FlarewingBow.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ArcheryPotion",
+          "v:MusketBall",
+          "v:WoodenArrow"
+        ],
+        "addedCheckpoint": true
       },
       {
         "id": "post-mechs",
@@ -638,6 +1324,14 @@
           "sources/decompiled/CalamityMod.NPCs.TownNPCs/Archmage.cs",
           "sources/decompiled/CalamityMod.Items.Materials/CoreofCalamity.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ArcheryPotion",
+          "v:MusketBall",
+          "v:WoodenArrow"
         ]
       },
       {
@@ -671,6 +1365,14 @@
           "sources/decompiled/CalamityMod.Items.Materials/CoreofCalamity.cs",
           "sources/vanilla/vanilla-ids.json",
           "sources/decompiled/CalamityMod.NPCs.Abyss/Viperfish.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ArcheryPotion",
+          "v:MusketBall",
+          "v:WoodenArrow"
         ]
       },
       {
@@ -706,6 +1408,14 @@
           "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
           "sources/vanilla/vanilla-ids.json",
           "sources/decompiled/CalamityMod.Tiles.Ores/ScoriaOre.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ArcheryPotion",
+          "v:MusketBall",
+          "v:WoodenArrow"
         ]
       },
       {
@@ -735,6 +1445,14 @@
           "sources/decompiled/CalamityMod.Items.Accessories.Wings/MoonWalkers.cs",
           "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ArcheryPotion",
+          "v:MusketBall",
+          "v:WoodenArrow"
         ]
       },
       {
@@ -779,6 +1497,14 @@
           "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
           "sources/decompiled/CalamityMod.Items.TreasureBags/ProvidenceBag.cs",
           "sources/decompiled/CalamityMod.Items.TreasureBags/PolterghastBag.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ArcheryPotion",
+          "v:MusketBall",
+          "v:WoodenArrow"
         ]
       },
       {
@@ -816,6 +1542,14 @@
           "sources/decompiled/CalamityMod.Items.Materials/AscendantSpiritEssence.cs",
           "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs",
           "sources/decompiled/CalamityMod.NPCs.Providence/Providence.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ArcheryPotion",
+          "v:MusketBall",
+          "v:WoodenArrow"
         ]
       },
       {
@@ -854,6 +1588,14 @@
           "sources/decompiled/CalamityMod.Items.Accessories/AsgardianAegis.cs",
           "sources/decompiled/CalamityMod.Items.Materials/MiracleMatter.cs",
           "sources/decompiled/CalamityMod.Items.TreasureBags/CalamitasCoffer.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ArcheryPotion",
+          "v:MusketBall",
+          "v:WoodenArrow"
         ]
       }
     ]
@@ -895,7 +1637,7 @@
     "stages": [
       {
         "id": "start",
-        "title": "До первого босса",
+        "title": "Начало мира: перед Королём слизней",
         "description": "Wulfrum Prosthesis — прямой ранний крафт, Frost Bolt — вариант из снежных материалов. Jungle armor можно собрать исследованием джунглей.",
         "weapons": [
           "WulfrumProsthesis",
@@ -916,7 +1658,49 @@
           "sources/decompiled/CalamityMod.Items.Weapons.Magic/WulfrumProsthesis.cs",
           "sources/decompiled/CalamityMod.Items.Weapons.Magic/FrostBolt.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ManaRegenerationPotion",
+          "v:MagicPowerPotion"
         ]
+      },
+      {
+        "id": "king-slime",
+        "title": "После Короля слизней: Пустынный бич",
+        "description": "Король слизней — необязательная первая проверка. Сохраните удобное раннее оружие и подготовьте арену в пустыне для Пустынного бича. Crown Jewel — дополнительный вариант аксессуара, если он выпал.",
+        "weapons": [
+          "WulfrumProsthesis",
+          "FrostBolt"
+        ],
+        "armor": [
+          "v:JungleHat",
+          "v:JungleShirt",
+          "v:JunglePants"
+        ],
+        "accessories": [
+          "v:HermesBoots",
+          "v:CloudinaBottle",
+          "v:BandofStarpower",
+          "CrownJewel"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/WulfrumProsthesis.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/FrostBolt.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ManaRegenerationPotion",
+          "v:MagicPowerPotion"
+        ],
+        "addedCheckpoint": true
       },
       {
         "id": "desert",
@@ -944,7 +1728,88 @@
           "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideGreaves.cs",
           "sources/decompiled/CalamityMod.Items.Materials/SeaRemains.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ManaRegenerationPotion",
+          "v:MagicPowerPotion"
         ]
+      },
+      {
+        "id": "eye",
+        "title": "После Глаза Ктулху: босс Искажения или Багрянца",
+        "description": "Следующая развилка зависит от мира: Пожиратель миров в Искажении или Мозг Ктулху в Багрянце. Оба остаются полноценной частью Calamity. Подготовьте оружие против нескольких целей и место для уклонения.",
+        "weapons": [
+          "AquamarineStaff",
+          "v:DiamondStaff"
+        ],
+        "armor": [
+          "VictideHeadMagic",
+          "VictideBreastplate",
+          "VictideGreaves"
+        ],
+        "accessories": [
+          "v:HermesBoots",
+          "v:ManaFlower",
+          "v:BandofStarpower"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/AquamarineStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideHeadMagic.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideGreaves.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/SeaRemains.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ManaRegenerationPotion",
+          "v:MagicPowerPotion"
+        ],
+        "addedCheckpoint": true
+      },
+      {
+        "id": "evil-boss",
+        "title": "После Пожирателя миров или Мозга: Улей и Перфораторы",
+        "description": "Материалы заражённого босса помогают улучшить кирку и броню. В Искажении готовьтесь к Улью разума, в Багрянце — к Перфораторам. Победа над одним из них открывает следующий набор аэролитового снаряжения.",
+        "weapons": [
+          "AquamarineStaff",
+          "v:DiamondStaff"
+        ],
+        "armor": [
+          "VictideHeadMagic",
+          "VictideBreastplate",
+          "VictideGreaves"
+        ],
+        "accessories": [
+          "v:HermesBoots",
+          "v:ManaFlower",
+          "v:BandofStarpower"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/AquamarineStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideHeadMagic.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideGreaves.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/SeaRemains.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ManaRegenerationPotion",
+          "v:MagicPowerPotion"
+        ],
+        "addedCheckpoint": true
       },
       {
         "id": "aerialite",
@@ -972,7 +1837,89 @@
           "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecBreastplate.cs",
           "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecLeggings.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ManaRegenerationPotion",
+          "v:MagicPowerPotion"
         ]
+      },
+      {
+        "id": "queen-bee",
+        "title": "После Королевы пчёл: Скелетрон и Данж",
+        "description": "Пчелиные награды дают альтернативы текущему снаряжению. Перед Скелетроном проверьте мобильность и начинайте бой в начале ночи. Циклоп-олень — ещё одна необязательная снежная ветка этого этапа.",
+        "weapons": [
+          "Tradewinds",
+          "FlareBolt",
+          "v:BeeGun"
+        ],
+        "armor": [
+          "AerospecHeadMagic",
+          "AerospecBreastplate",
+          "AerospecLeggings"
+        ],
+        "accessories": [
+          "v:SpectreBoots",
+          "v:ManaFlower",
+          "v:CelestialCuffs"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/Tradewinds.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/FlareBolt.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecHeadMagic.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecLeggings.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ManaRegenerationPotion",
+          "v:MagicPowerPotion"
+        ],
+        "addedCheckpoint": true
+      },
+      {
+        "id": "skeletron",
+        "title": "После Скелетрона: Данж и Бог слизней",
+        "description": "Исследуйте Данж, найдите подходящее классу оружие и материалы. Затем готовьтесь к Богу слизней. Победа над Скелетроном сама по себе ещё не включает хардмод.",
+        "weapons": [
+          "Tradewinds",
+          "FlareBolt"
+        ],
+        "armor": [
+          "AerospecHeadMagic",
+          "AerospecBreastplate",
+          "AerospecLeggings"
+        ],
+        "accessories": [
+          "v:SpectreBoots",
+          "v:ManaFlower",
+          "v:CelestialCuffs"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/Tradewinds.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/FlareBolt.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecHeadMagic.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecLeggings.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ManaRegenerationPotion",
+          "v:MagicPowerPotion"
+        ],
+        "addedCheckpoint": true
       },
       {
         "id": "pre-hardmode",
@@ -1007,6 +1954,13 @@
           "sources/vanilla/vanilla-ids.json",
           "sources/decompiled/CalamityMod.Tiles.Abyss/AbyssTreasureChest.cs",
           "sources/decompiled/CalamityMod.Tiles/FurnitureCommon.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ManaRegenerationPotion",
+          "v:MagicPowerPotion"
         ]
       },
       {
@@ -1034,7 +1988,122 @@
           "sources/decompiled/CalamityMod.Items.Weapons.Magic/Poseidon.cs",
           "sources/decompiled/CalamityMod.NPCs.SunkenSea/GiantClam.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ManaRegenerationPotion",
+          "v:MagicPowerPotion"
         ]
+      },
+      {
+        "id": "queen-slime",
+        "title": "Королева слизней и Криоген: перед механикой",
+        "description": "Освойтесь в хардмоде, улучшите крылья и защиту. Королева слизней — дополнительная ветка; Криоген открывает криониковое снаряжение. Не считайте их победы заменой механическим боссам.",
+        "weapons": [
+          "FrigidflashBolt",
+          "Poseidon"
+        ],
+        "armor": [
+          "v:PalladiumHeadgear",
+          "v:PalladiumBreastplate",
+          "v:PalladiumLeggings"
+        ],
+        "accessories": [
+          "v:SorcererEmblem",
+          "v:ManaFlower",
+          "v:CelestialCuffs",
+          "v:LightningBoots"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/FrigidflashBolt.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/Poseidon.cs",
+          "sources/decompiled/CalamityMod.NPCs.SunkenSea/GiantClam.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ManaRegenerationPotion",
+          "v:MagicPowerPotion"
+        ],
+        "addedCheckpoint": true
+      },
+      {
+        "id": "first-mech",
+        "title": "После первого механического босса",
+        "description": "Можно выбирать между Уничтожителем, Близнецами и Скелетроном Праймом. При включённой переработке руд Calamity первая победа продвигает руды, а характеристики следующего меха меняются. Проверьте статью «Руды раннего хардмода».",
+        "weapons": [
+          "FrigidflashBolt",
+          "Poseidon"
+        ],
+        "armor": [
+          "v:PalladiumHeadgear",
+          "v:PalladiumBreastplate",
+          "v:PalladiumLeggings"
+        ],
+        "accessories": [
+          "v:SorcererEmblem",
+          "v:ManaFlower",
+          "v:CelestialCuffs",
+          "v:LightningBoots"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/FrigidflashBolt.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/Poseidon.cs",
+          "sources/decompiled/CalamityMod.NPCs.SunkenSea/GiantClam.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ManaRegenerationPotion",
+          "v:MagicPowerPotion"
+        ],
+        "addedCheckpoint": true
+      },
+      {
+        "id": "second-mech",
+        "title": "После двух механических боссов",
+        "description": "Подготовьтесь к оставшемуся механическому боссу. При переработке руд уже доступна следующая пара руд, но освящённые слитки и окончание ветки зависят от всей тройки. Не обязательно менять каждую вещь после одной победы.",
+        "weapons": [
+          "FrigidflashBolt",
+          "Poseidon"
+        ],
+        "armor": [
+          "v:PalladiumHeadgear",
+          "v:PalladiumBreastplate",
+          "v:PalladiumLeggings"
+        ],
+        "accessories": [
+          "v:SorcererEmblem",
+          "v:ManaFlower",
+          "v:CelestialCuffs",
+          "v:LightningBoots"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/FrigidflashBolt.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Magic/Poseidon.cs",
+          "sources/decompiled/CalamityMod.NPCs.SunkenSea/GiantClam.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ManaRegenerationPotion",
+          "v:MagicPowerPotion"
+        ],
+        "addedCheckpoint": true
       },
       {
         "id": "post-mechs",
@@ -1067,6 +2136,13 @@
           "sources/decompiled/CalamityMod.Items.Accessories/OrnateShield.cs",
           "sources/decompiled/CalamityMod.NPCs.TownNPCs/Archmage.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ManaRegenerationPotion",
+          "v:MagicPowerPotion"
         ]
       },
       {
@@ -1097,6 +2173,13 @@
           "sources/decompiled/CalamityMod.Items.TreasureBags/LeviathanBag.cs",
           "sources/decompiled/CalamityMod.Items.Materials/CoreofCalamity.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ManaRegenerationPotion",
+          "v:MagicPowerPotion"
         ]
       },
       {
@@ -1130,6 +2213,13 @@
           "sources/decompiled/CalamityMod.Items.TreasureBags/PlaguebringerGoliathBag.cs",
           "sources/vanilla/vanilla-ids.json",
           "sources/decompiled/CalamityMod.Tiles.Ores/ScoriaOre.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ManaRegenerationPotion",
+          "v:MagicPowerPotion"
         ]
       },
       {
@@ -1159,6 +2249,13 @@
           "sources/decompiled/CalamityMod.Items.Accessories.Wings/MoonWalkers.cs",
           "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ManaRegenerationPotion",
+          "v:MagicPowerPotion"
         ]
       },
       {
@@ -1198,6 +2295,13 @@
           "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
           "sources/decompiled/CalamityMod.Items.TreasureBags/PolterghastBag.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ManaRegenerationPotion",
+          "v:MagicPowerPotion"
         ]
       },
       {
@@ -1232,6 +2336,13 @@
           "sources/decompiled/CalamityMod.Items.Accessories/AsgardianAegis.cs",
           "sources/decompiled/CalamityMod.Items.Materials/AscendantSpiritEssence.cs",
           "sources/decompiled/CalamityMod.NPCs.Providence/Providence.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ManaRegenerationPotion",
+          "v:MagicPowerPotion"
         ]
       },
       {
@@ -1268,6 +2379,13 @@
           "sources/decompiled/CalamityMod.Items.Accessories/AsgardianAegis.cs",
           "sources/decompiled/CalamityMod.Items.Materials/MiracleMatter.cs",
           "sources/decompiled/CalamityMod.Items.Materials/ShadowspecBar.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:ManaRegenerationPotion",
+          "v:MagicPowerPotion"
         ]
       }
     ]
@@ -1331,7 +2449,7 @@
     "stages": [
       {
         "id": "start",
-        "title": "До первого босса",
+        "title": "Начало мира: перед Королём слизней",
         "description": "Начните с Wulfrum Controller как основного миньона. Добавьте белку-турель и один ледяной цветок: они выполняют разные роли и не требуют редкого раннего трофея.",
         "weapons": [
           "WulfrumController",
@@ -1364,7 +2482,59 @@
           "sources/decompiled/CalamityMod.CalPlayer/CalamityPlayer.cs",
           "sources/decompiled/CalamityMod.DataStructures/SummonTag.cs",
           "sources/decompiled/CalamityMod.Buffs/CalamityGlobalBuff.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:SummoningPotion"
         ]
+      },
+      {
+        "id": "king-slime",
+        "title": "После Короля слизней: Пустынный бич",
+        "description": "Король слизней — необязательная первая проверка. Сохраните удобное раннее оружие и подготовьте арену в пустыне для Пустынного бича. Crown Jewel — дополнительный вариант аксессуара, если он выпал.",
+        "weapons": [
+          "WulfrumController",
+          "SquirrelSquireStaff",
+          "FrostBlossomStaff"
+        ],
+        "armor": [
+          "WulfrumHat",
+          "WulfrumJacket",
+          "WulfrumOveralls"
+        ],
+        "accessories": [
+          "v:HermesBoots",
+          "v:CloudinaBottle",
+          "WulfrumBattery",
+          "CrownJewel"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/WulfrumController.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/SquirrelSquireStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/FrostBlossomStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Wulfrum/WulfrumHat.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Wulfrum/WulfrumJacket.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Wulfrum/WulfrumOveralls.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/WulfrumBattery.cs",
+          "sources/decompiled/CalamityMod.NPCs.NormalNPCs/WulfrumDrone.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/WulfrumControllerPlayer.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod/CalamityUtils.cs",
+          "sources/decompiled/CalamityMod.CalPlayer/CalamityPlayer.cs",
+          "sources/decompiled/CalamityMod.DataStructures/SummonTag.cs",
+          "sources/decompiled/CalamityMod.Buffs/CalamityGlobalBuff.cs",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:SummoningPotion"
+        ],
+        "addedCheckpoint": true
       },
       {
         "id": "desert",
@@ -1401,7 +2571,104 @@
           "sources/decompiled/CalamityMod.Buffs/CalamityGlobalBuff.cs",
           "sources/decompiled/CalamityMod.DataStructures/SummonTag.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:SummoningPotion"
         ]
+      },
+      {
+        "id": "eye",
+        "title": "После Глаза Ктулху: босс Искажения или Багрянца",
+        "description": "Следующая развилка зависит от мира: Пожиратель миров в Искажении или Мозг Ктулху в Багрянце. Оба остаются полноценной частью Calamity. Подготовьте оружие против нескольких целей и место для уклонения.",
+        "weapons": [
+          "BelladonnaSpiritStaff",
+          "SunSpiritStaff",
+          "Cnidarian",
+          "DeathstareRod"
+        ],
+        "armor": [
+          "VictideHeadSummon",
+          "VictideBreastplate",
+          "VictideGreaves"
+        ],
+        "accessories": [
+          "SpiritGlyph",
+          "VoltaicJelly",
+          "v:HermesBoots",
+          "v:CloudinaBottle"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/BelladonnaSpiritStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/SunSpiritStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/Cnidarian.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideHeadSummon.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideGreaves.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/SpiritGlyph.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/VoltaicJelly.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/SeaRemains.cs",
+          "sources/decompiled/CalamityMod.NPCs.SunkenSea/GhostBell.cs",
+          "sources/decompiled/CalamityMod.Buffs/CalamityGlobalBuff.cs",
+          "sources/decompiled/CalamityMod.DataStructures/SummonTag.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:SummoningPotion"
+        ],
+        "addedCheckpoint": true
+      },
+      {
+        "id": "evil-boss",
+        "title": "После Пожирателя миров или Мозга: Улей и Перфораторы",
+        "description": "Материалы заражённого босса помогают улучшить кирку и броню. В Искажении готовьтесь к Улью разума, в Багрянце — к Перфораторам. Победа над одним из них открывает следующий набор аэролитового снаряжения.",
+        "weapons": [
+          "BelladonnaSpiritStaff",
+          "SunSpiritStaff",
+          "Cnidarian"
+        ],
+        "armor": [
+          "VictideHeadSummon",
+          "VictideBreastplate",
+          "VictideGreaves"
+        ],
+        "accessories": [
+          "SpiritGlyph",
+          "VoltaicJelly",
+          "v:HermesBoots",
+          "v:CloudinaBottle"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/BelladonnaSpiritStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/SunSpiritStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/Cnidarian.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideHeadSummon.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideGreaves.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/SpiritGlyph.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/VoltaicJelly.cs",
+          "sources/decompiled/CalamityMod.Items.Materials/SeaRemains.cs",
+          "sources/decompiled/CalamityMod.NPCs.SunkenSea/GhostBell.cs",
+          "sources/decompiled/CalamityMod.Buffs/CalamityGlobalBuff.cs",
+          "sources/decompiled/CalamityMod.DataStructures/SummonTag.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:SummoningPotion"
+        ],
+        "addedCheckpoint": true
       },
       {
         "id": "aerialite",
@@ -1435,7 +2702,99 @@
           "sources/decompiled/CalamityMod.Items.Accessories/SpiritGlyph.cs",
           "sources/decompiled/CalamityMod.Items.Accessories/VoltaicJelly.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:SummoningPotion"
         ]
+      },
+      {
+        "id": "queen-bee",
+        "title": "После Королевы пчёл: Скелетрон и Данж",
+        "description": "Пчелиные награды дают альтернативы текущему снаряжению. Перед Скелетроном проверьте мобильность и начинайте бой в начале ночи. Циклоп-олень — ещё одна необязательная снежная ветка этого этапа.",
+        "weapons": [
+          "VileFeeder",
+          "ScabRipper",
+          "CinderBlossomStaff",
+          "v:ThornWhip",
+          "v:HornetStaff"
+        ],
+        "armor": [
+          "AerospecHeadSummon",
+          "AerospecBreastplate",
+          "AerospecLeggings"
+        ],
+        "accessories": [
+          "SpiritGlyph",
+          "VoltaicJelly",
+          "v:SpectreBoots",
+          "v:PygmyNecklace"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/VileFeeder.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/ScabRipper.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/CinderBlossomStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecHeadSummon.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecLeggings.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/SpiritGlyph.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/VoltaicJelly.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:SummoningPotion"
+        ],
+        "addedCheckpoint": true
+      },
+      {
+        "id": "skeletron",
+        "title": "После Скелетрона: Данж и Бог слизней",
+        "description": "Исследуйте Данж, найдите подходящее классу оружие и материалы. Затем готовьтесь к Богу слизней. Победа над Скелетроном сама по себе ещё не включает хардмод.",
+        "weapons": [
+          "VileFeeder",
+          "ScabRipper",
+          "CinderBlossomStaff",
+          "v:ThornWhip",
+          "v:BoneWhip"
+        ],
+        "armor": [
+          "AerospecHeadSummon",
+          "AerospecBreastplate",
+          "AerospecLeggings"
+        ],
+        "accessories": [
+          "SpiritGlyph",
+          "VoltaicJelly",
+          "v:SpectreBoots",
+          "v:PygmyNecklace"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/VileFeeder.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/ScabRipper.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/CinderBlossomStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecHeadSummon.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecLeggings.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/SpiritGlyph.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/VoltaicJelly.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:SummoningPotion"
+        ],
+        "addedCheckpoint": true
       },
       {
         "id": "pre-hardmode",
@@ -1467,6 +2826,12 @@
           "sources/decompiled/CalamityMod.Items.Accessories/JellyChargedBattery.cs",
           "sources/decompiled/CalamityMod.Items.Accessories/SpiritGlyph.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:SummoningPotion"
         ]
       },
       {
@@ -1497,7 +2862,127 @@
           "sources/decompiled/CalamityMod.Items.Weapons.Summon/TundraFlameBlossomsStaff.cs",
           "sources/decompiled/CalamityMod.Items.Accessories/JellyChargedBattery.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:SummoningPotion"
         ]
+      },
+      {
+        "id": "queen-slime",
+        "title": "Королева слизней и Криоген: перед механикой",
+        "description": "Освойтесь в хардмоде, улучшите крылья и защиту. Королева слизней — дополнительная ветка; Криоген открывает криониковое снаряжение. Не считайте их победы заменой механическим боссам.",
+        "weapons": [
+          "CausticStaff",
+          "HauntedScroll",
+          "TundraFlameBlossomsStaff",
+          "v:FireWhip"
+        ],
+        "armor": [
+          "v:SpiderMask",
+          "v:SpiderBreastplate",
+          "v:SpiderGreaves"
+        ],
+        "accessories": [
+          "JellyChargedBattery",
+          "v:SummonerEmblem",
+          "v:LightningBoots",
+          "v:CharmofMyths"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/CausticStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/HauntedScroll.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/TundraFlameBlossomsStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/JellyChargedBattery.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:SummoningPotion"
+        ],
+        "addedCheckpoint": true
+      },
+      {
+        "id": "first-mech",
+        "title": "После первого механического босса",
+        "description": "Можно выбирать между Уничтожителем, Близнецами и Скелетроном Праймом. При включённой переработке руд Calamity первая победа продвигает руды, а характеристики следующего меха меняются. Проверьте статью «Руды раннего хардмода».",
+        "weapons": [
+          "CausticStaff",
+          "HauntedScroll",
+          "TundraFlameBlossomsStaff",
+          "v:FireWhip"
+        ],
+        "armor": [
+          "v:SpiderMask",
+          "v:SpiderBreastplate",
+          "v:SpiderGreaves"
+        ],
+        "accessories": [
+          "JellyChargedBattery",
+          "v:SummonerEmblem",
+          "v:LightningBoots",
+          "v:CharmofMyths"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/CausticStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/HauntedScroll.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/TundraFlameBlossomsStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/JellyChargedBattery.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:SummoningPotion"
+        ],
+        "addedCheckpoint": true
+      },
+      {
+        "id": "second-mech",
+        "title": "После двух механических боссов",
+        "description": "Подготовьтесь к оставшемуся механическому боссу. При переработке руд уже доступна следующая пара руд, но освящённые слитки и окончание ветки зависят от всей тройки. Не обязательно менять каждую вещь после одной победы.",
+        "weapons": [
+          "CausticStaff",
+          "HauntedScroll",
+          "TundraFlameBlossomsStaff",
+          "v:FireWhip"
+        ],
+        "armor": [
+          "v:SpiderMask",
+          "v:SpiderBreastplate",
+          "v:SpiderGreaves"
+        ],
+        "accessories": [
+          "JellyChargedBattery",
+          "v:SummonerEmblem",
+          "v:LightningBoots",
+          "v:CharmofMyths"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/CausticStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/HauntedScroll.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Summon/TundraFlameBlossomsStaff.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/JellyChargedBattery.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:SummoningPotion"
+        ],
+        "addedCheckpoint": true
       },
       {
         "id": "post-mechs",
@@ -1535,6 +3020,12 @@
           "sources/decompiled/CalamityMod.Items.Materials/CryonicBar.cs",
           "sources/decompiled/CalamityMod.Items.Materials/CoreofCalamity.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:SummoningPotion"
         ]
       },
       {
@@ -1567,6 +3058,12 @@
           "sources/decompiled/CalamityMod.Items.Materials/LifeAlloy.cs",
           "sources/decompiled/CalamityMod.Items.Materials/CoreofCalamity.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:SummoningPotion"
         ]
       },
       {
@@ -1607,6 +3104,12 @@
           "sources/decompiled/CalamityMod.Items.Materials/LifeAlloy.cs",
           "sources/vanilla/vanilla-ids.json",
           "sources/decompiled/CalamityMod.Tiles.Ores/ScoriaOre.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:SummoningPotion"
         ]
       },
       {
@@ -1642,6 +3145,12 @@
           "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs",
           "sources/decompiled/CalamityMod.DataStructures/SummonTag.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:SummoningPotion"
         ]
       },
       {
@@ -1686,6 +3195,12 @@
           "sources/decompiled/CalamityMod.Items.TreasureBags/CeaselessVoidBag.cs",
           "sources/decompiled/CalamityMod.Items.TreasureBags/PolterghastBag.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:SummoningPotion"
         ]
       },
       {
@@ -1725,6 +3240,12 @@
           "sources/decompiled/CalamityMod.Items.Materials/AscendantSpiritEssence.cs",
           "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs",
           "sources/decompiled/CalamityMod.NPCs.Providence/Providence.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:SummoningPotion"
         ]
       },
       {
@@ -1764,6 +3285,12 @@
           "sources/decompiled/CalamityMod.Items.Materials/AuricBar.cs",
           "sources/decompiled/CalamityMod.Items.Materials/MiracleMatter.cs",
           "sources/decompiled/CalamityMod.Items.Materials/ShadowspecBar.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion",
+          "v:SummoningPotion"
         ]
       }
     ]
@@ -1805,7 +3332,7 @@
     "stages": [
       {
         "id": "start",
-        "title": "До первого босса",
+        "title": "Начало мира: перед Королём слизней",
         "description": "Desert Prowler — актуальный стартовый комплект разбойника. Wulfrum Knife помогает освоить возврат ножей, Crystalline добавляет разделяющийся снаряд.",
         "weapons": [
           "WulfrumKnife",
@@ -1832,7 +3359,51 @@
           "sources/vanilla/vanilla-ids.json",
           "sources/decompiled/CalamityMod.Items.Weapons.Rogue/RogueWeapon.cs",
           "sources/decompiled/CalamityMod.CalPlayer/CalamityPlayer.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
         ]
+      },
+      {
+        "id": "king-slime",
+        "title": "После Короля слизней: Пустынный бич",
+        "description": "Король слизней — необязательная первая проверка. Сохраните удобное раннее оружие и подготовьте арену в пустыне для Пустынного бича. Crown Jewel — дополнительный вариант аксессуара, если он выпал.",
+        "weapons": [
+          "WulfrumKnife",
+          "Crystalline"
+        ],
+        "armor": [
+          "DesertProwlerHat",
+          "DesertProwlerShirt",
+          "DesertProwlerPants"
+        ],
+        "accessories": [
+          "v:HermesBoots",
+          "v:CloudinaBottle",
+          "RaidersTalisman",
+          "CrownJewel"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/WulfrumKnife.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/Crystalline.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.DesertProwler/DesertProwlerHat.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.DesertProwler/DesertProwlerShirt.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.DesertProwler/DesertProwlerPants.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/RaidersTalisman.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/RogueWeapon.cs",
+          "sources/decompiled/CalamityMod.CalPlayer/CalamityPlayer.cs",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
+        ],
+        "addedCheckpoint": true
       },
       {
         "id": "desert",
@@ -1863,7 +3434,88 @@
           "sources/decompiled/CalamityMod.Items.TreasureBags/DesertScourgeBag.cs",
           "sources/decompiled/CalamityMod.NPCs.TownNPCs/SeaKing.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
         ]
+      },
+      {
+        "id": "eye",
+        "title": "После Глаза Ктулху: босс Искажения или Багрянца",
+        "description": "Следующая развилка зависит от мира: Пожиратель миров в Искажении или Мозг Ктулху в Багрянце. Оба остаются полноценной частью Calamity. Подготовьте оружие против нескольких целей и место для уклонения.",
+        "weapons": [
+          "ScourgeoftheDesert",
+          "SandDollar"
+        ],
+        "armor": [
+          "VictideHeadRogue",
+          "VictideBreastplate",
+          "VictideGreaves"
+        ],
+        "accessories": [
+          "RaidersTalisman",
+          "v:HermesBoots",
+          "v:CloudinaBottle"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/ScourgeoftheDesert.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/SandDollar.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideHeadRogue.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideGreaves.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/RaidersTalisman.cs",
+          "sources/decompiled/CalamityMod.Items.TreasureBags/DesertScourgeBag.cs",
+          "sources/decompiled/CalamityMod.NPCs.TownNPCs/SeaKing.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
+        ],
+        "addedCheckpoint": true
+      },
+      {
+        "id": "evil-boss",
+        "title": "После Пожирателя миров или Мозга: Улей и Перфораторы",
+        "description": "Материалы заражённого босса помогают улучшить кирку и броню. В Искажении готовьтесь к Улью разума, в Багрянце — к Перфораторам. Победа над одним из них открывает следующий набор аэролитового снаряжения.",
+        "weapons": [
+          "ScourgeoftheDesert",
+          "SandDollar"
+        ],
+        "armor": [
+          "VictideHeadRogue",
+          "VictideBreastplate",
+          "VictideGreaves"
+        ],
+        "accessories": [
+          "RaidersTalisman",
+          "v:HermesBoots",
+          "v:CloudinaBottle"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/ScourgeoftheDesert.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/SandDollar.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideHeadRogue.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Victide/VictideGreaves.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/RaidersTalisman.cs",
+          "sources/decompiled/CalamityMod.Items.TreasureBags/DesertScourgeBag.cs",
+          "sources/decompiled/CalamityMod.NPCs.TownNPCs/SeaKing.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
+        ],
+        "addedCheckpoint": true
       },
       {
         "id": "aerialite",
@@ -1894,7 +3546,89 @@
           "sources/decompiled/CalamityMod.Items.Accessories/RaidersTalisman.cs",
           "sources/decompiled/CalamityMod.Items.TreasureBags/CrabulonBag.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
         ]
+      },
+      {
+        "id": "queen-bee",
+        "title": "После Королевы пчёл: Скелетрон и Данж",
+        "description": "Пчелиные награды дают альтернативы текущему снаряжению. Перед Скелетроном проверьте мобильность и начинайте бой в начале ночи. Циклоп-олень — ещё одна необязательная снежная ветка этого этапа.",
+        "weapons": [
+          "FeatherKnife",
+          "Mycoroot",
+          "HardenedHoneycomb"
+        ],
+        "armor": [
+          "AerospecHeadRogue",
+          "AerospecBreastplate",
+          "AerospecLeggings"
+        ],
+        "accessories": [
+          "CoinofDeceit",
+          "RaidersTalisman",
+          "v:SpectreBoots"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/FeatherKnife.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/Mycoroot.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecHeadRogue.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecLeggings.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/CoinofDeceit.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/RaidersTalisman.cs",
+          "sources/decompiled/CalamityMod.Items.TreasureBags/CrabulonBag.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
+        ],
+        "addedCheckpoint": true
+      },
+      {
+        "id": "skeletron",
+        "title": "После Скелетрона: Данж и Бог слизней",
+        "description": "Исследуйте Данж, найдите подходящее классу оружие и материалы. Затем готовьтесь к Богу слизней. Победа над Скелетроном сама по себе ещё не включает хардмод.",
+        "weapons": [
+          "FeatherKnife",
+          "Mycoroot"
+        ],
+        "armor": [
+          "AerospecHeadRogue",
+          "AerospecBreastplate",
+          "AerospecLeggings"
+        ],
+        "accessories": [
+          "CoinofDeceit",
+          "RaidersTalisman",
+          "v:SpectreBoots"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/FeatherKnife.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/Mycoroot.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecHeadRogue.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecBreastplate.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.Aerospec/AerospecLeggings.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/CoinofDeceit.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/RaidersTalisman.cs",
+          "sources/decompiled/CalamityMod.Items.TreasureBags/CrabulonBag.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
+        ],
+        "addedCheckpoint": true
       },
       {
         "id": "pre-hardmode",
@@ -1930,6 +3664,11 @@
           "sources/vanilla/vanilla-ids.json",
           "sources/decompiled/CalamityMod.Tiles.Abyss/AbyssTreasureChest.cs",
           "sources/decompiled/CalamityMod.Tiles/FurnitureCommon.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
         ]
       },
       {
@@ -1963,7 +3702,132 @@
           "sources/decompiled/CalamityMod.Items.Accessories/MirageMirror.cs",
           "sources/decompiled/CalamityMod.Items/CalamityGlobalItemLoot.cs",
           "sources/vanilla/vanilla-ids.json"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
         ]
+      },
+      {
+        "id": "queen-slime",
+        "title": "Королева слизней и Криоген: перед механикой",
+        "description": "Освойтесь в хардмоде, улучшите крылья и защиту. Королева слизней — дополнительная ветка; Криоген открывает криониковое снаряжение. Не считайте их победы заменой механическим боссам.",
+        "weapons": [
+          "CobaltKunai",
+          "PalladiumJavelin"
+        ],
+        "armor": [
+          "TitanHeartMask",
+          "TitanHeartMantle",
+          "TitanHeartBoots"
+        ],
+        "accessories": [
+          "RogueEmblem",
+          "CoinofDeceit",
+          "MirageMirror",
+          "v:LightningBoots"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/CobaltKunai.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/PalladiumJavelin.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.TitanHeart/TitanHeartMask.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.TitanHeart/TitanHeartMantle.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.TitanHeart/TitanHeartBoots.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/RogueEmblem.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/CoinofDeceit.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/MirageMirror.cs",
+          "sources/decompiled/CalamityMod.Items/CalamityGlobalItemLoot.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
+        ],
+        "addedCheckpoint": true
+      },
+      {
+        "id": "first-mech",
+        "title": "После первого механического босса",
+        "description": "Можно выбирать между Уничтожителем, Близнецами и Скелетроном Праймом. При включённой переработке руд Calamity первая победа продвигает руды, а характеристики следующего меха меняются. Проверьте статью «Руды раннего хардмода».",
+        "weapons": [
+          "CobaltKunai",
+          "PalladiumJavelin"
+        ],
+        "armor": [
+          "TitanHeartMask",
+          "TitanHeartMantle",
+          "TitanHeartBoots"
+        ],
+        "accessories": [
+          "RogueEmblem",
+          "CoinofDeceit",
+          "MirageMirror",
+          "v:LightningBoots"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/CobaltKunai.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/PalladiumJavelin.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.TitanHeart/TitanHeartMask.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.TitanHeart/TitanHeartMantle.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.TitanHeart/TitanHeartBoots.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/RogueEmblem.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/CoinofDeceit.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/MirageMirror.cs",
+          "sources/decompiled/CalamityMod.Items/CalamityGlobalItemLoot.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
+        ],
+        "addedCheckpoint": true
+      },
+      {
+        "id": "second-mech",
+        "title": "После двух механических боссов",
+        "description": "Подготовьтесь к оставшемуся механическому боссу. При переработке руд уже доступна следующая пара руд, но освящённые слитки и окончание ветки зависят от всей тройки. Не обязательно менять каждую вещь после одной победы.",
+        "weapons": [
+          "CobaltKunai",
+          "PalladiumJavelin"
+        ],
+        "armor": [
+          "TitanHeartMask",
+          "TitanHeartMantle",
+          "TitanHeartBoots"
+        ],
+        "accessories": [
+          "RogueEmblem",
+          "CoinofDeceit",
+          "MirageMirror",
+          "v:LightningBoots"
+        ],
+        "notes": "Это отдельная контрольная точка маршрута. Предметы из предыдущего этапа остаются рабочими; открывайте их страницы для источников, рецептов и условий.",
+        "evidence": [
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/CobaltKunai.cs",
+          "sources/decompiled/CalamityMod.Items.Weapons.Rogue/PalladiumJavelin.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.TitanHeart/TitanHeartMask.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.TitanHeart/TitanHeartMantle.cs",
+          "sources/decompiled/CalamityMod.Items.Armor.TitanHeart/TitanHeartBoots.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/RogueEmblem.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/CoinofDeceit.cs",
+          "sources/decompiled/CalamityMod.Items.Accessories/MirageMirror.cs",
+          "sources/decompiled/CalamityMod.Items/CalamityGlobalItemLoot.cs",
+          "sources/vanilla/vanilla-ids.json",
+          "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
+        ],
+        "addedCheckpoint": true
       },
       {
         "id": "post-mechs",
@@ -1995,6 +3859,11 @@
           "sources/decompiled/CalamityMod.Items.Accessories/RuinMedallion.cs",
           "sources/decompiled/CalamityMod.Items.Accessories/AngelTreads.cs",
           "sources/decompiled/CalamityMod.Items.Accessories/OrnateShield.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
         ]
       },
       {
@@ -2027,6 +3896,11 @@
           "sources/decompiled/CalamityMod.Items.Accessories/VampiricTalisman.cs",
           "sources/decompiled/CalamityMod.Items.Accessories/AngelTreads.cs",
           "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
         ]
       },
       {
@@ -2062,6 +3936,11 @@
           "sources/decompiled/CalamityMod.Items.TreasureBags/PlaguebringerGoliathBag.cs",
           "sources/decompiled/CalamityMod.NPCs.PlaguebringerGoliath/PlaguebringerGoliath.cs",
           "sources/decompiled/CalamityMod.Tiles.Ores/ScoriaOre.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
         ]
       },
       {
@@ -2095,6 +3974,11 @@
           "sources/decompiled/CalamityMod.Items.Accessories.Wings/MoonWalkers.cs",
           "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
           "sources/decompiled/CalamityMod.Items/CalamityGlobalItemLoot.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
         ]
       },
       {
@@ -2137,6 +4021,11 @@
           "sources/decompiled/CalamityMod.Items.Accessories/AsgardsValor.cs",
           "sources/decompiled/CalamityMod.Items.TreasureBags/ProvidenceBag.cs",
           "sources/decompiled/CalamityMod.Items.TreasureBags/PolterghastBag.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
         ]
       },
       {
@@ -2172,6 +4061,11 @@
           "sources/decompiled/CalamityMod.Items.Materials/AscendantSpiritEssence.cs",
           "sources/decompiled/CalamityMod.NPCs/CalamityGlobalNPC.cs",
           "sources/decompiled/CalamityMod.NPCs.Providence/Providence.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
         ]
       },
       {
@@ -2210,6 +4104,11 @@
           "sources/decompiled/CalamityMod.Items.Accessories/AsgardianAegis.cs",
           "sources/decompiled/CalamityMod.Items.Materials/MiracleMatter.cs",
           "sources/decompiled/CalamityMod.Items.Materials/ShadowspecBar.cs"
+        ],
+        "consumables": [
+          "v:IronskinPotion",
+          "v:RegenerationPotion",
+          "v:SwiftnessPotion"
         ]
       }
     ]

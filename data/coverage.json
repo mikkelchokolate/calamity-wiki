@@ -6,13 +6,15 @@
   "latestVerified": "https://calamitymod.wiki.gg/wiki/Version_history",
   "counts": {
     "items": 2671,
-    "npcs": 306,
-    "buffs": 311,
+    "npcs": 993,
+    "buffs": 665,
     "biomes": 20,
-    "recipes": 2023,
-    "bosses": 26,
+    "recipes": 4076,
+    "bosses": 45,
     "images": 3280,
-    "localizationKeys": 11089
+    "localizationKeys": 11089,
+    "vanillaItems": 5455,
+    "vanillaBosses": 19
   },
   "limitations": {
     "unparsedRecipes": [],
