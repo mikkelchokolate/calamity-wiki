@@ -103,6 +103,112 @@
         "caption": "Снежный биом на иллюстрации из журнала Дрэйдона; игровой арт Calamity 2.2.4, не снимок мира.",
         "source": "UI/DraedonLogs/DraedonsLogIceBiome.rawimg"
       }
+    ],
+    "biome-jungle": [
+      {
+        "image": "assets/biomes/biome-jungle-wiki.png",
+        "caption": "Пример биома из Terraria Wiki; версия игры и параметры показанного мира неизвестны.",
+        "source": "https://terraria.wiki.gg/wiki/File:Jungle_(screenshot_banner).png",
+        "attribution": "Terraria Wiki; загрузил: Maintenance script. Игровое изображение защищено авторским правом Re-Logic; разрешение вики не означает наличие лицензии на другие сайты.",
+        "uploader": "Maintenance script",
+        "copyright": "https://terraria.wiki.gg/wiki/Terraria_Wiki:Copyrights",
+        "original": "https://terraria.wiki.gg/images/9/95/Jungle_%28screenshot_banner%29.png",
+        "sha256": "dfdc505f2905f7e0733435df56bece64a596b7df959b9a65cdafae4976d9d176"
+      },
+      {
+        "image": "assets/biomes/vanilla-biomes.png",
+        "caption": "Джунгли на иллюстрации из журнала Дрэйдона; игровой арт Calamity 2.2.4, не снимок мира.",
+        "source": "UI/DraedonLogs/DraedonsLogJungleBiome.rawimg"
+      }
+    ],
+    "biome-snow": [
+      {
+        "image": "assets/biomes/biome-snow-wiki.png",
+        "caption": "Пример биома из Terraria Wiki; версия игры и параметры показанного мира неизвестны.",
+        "source": "https://terraria.wiki.gg/wiki/File:Snow_biome_(screenshot_banner).png",
+        "attribution": "Terraria Wiki; загрузил: Maintenance script. Игровое изображение защищено авторским правом Re-Logic; разрешение вики не означает наличие лицензии на другие сайты.",
+        "uploader": "Maintenance script",
+        "copyright": "https://terraria.wiki.gg/wiki/Terraria_Wiki:Copyrights",
+        "original": "https://terraria.wiki.gg/images/b/ba/Snow_biome_%28screenshot_banner%29.png",
+        "sha256": "62ab45cc869f3f3aa2394f1fc1b73484cf2f46bafd6bdb114bed4b1dce89f51d"
+      },
+      {
+        "image": "assets/biomes/vanilla-biomes-2.png",
+        "caption": "Снежный биом на иллюстрации из журнала Дрэйдона; игровой арт Calamity 2.2.4, не снимок мира.",
+        "source": "UI/DraedonLogs/DraedonsLogIceBiome.rawimg"
+      }
+    ],
+    "biome-desert": [
+      {
+        "image": "assets/biomes/biome-desert-wiki.png",
+        "caption": "Пример биома из Terraria Wiki; версия игры и параметры показанного мира неизвестны.",
+        "source": "https://terraria.wiki.gg/wiki/File:Desert_(screenshot_banner).png",
+        "attribution": "Terraria Wiki; загрузил: Maintenance script. Игровое изображение защищено авторским правом Re-Logic; разрешение вики не означает наличие лицензии на другие сайты.",
+        "uploader": "Maintenance script",
+        "copyright": "https://terraria.wiki.gg/wiki/Terraria_Wiki:Copyrights",
+        "original": "https://terraria.wiki.gg/images/2/2a/Desert_%28screenshot_banner%29.png",
+        "sha256": "535852e5038c4deba1776d7f7a3b81c92e681dffe2e61215b7faf2dbe4532196"
+      }
+    ],
+    "biome-ocean": [
+      {
+        "image": "assets/biomes/biome-ocean-wiki.png",
+        "caption": "Пример биома из Terraria Wiki; версия игры и параметры показанного мира неизвестны.",
+        "source": "https://terraria.wiki.gg/wiki/File:Ocean_(screenshot_banner).png",
+        "attribution": "Terraria Wiki; загрузил: Maintenance script. Игровое изображение защищено авторским правом Re-Logic; разрешение вики не означает наличие лицензии на другие сайты.",
+        "uploader": "Maintenance script",
+        "copyright": "https://terraria.wiki.gg/wiki/Terraria_Wiki:Copyrights",
+        "original": "https://terraria.wiki.gg/images/1/1b/Ocean_%28screenshot_banner%29.png",
+        "sha256": "92a83d5692f5f49e50e0af97d8136d5c7baaffe3092f7226cb9d95b6c41cee69"
+      }
+    ],
+    "biome-corruption": [
+      {
+        "image": "assets/biomes/biome-corruption-wiki.png",
+        "caption": "Пример биома из Terraria Wiki; версия игры и параметры показанного мира неизвестны.",
+        "source": "https://terraria.wiki.gg/wiki/File:The_Corruption_(screenshot_banner).png",
+        "attribution": "Terraria Wiki; загрузил: Maintenance script. Игровое изображение защищено авторским правом Re-Logic; разрешение вики не означает наличие лицензии на другие сайты.",
+        "uploader": "Maintenance script",
+        "copyright": "https://terraria.wiki.gg/wiki/Terraria_Wiki:Copyrights",
+        "original": "https://terraria.wiki.gg/images/9/95/The_Corruption_%28screenshot_banner%29.png",
+        "sha256": "d9e69aa18e35e0b153a8bc81be0d50f31f414558c6db3f48c14093f219899497"
+      }
+    ],
+    "biome-crimson": [
+      {
+        "image": "assets/biomes/biome-crimson-wiki.png",
+        "caption": "Пример биома из Terraria Wiki; версия игры и параметры показанного мира неизвестны.",
+        "source": "https://terraria.wiki.gg/wiki/File:The_Crimson_(screenshot_banner).png",
+        "attribution": "Terraria Wiki; загрузил: Maintenance script. Игровое изображение защищено авторским правом Re-Logic; разрешение вики не означает наличие лицензии на другие сайты.",
+        "uploader": "Maintenance script",
+        "copyright": "https://terraria.wiki.gg/wiki/Terraria_Wiki:Copyrights",
+        "original": "https://terraria.wiki.gg/images/2/2f/The_Crimson_%28screenshot_banner%29.png",
+        "sha256": "8083f027e46b316256927e50d64e383a436da54fab26350087341ca58a6cf9c4"
+      }
+    ],
+    "biome-hallow": [
+      {
+        "image": "assets/biomes/biome-hallow-wiki.png",
+        "caption": "Пример биома из Terraria Wiki; версия игры и параметры показанного мира неизвестны.",
+        "source": "https://terraria.wiki.gg/wiki/File:The_Hallow_(screenshot_banner).png",
+        "attribution": "Terraria Wiki; загрузил: Maintenance script. Игровое изображение защищено авторским правом Re-Logic; разрешение вики не означает наличие лицензии на другие сайты.",
+        "uploader": "Maintenance script",
+        "copyright": "https://terraria.wiki.gg/wiki/Terraria_Wiki:Copyrights",
+        "original": "https://terraria.wiki.gg/images/1/13/The_Hallow_%28screenshot_banner%29.png",
+        "sha256": "7ac6c22a8aaef573eeda571a0c00241f118cc22130ae37a5cdba6d81f7491abf"
+      }
+    ],
+    "biome-underworld": [
+      {
+        "image": "assets/biomes/biome-underworld-wiki.png",
+        "caption": "Пример биома из Terraria Wiki; версия игры и параметры показанного мира неизвестны.",
+        "source": "https://terraria.wiki.gg/wiki/File:The_Underworld_(screenshot_banner).png",
+        "attribution": "Terraria Wiki; загрузил: Maintenance script. Игровое изображение защищено авторским правом Re-Logic; разрешение вики не означает наличие лицензии на другие сайты.",
+        "uploader": "Maintenance script",
+        "copyright": "https://terraria.wiki.gg/wiki/Terraria_Wiki:Copyrights",
+        "original": "https://terraria.wiki.gg/images/2/2f/The_Underworld_%28screenshot_banner%29.png",
+        "sha256": "28084146cb200bddb96b03716004a530b02cd789c0b4826b5748a41d69122c3a"
+      }
     ]
   }
 }
