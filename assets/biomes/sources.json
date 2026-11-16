@@ -1,0 +1,108 @@
+{
+  "archive": "CalamityMod-2.2.4.tmod",
+  "sha256": "d50fea9025f88ee2073c00e3482976ca1e6ea54d0b8770eb7810bb7b280397d6",
+  "files": {
+    "sunken-sea": [
+      {
+        "image": "assets/biomes/sunken-sea-wiki-map.png",
+        "caption": "Пример карты биома из Calamity Mod Wiki. Версия мода и параметры мира на снимке неизвестны; ваш мир может выглядеть иначе.",
+        "source": "https://calamitymod.wiki.gg/wiki/File:Sunken_Sea_map.png",
+        "attribution": "Calamity Mod Wiki; загрузил: Altix. По сведениям страницы файла: содержимое Calamity — CC BY-NC-SA 3.0; содержимое Terraria принадлежит Re-Logic.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+        "copyright": "https://calamitymod.wiki.gg/wiki/Calamity_Mod_Wiki:Copyrights",
+        "original": "https://calamitymod.wiki.gg/images/d/d6/Sunken_Sea_map.png",
+        "sha256": "e555f70922221928879e5f97023c828f50bddeadc03bb73ba98c4691d44bc42a"
+      },
+      {
+        "image": "assets/biomes/sunken-sea.png",
+        "caption": "Иллюстрация Затонувшего моря из журнала Дрэйдона в Calamity 2.2.4; это игровой арт, а не снимок мира.",
+        "source": "UI/DraedonLogs/DraedonsLogSunkenSeaBiome.rawimg"
+      },
+      {
+        "image": "assets/biomes/sunken-sea-2.png",
+        "caption": "Фоновый слой Затонувшего моря из установленной версии Calamity.",
+        "source": "Backgrounds/SunkenSeaBurrowsBG1.rawimg"
+      }
+    ],
+    "sulphurous-sea": [
+      {
+        "image": "assets/biomes/sulphurous-sea-wiki-map.png",
+        "caption": "Пример карты биома из Calamity Mod Wiki. Версия мода и параметры мира на снимке неизвестны; ваш мир может выглядеть иначе.",
+        "source": "https://calamitymod.wiki.gg/wiki/File:Sulphurous_Sea_map.png",
+        "attribution": "Calamity Mod Wiki; загрузил: Altix. По сведениям страницы файла: содержимое Calamity — CC BY-NC-SA 3.0; содержимое Terraria принадлежит Re-Logic.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+        "copyright": "https://calamitymod.wiki.gg/wiki/Calamity_Mod_Wiki:Copyrights",
+        "original": "https://calamitymod.wiki.gg/images/1/17/Sulphurous_Sea_map.png",
+        "sha256": "b3f9f8213fe91b4d1409afc5527ffb0590a1e7d48007c23fd488bde7ae4b3504"
+      },
+      {
+        "image": "assets/biomes/sulphurous-sea.png",
+        "caption": "Оригинальный фоновый слой Сернистого моря из Calamity 2.2.4; это игровой арт, а не снимок мира.",
+        "source": "Backgrounds/SulphurSeaSurfaceClose.rawimg"
+      }
+    ],
+    "abyss": [
+      {
+        "image": "assets/biomes/abyss-wiki-map.png",
+        "caption": "Пример карты биома из Calamity Mod Wiki. Версия мода и параметры мира на снимке неизвестны; ваш мир может выглядеть иначе.",
+        "source": "https://calamitymod.wiki.gg/wiki/File:Abyss_map.png",
+        "attribution": "Calamity Mod Wiki; загрузил: Deleted user Xz1cd7mjV4Vwtdt2Kg6GYm7F. По сведениям страницы файла: содержимое Calamity — CC BY-NC-SA 3.0; содержимое Terraria принадлежит Re-Logic.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+        "copyright": "https://calamitymod.wiki.gg/wiki/Calamity_Mod_Wiki:Copyrights",
+        "original": "https://calamitymod.wiki.gg/images/b/b6/Abyss_map.png",
+        "sha256": "6c611f5fe1c6bdfa79eba67530732c6718028da4bdea334509d3b1a07fd6498f"
+      },
+      {
+        "image": "assets/biomes/abyss.png",
+        "caption": "Оригинальный фон карты для верхнего слоя Бездны из Calamity 2.2.4; это игровой арт, а не снимок мира.",
+        "source": "Backgrounds/MapBackgrounds/AbyssBGLayer1.rawimg"
+      }
+    ],
+    "astral-infection": [
+      {
+        "image": "assets/biomes/astral-infection-wiki-map.png",
+        "caption": "Пример карты биома из Calamity Mod Wiki. Версия мода и параметры мира на снимке неизвестны; ваш мир может выглядеть иначе.",
+        "source": "https://calamitymod.wiki.gg/wiki/File:Astral_Infection_map.png",
+        "attribution": "Calamity Mod Wiki; загрузил: Altix. По сведениям страницы файла: содержимое Calamity — CC BY-NC-SA 3.0; содержимое Terraria принадлежит Re-Logic.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+        "copyright": "https://calamitymod.wiki.gg/wiki/Calamity_Mod_Wiki:Copyrights",
+        "original": "https://calamitymod.wiki.gg/images/8/86/Astral_Infection_map.png",
+        "sha256": "85bd2ce9df92252898c24b5d45b8305930122e5b4f2cd0b42451cc1f95a9f096"
+      },
+      {
+        "image": "assets/biomes/astral-infection.png",
+        "caption": "Оригинальный дальний фоновый слой Астральной инфекции из Calamity 2.2.4; это игровой арт, а не снимок мира.",
+        "source": "Backgrounds/AstralSurfaceFar.rawimg"
+      }
+    ],
+    "brimstone-crags": [
+      {
+        "image": "assets/biomes/brimstone-crags-wiki-map.png",
+        "caption": "Пример карты биома из Calamity Mod Wiki. Версия мода и параметры мира на снимке неизвестны; ваш мир может выглядеть иначе.",
+        "source": "https://calamitymod.wiki.gg/wiki/File:Brimstone_Crag_map.png",
+        "attribution": "Calamity Mod Wiki; загрузил: Listentowind. По сведениям страницы файла: содержимое Calamity — CC BY-NC-SA 3.0; содержимое Terraria принадлежит Re-Logic.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+        "copyright": "https://calamitymod.wiki.gg/wiki/Calamity_Mod_Wiki:Copyrights",
+        "original": "https://calamitymod.wiki.gg/images/1/1a/Brimstone_Crag_map.png",
+        "sha256": "625ee89a7a144132e12ce0f38cc8b76bd6ece5e269f1b3a298a7056db4487274"
+      },
+      {
+        "image": "assets/biomes/brimstone-crags.png",
+        "caption": "Иллюстрация Серных скал из журнала Дрэйдона в Calamity 2.2.4; это игровой арт, а не снимок мира.",
+        "source": "UI/DraedonLogs/DraedonsLogCragsBiome.rawimg"
+      }
+    ],
+    "vanilla-biomes": [
+      {
+        "image": "assets/biomes/vanilla-biomes.png",
+        "caption": "Джунгли на иллюстрации из журнала Дрэйдона; игровой арт Calamity 2.2.4, не снимок мира.",
+        "source": "UI/DraedonLogs/DraedonsLogJungleBiome.rawimg"
+      },
+      {
+        "image": "assets/biomes/vanilla-biomes-2.png",
+        "caption": "Снежный биом на иллюстрации из журнала Дрэйдона; игровой арт Calamity 2.2.4, не снимок мира.",
+        "source": "UI/DraedonLogs/DraedonsLogIceBiome.rawimg"
+      }
+    ]
+  }
+}

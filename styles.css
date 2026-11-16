@@ -220,6 +220,7 @@ pre{white-space:pre-wrap;overflow-wrap:anywhere;font:11px/1.7 Consolas,monospace
 .chip{padding:5px 11px;border-radius:5px;background:var(--surface);border:1px solid var(--line);font-size:12px;color:var(--muted)}
 .chip:hover,.chip.active{color:var(--accent);border-color:var(--accent);text-decoration:none}
 .guide-sections{max-width:85ch}
+.biome-image{margin:24px 0;max-width:850px}.biome-image img{display:block;max-width:100%;max-height:300px;width:auto;object-fit:contain;image-rendering:pixelated;background:var(--raised)}.biome-image figcaption{font-size:12px;line-height:1.5;margin-top:8px;color:var(--muted)}
 .guide-sections p,.guide-sections li{font-size:14px;line-height:1.85}
 .guide-sections ul{padding-left:22px}
 .guide-sections li{margin-bottom:8px}
