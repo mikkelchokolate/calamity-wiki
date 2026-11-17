@@ -35,5 +35,16 @@
     "recipes": "Static registration expressions; loops, inherited helpers and post-registration recipe edits require source inspection.",
     "drops": "Known rules are conditional. World/chest/shop references are not guarantees of availability.",
     "spawns": "Calamity conditions come from SpawnChance and related source checks; vanilla Terraria environment/type fields come from Terraria Wiki infoboxes. Dynamic event timing, luck and multiplayer scaling are not converted into a single percentage."
+  },
+  "audit": {
+    "date": "2026-11-18",
+    "browserRoutes": 9919,
+    "browserFailures": 0,
+    "staticIssues": 0,
+    "itemPages": 8126,
+    "npcPages": 993,
+    "buffPages": 665,
+    "bossPages": 54,
+    "recipeRecords": 4258
   }
 }
