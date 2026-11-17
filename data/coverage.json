@@ -19,7 +19,11 @@
     "calamityNaturalSpawnRules": 121,
     "vanillaNpcEnvironments": 601,
     "calamityNaturalSpawners": 121,
-    "calamitySpawnRules": 164
+    "calamitySpawnRules": 164,
+    "buffsWithDescriptions": 665,
+    "buffsWithSourceLinks": 209,
+    "itemsWithSourceOrRecipe": 2671,
+    "vanillaNpcSprites": 687
   },
   "limitations": {
     "unparsedRecipes": [],
