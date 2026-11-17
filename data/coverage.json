@@ -17,7 +17,9 @@
     "vanillaBosses": 19,
     "spawnProfiles": 993,
     "calamityNaturalSpawnRules": 121,
-    "vanillaNpcEnvironments": 451
+    "vanillaNpcEnvironments": 601,
+    "calamityNaturalSpawners": 121,
+    "calamitySpawnRules": 164
   },
   "limitations": {
     "unparsedRecipes": [],
