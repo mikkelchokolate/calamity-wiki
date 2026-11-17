@@ -14,7 +14,10 @@
     "images": 3280,
     "localizationKeys": 11089,
     "vanillaItems": 5455,
-    "vanillaBosses": 19
+    "vanillaBosses": 19,
+    "spawnProfiles": 993,
+    "calamityNaturalSpawnRules": 121,
+    "vanillaNpcEnvironments": 451
   },
   "limitations": {
     "unparsedRecipes": [],
@@ -24,6 +27,7 @@
     ],
     "stats": "Unconditional SetDefaults values before player, difficulty, global hooks and configuration.",
     "recipes": "Static registration expressions; loops, inherited helpers and post-registration recipe edits require source inspection.",
-    "drops": "Known rules are conditional. World/chest/shop references are not guarantees of availability."
+    "drops": "Known rules are conditional. World/chest/shop references are not guarantees of availability.",
+    "spawns": "Calamity conditions come from SpawnChance and related source checks; vanilla Terraria environment/type fields come from Terraria Wiki infoboxes. Dynamic event timing, luck and multiplayer scaling are not converted into a single percentage."
   }
 }
