@@ -23,7 +23,11 @@
     "buffsWithDescriptions": 665,
     "buffsWithSourceLinks": 209,
     "itemsWithSourceOrRecipe": 2671,
-    "vanillaNpcSprites": 687
+    "vanillaNpcSprites": 687,
+    "russianItemNames": 2654,
+    "russianNpcNames": 241,
+    "russianBuffNames": 653,
+    "russianBestiaryDescriptions": 172
   },
   "limitations": {
     "unparsedRecipes": [],
@@ -46,5 +50,11 @@
     "buffPages": 665,
     "bossPages": 54,
     "recipeRecords": 4258
+  },
+  "localizationPack": {
+    "name": "CalamityModRuLocalization",
+    "version": "2.8",
+    "workshopId": "3541933860",
+    "note": "Russian names, tooltips and part of bestiary descriptions from the installed localization pack."
   }
 }
